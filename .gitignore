@@ -1,0 +1,26 @@
+# Root
+/Assets/
+/BackUp/
+/BundleResources/
+/Logs/
+/obj/
+/Packages/
+/ProjectSettings/ProjectVersion.txt
+/Temp/
+/UserSettings/Layouts/
+/*.csproj
+/*.sln
+/*.user
+#Library
+/Library/*
+# !/Library/PackageCache/
+!/Library/EditorUserBuildSettings.asset
+!/Library/EditorOnlyScriptingSettings.json
+!/Library/CurrentLayout-default.dwlt
+!/Library/EditorSnapSettings.asset
+!/Library/expandedItems
+!/Library/LastSceneManagerSetup.txt
+!/Library/SceneVisibilityState.asset
+# IDE
+/.idea/
+/ProjectSettings/RiderScriptEditorPersistedState.asset

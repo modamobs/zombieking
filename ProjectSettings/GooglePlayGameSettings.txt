@@ -1,0 +1,9 @@
+lastUpgrade=01008
+proj.pluginVersion=0.10.08
+proj.AppId=308632846895
+and.BundleId=com.two.people.zombie
+proj.classDir=Assets
+proj.ConstantsClassName=GPGSIds
+and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0d%0a%3c%21--%0d%0aGoogle+Play+game+services+IDs.%0d%0aSave+this+file+as+res%2fvalues%2fgames-ids.xml+in+your+project.%0d%0a--%3e%0d%0a%3cresources%3e%0d%0a++%3c%21--+app_id+--%3e%0d%0a++%3cstring+name%3d%22app_id%22+translatable%3d%22false%22%3e308632846895%3c%2fstring%3e%0d%0a++%3c%21--+package_name+--%3e%0d%0a++%3cstring+name%3d%22package_name%22+translatable%3d%22false%22%3ecom.two.people.zombie%3c%2fstring%3e%0d%0a++%3c%21--+achievement+%ec%97%85%ec%a0%811+--%3e%0d%0a++%3cstring+name%3d%22achievement_1%22+translatable%3d%22false%22%3eCgkIr4TO3_0IEAIQAQ%3c%2fstring%3e%0d%0a++%3c%21--+leaderboard+%eb%a6%ac%eb%8d%94%eb%b3%b4%eb%93%9c1+--%3e%0d%0a++%3cstring+name%3d%22leaderboard_1%22+translatable%3d%22false%22%3eCgkIr4TO3_0IEAIQAg%3c%2fstring%3e%0d%0a%3c%2fresources%3e%0d%0a
+and.ClientId=308632846895-mgjql5e6kq0kch42dtqo7p5tvudkdls1.apps.googleusercontent.com
+android.SetupDone=true
