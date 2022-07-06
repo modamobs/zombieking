@@ -1,0 +1,825 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c235024ab133cd74ea0ba0ec07701192, type: 3}
+  m_Name: ResourceDatabase
+  m_EditorClassIdentifier: 
+  goGameZombie: {fileID: 1419541144411957618, guid: 8f80daff1fbb2174198ad89e0dfca862,
+    type: 3}
+  goLobbyZombie: {fileID: 5162130230073324214, guid: 82a37dc2ed49a1440968b27997acc5e9,
+    type: 3}
+  res_equipment:
+  - header: "### 0-\uBB34\uAE30"
+    equip_name: weapon
+    parts_type: 0
+    equip_res_array:
+    - header: "### 0-\uAE30\uBCF8"
+      rating: 0
+      equip_res:
+      - idx: 0
+        icon: {fileID: 0}
+    - header: "### 1-\uC77C\uBC18"
+      rating: 1
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: a264f61b0ae7e974aa915416030f8b10, type: 3}
+    - header: "### 2-\uC911\uAE09"
+      rating: 2
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: e7b1dc9bd7dd42941b46f099fd1169c8, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 2a12a932a977a21498c83ad0d5493768, type: 3}
+    - header: "### 3-\uACE0\uAE09"
+      rating: 3
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: f92dae2424f9d5a48a812935ab3d4c45, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 6684db0f859ae2c45abdc4c6b2126698, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: af404acad599ce747bd3baceb437c529, type: 3}
+    - header: "### 4-\uD76C\uADC0"
+      rating: 4
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: fc9b55a883e226044bba667d66185272, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 087ea0a7a4fff8e4a835bbe2eadcda56, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: bbdc9fe67bea71543890db0c0ade3696, type: 3}
+      - idx: 4
+        icon: {fileID: 21300000, guid: a073d92a5b3f71a46897695a304f67a8, type: 3}
+    - header: "### 5-\uC601\uC6C5"
+      rating: 5
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: f71003115fa634b4c93dff52eb15b717, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 312a927ce5731d349bfc7c00a5c7e5d7, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: 3a82484fc758a9e4196cb79bca356ed8, type: 3}
+      - idx: 4
+        icon: {fileID: 21300000, guid: d72db53404e14e14d96895d81e7c6f97, type: 3}
+    - header: "### 6-\uACE0\uB300"
+      rating: 6
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: c192b3ac634840f4b9b9066aa706254a, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: b33231636fd2e6a4cb0a011e09babe79, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: 92320fc5578d0234da0cf8b819ae905b, type: 3}
+    - header: "### 7-\uC804\uC124"
+      rating: 7
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 1a0c3b34058cd1c4c85e8d28f239833c, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: e2b4fea53755ba247a032dd9ef158a58, type: 3}
+  - header: "### 1-\uBC29\uD328"
+    equip_name: shield
+    parts_type: 1
+    equip_res_array:
+    - header: "### 0-\uAE30\uBCF8"
+      rating: 0
+      equip_res:
+      - idx: 0
+        icon: {fileID: 0}
+    - header: "### 1-\uC77C\uBC18"
+      rating: 1
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 08fadb6bb080f9244b46e90f89f5e890, type: 3}
+    - header: "### 2-\uC911\uAE09"
+      rating: 2
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: dcba804a4d563c5439068e315c483459, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: a60e3f99720c7704e8da70a18b1c90c0, type: 3}
+    - header: "### 3-\uACE0\uAE09"
+      rating: 3
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 9e8cae1eb4814af4299608ef6b3c93ea, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 01f140e8a71cc114a85ebca4aad4d652, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: b676090bebe740441a909645cf6e8f15, type: 3}
+    - header: "### 4-\uD76C\uADC0"
+      rating: 4
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 2b15bee34c395fc4e912f775f31ff754, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 5e745e1f76279a2468520d20fadd9adf, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: 2e6595db97ff6844ab98aac191b3f685, type: 3}
+      - idx: 4
+        icon: {fileID: 21300000, guid: 844cd5981d9241b41a52fff4dc8548dc, type: 3}
+    - header: "### 5-\uC601\uC6C5"
+      rating: 5
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: ce677d0635d4cad4a8edbf670f6ee0aa, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: b1ebcb7b9a0777243ad633c984871362, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: a6e3297b943c3a941bb44d2495189eca, type: 3}
+      - idx: 4
+        icon: {fileID: 21300000, guid: 1e76c10cf44300d41b7e910395098f64, type: 3}
+    - header: "### 6-\uACE0\uB300"
+      rating: 6
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: dcd1e58ca227ba64ca5be55403568386, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: fd1dfaf9551442c4e815d01547216572, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: f02365d5e2403ba41916c4b9e4b3332a, type: 3}
+    - header: "### 7-\uC804\uC124"
+      rating: 7
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: f8b14a28d99dd9d4799bf8d78c83bb49, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: e8985cdb8ea5517438c3aec783d40db3, type: 3}
+  - header: "### 2-\uD5EC\uBA67"
+    equip_name: helmet
+    parts_type: 2
+    equip_res_array:
+    - header: "### 0-\uAE30\uBCF8"
+      rating: 0
+      equip_res:
+      - idx: 0
+        icon: {fileID: 0}
+    - header: "### 1-\uC77C\uBC18"
+      rating: 1
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 65efb0d060c16824a90107b2c6bc9a50, type: 3}
+    - header: "### 2-\uC911\uAE09"
+      rating: 2
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: cb1ee3b1508ca434e8a617b218904177, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 9e37ef463862e5e4393208557e29ec35, type: 3}
+    - header: "### 3-\uACE0\uAE09"
+      rating: 3
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: d19a0be5a7c9cdf44a715ff423040071, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 47f1e3b44e2cde240aef3be382031def, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: 5e315000487ee3b49830b08b106b4e89, type: 3}
+    - header: "### 4-\uD76C\uADC0"
+      rating: 4
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 7638ce63127afc142832a121357cd68f, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 977c84ffe596cba4aafaceab244b3386, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: 46b01e8af8102c343b22c303ed75483d, type: 3}
+      - idx: 4
+        icon: {fileID: 21300000, guid: 11d0f766a06658d4fa1ae9f4fef5cfb8, type: 3}
+    - header: "### 5-\uC601\uC6C5"
+      rating: 5
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: be03617ee491e714fbe4194e032fefe0, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: da1aa82481a41884999039c3f0a1052f, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: a21159bd59e3a7c4da34f73465a803c2, type: 3}
+      - idx: 4
+        icon: {fileID: 21300000, guid: 117f0a912dd916a4390f8e05bf4be257, type: 3}
+    - header: "### 6-\uACE0\uB300"
+      rating: 6
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 5cb6c978a6e653f4a8cb3947a32abc23, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 8b4b81dabf6111e4e82053934fcf86b3, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: dd8221405035a464295e9e754cdc4aec, type: 3}
+    - header: "### 7-\uC804\uC124"
+      rating: 7
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 0e22c1ff3f358a343816e7c9ad45f406, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 7e4a2cf8f88855746a91cbec8b4981c9, type: 3}
+  - header: "### 3-\uC5B4\uAE68"
+    equip_name: shoulder
+    parts_type: 3
+    equip_res_array:
+    - header: "### 0-\uAE30\uBCF8"
+      rating: 0
+      equip_res:
+      - idx: 0
+        icon: {fileID: 0}
+    - header: "### 1-\uC77C\uBC18"
+      rating: 1
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: cde5d7161d10e2f42b393d10ea59e526, type: 3}
+    - header: "### 2-\uC911\uAE09"
+      rating: 2
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 3a747c66e8ea3054fa806ebb054bf6ff, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: b5fdf9dfd99171b45aa86a0c4828520a, type: 3}
+    - header: "### 3-\uACE0\uAE09"
+      rating: 3
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: aa44d6b7c6219644f8762c98d94ba6cf, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 4e76e729176bf27498964cad34329faa, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: b8e142a938bfc16418d80e6dde592a34, type: 3}
+    - header: "### 4-\uD76C\uADC0"
+      rating: 4
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: ec4b034ea2a58c140b4b3c56ba1db3cb, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 7299a509d5db7e742aa4768136c20275, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: d9e4e75a8b94c7e49be2728844921507, type: 3}
+      - idx: 4
+        icon: {fileID: 21300000, guid: 1fd4bfbbeafd0c340b949ef689dfd8f8, type: 3}
+    - header: "### 5-\uC601\uC6C5"
+      rating: 5
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: ed77812c53da80141ac7b0a0a00b3033, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: d40e0b0f3ab3c05408fd42f6229dd659, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: 19bd034fb552aed428839736301fb783, type: 3}
+      - idx: 4
+        icon: {fileID: 21300000, guid: 656ef213af3e3274d8bf2d6e7f821a22, type: 3}
+    - header: "### 6-\uACE0\uB300"
+      rating: 6
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 95e2e97f8e197df4ababadca44d18d56, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 446e62cb36a91c948a8d8c3e08ed691f, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: d2df459e4d055b448ab5daca9df85b61, type: 3}
+    - header: "### 7-\uC804\uC124"
+      rating: 7
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: ccbd628af0d61964a8c2cfbf9e59d8ac, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 6e7cae83d1609124eafa772b30277b7b, type: 3}
+  - header: "### 4-\uAC11\uC637"
+    equip_name: armor
+    parts_type: 4
+    equip_res_array:
+    - header: "### 0-\uAE30\uBCF8"
+      rating: 0
+      equip_res:
+      - idx: 0
+        icon: {fileID: 0}
+    - header: "### 1-\uC77C\uBC18"
+      rating: 1
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 55e0f6ae83b16a3439855ffe8dc90895, type: 3}
+    - header: "### 2-\uC911\uAE09"
+      rating: 2
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: d12c1d398b752e846bcde34c3c415f6a, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 4489ab1f484ce4b44b15e8a5476815a5, type: 3}
+    - header: "### 3-\uACE0\uAE09"
+      rating: 3
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 734e38fb8135fe346a156276e11d7b5c, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: db61e890441cfb842b75feefa9fcb1e1, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: 580b62bcf85265e498abc8810348abd1, type: 3}
+    - header: "### 4-\uD76C\uADC0"
+      rating: 4
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: e30d9e0e499e44a44b4dd66c0d392680, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 17d2462b4cafdf449a79306b3cbcedc7, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: aff6f20d9632c7b4fb9ac1aab0410ae0, type: 3}
+      - idx: 4
+        icon: {fileID: 21300000, guid: e7b47ce1d6ab4ff468e83f95588a4ac3, type: 3}
+    - header: "### 5-\uC601\uC6C5"
+      rating: 5
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 0cf6e309860fc8f4bbe0d9f6a4cf911c, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 51be243fa8634af45a174f6612b39ec3, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: 0267c2f14fb72014487f79e7c6c36b55, type: 3}
+      - idx: 4
+        icon: {fileID: 21300000, guid: cbb4c802a7122404e8fea7085da25a62, type: 3}
+    - header: "### 6-\uACE0\uB300"
+      rating: 6
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 13a23ff890cddf44ba1b7375d30e0646, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 7c06ed8a392957e45b01ae894b699e55, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: 522d3646c6beb4c41a80f28c42af7b83, type: 3}
+    - header: "### 7-\uC804\uC124"
+      rating: 7
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: fe17a400907003047a8f515cad17d6e9, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 05f11d59571f85d45bdbf541b64770e8, type: 3}
+  - header: "### 5-\uD314"
+    equip_name: arm
+    parts_type: 5
+    equip_res_array:
+    - header: "### 0-\uAE30\uBCF8"
+      rating: 0
+      equip_res:
+      - idx: 0
+        icon: {fileID: 0}
+    - header: "### 1-\uC77C\uBC18"
+      rating: 1
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 692766ad5df3a9c47a8192687726bc57, type: 3}
+    - header: "### 2-\uC911\uAE09"
+      rating: 2
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 82f8332969af97f42ac9efe2a13eda20, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 58ac6dfab86c9de4e92e975f82c1342a, type: 3}
+    - header: "### 3-\uACE0\uAE09"
+      rating: 3
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 613b3f516f5ef484dbbb8ef20d68aed6, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: c7ee49994f00a604ab88872c91990bdb, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: 0e5d7362a7dd14546969dc328c9476b4, type: 3}
+    - header: "### 4-\uD76C\uADC0"
+      rating: 4
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 299e459ea71abdb439a25704bc7e057b, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 80e49abce02aa194294c5b3affdd6839, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: fff2e5536d17c1a4695443003b3bf082, type: 3}
+      - idx: 4
+        icon: {fileID: 21300000, guid: d22f01e04f8a0344d84fd93d3faed414, type: 3}
+    - header: "### 5-\uC601\uC6C5"
+      rating: 5
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: ff5e9b2aed35e7d4aa46f870e6951682, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: cee70946373859c4796a2d8a6e399066, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: 5bb6d016e74234248a780e8aa05ff339, type: 3}
+      - idx: 4
+        icon: {fileID: 21300000, guid: 7ee65b19f1a14164fa5deea98c0a587c, type: 3}
+    - header: "### 6-\uACE0\uB300"
+      rating: 6
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: ccc8524606029b04ca113dd965083da4, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 5a74eb556a5c629409c098e68d9a4d76, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: fbeebcccb20e30f4da4f47bb16d39a38, type: 3}
+    - header: "### 7-\uC804\uC124"
+      rating: 7
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 934a4c321991865449d427a4c985d54a, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 2da9a9e99c243f74c96bc9202bcfc9e0, type: 3}
+  - header: "### 6-\uBC14\uC9C0"
+    equip_name: pants
+    parts_type: 6
+    equip_res_array:
+    - header: "### 0-\uAE30\uBCF8"
+      rating: 0
+      equip_res:
+      - idx: 0
+        icon: {fileID: 0}
+    - header: "### 1-\uC77C\uBC18"
+      rating: 1
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: b35b03ab6ba600847a55a5b9daa018dc, type: 3}
+    - header: "### 2-\uC911\uAE09"
+      rating: 2
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 97616f5a019abce49a7fe3bef55ae2fc, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: b184514c3326d204aba497caf064b43d, type: 3}
+    - header: "### 3-\uACE0\uAE09"
+      rating: 3
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 41eb4d07ebf03964781d1f159df199d2, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: e02c5ceeb75fb6a4795ccbe45adc5da9, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: 3f6e9d170ad628a46a4cf3f8c37ba040, type: 3}
+    - header: "### 4-\uD76C\uADC0"
+      rating: 4
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: a200cfccad834f14e88984d34f276798, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 280eb67c386f6be499cf058f1c241a8a, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: 6c495cf6c1bc9e64e9c53e3c1ea596ee, type: 3}
+      - idx: 4
+        icon: {fileID: 21300000, guid: 9552f0c6db2a6fb479230d6e5864d135, type: 3}
+    - header: "### 5-\uC601\uC6C5"
+      rating: 5
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: adb3436e9e7e7bc40807bcca13250048, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: e0f715f89a99586419309abfcc03f2f3, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: 6c6ec8f3410288f4f89de39462f6274a, type: 3}
+      - idx: 4
+        icon: {fileID: 21300000, guid: d46f924bdfe564043b63c64d639f67d4, type: 3}
+    - header: "### 6-\uACE0\uB300"
+      rating: 6
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 2977252c414f7b8438ae1f4a5c9c03d0, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: fc7b099d3983fbf488d642eea0fbf753, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: c7d34617f45d79144baeac6005a8491b, type: 3}
+    - header: "### 7-\uC804\uC124"
+      rating: 7
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 1a12b2fe010fa75409f389c898753e63, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: f92c3d9cf5890f942ba4f4f491b8e1b0, type: 3}
+  - header: "### 7-\uBD80\uCE20"
+    equip_name: boots
+    parts_type: 7
+    equip_res_array:
+    - header: "### 0-\uAE30\uBCF8"
+      rating: 0
+      equip_res:
+      - idx: 0
+        icon: {fileID: 0}
+    - header: "### 1-\uC77C\uBC18"
+      rating: 1
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: bc77102616c71124ea1637f4f61b58bf, type: 3}
+    - header: "### 2-\uC911\uAE09"
+      rating: 2
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: ef0c571298a9de445b2524d171c2654a, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: d1fad90eedc1e7a4b8567e70a3170bf6, type: 3}
+    - header: "### 3-\uACE0\uAE09"
+      rating: 3
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 93c6087f8416ac944877a92728e43fcf, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: cb929620cdfb4cc4db78a52110b70c1d, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: 6d89623e722268b40b49d3b89d477963, type: 3}
+    - header: "### 4-\uD76C\uADC0"
+      rating: 4
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: e71cce2c5bb490d40b826e62bbd577f3, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: 094a29f2b4ca77a42ac549c5a6fd7d80, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: 8fea16912e2240a449343f7758515445, type: 3}
+      - idx: 4
+        icon: {fileID: 21300000, guid: 7be1636840fac0048bf0699c2192aa9a, type: 3}
+    - header: "### 5-\uC601\uC6C5"
+      rating: 5
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: d20e1d21d64a31b44a82a873369bd095, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: d1194553c34756c43bd711981fac5eab, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: 4ad3a1a0c8ba48a4b9b33c4706bbd773, type: 3}
+      - idx: 4
+        icon: {fileID: 21300000, guid: 61a3a9307b79955439d6a13950bda231, type: 3}
+    - header: "### 6-\uACE0\uB300"
+      rating: 6
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 274bfe23a7be97c4885c616b381bc0aa, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: f0580411605500e4dafa6f9c3d3f2781, type: 3}
+      - idx: 3
+        icon: {fileID: 21300000, guid: 2e92d1c24e3d85547b8239d96930f769, type: 3}
+    - header: "### 7-\uC804\uC124"
+      rating: 7
+      equip_res:
+      - idx: 1
+        icon: {fileID: 21300000, guid: 9404aeeac4982b343b64f7afb90f6707, type: 3}
+      - idx: 2
+        icon: {fileID: 21300000, guid: b902b738c285372499256031d0de7866, type: 3}
+  - header: "### 8-\uBAA9\uAC78\uC774"
+    equip_name: necklace
+    parts_type: 8
+    equip_res_array:
+    - header: "### 0-\uAE30\uBCF8"
+      rating: 0
+      equip_res:
+      - idx: 0
+        icon: {fileID: 0}
+    - header: "### 1-\uC77C\uBC18"
+      rating: 1
+      equip_res:
+      - idx: 1
+        icon: {fileID: 0}
+    - header: "### 2-\uC911\uAE09"
+      rating: 2
+      equip_res:
+      - idx: 1
+        icon: {fileID: 0}
+      - idx: 2
+        icon: {fileID: 0}
+    - header: "### 3-\uACE0\uAE09"
+      rating: 3
+      equip_res:
+      - idx: 1
+        icon: {fileID: 0}
+      - idx: 2
+        icon: {fileID: 0}
+      - idx: 3
+        icon: {fileID: 0}
+    - header: "### 4-\uD76C\uADC0"
+      rating: 4
+      equip_res:
+      - idx: 1
+        icon: {fileID: 0}
+      - idx: 2
+        icon: {fileID: 0}
+      - idx: 3
+        icon: {fileID: 0}
+      - idx: 4
+        icon: {fileID: 0}
+    - header: "### 5-\uC601\uC6C5"
+      rating: 5
+      equip_res:
+      - idx: 1
+        icon: {fileID: 0}
+      - idx: 2
+        icon: {fileID: 0}
+      - idx: 3
+        icon: {fileID: 0}
+      - idx: 4
+        icon: {fileID: 0}
+    - header: "### 6-\uACE0\uB300"
+      rating: 6
+      equip_res:
+      - idx: 1
+        icon: {fileID: 0}
+      - idx: 2
+        icon: {fileID: 0}
+      - idx: 3
+        icon: {fileID: 0}
+    - header: "### 7-\uC804\uC124"
+      rating: 7
+      equip_res:
+      - idx: 1
+        icon: {fileID: 0}
+      - idx: 2
+        icon: {fileID: 0}
+  - header: "### 9-\uADC0\uACE0\uB9AC"
+    equip_name: earring
+    parts_type: 9
+    equip_res_array:
+    - header: "### 0-\uAE30\uBCF8"
+      rating: 0
+      equip_res:
+      - idx: 0
+        icon: {fileID: 0}
+    - header: "### 1-\uC77C\uBC18"
+      rating: 1
+      equip_res:
+      - idx: 1
+        icon: {fileID: 0}
+    - header: "### 2-\uC911\uAE09"
+      rating: 2
+      equip_res:
+      - idx: 1
+        icon: {fileID: 0}
+      - idx: 2
+        icon: {fileID: 0}
+    - header: "### 3-\uACE0\uAE09"
+      rating: 3
+      equip_res:
+      - idx: 1
+        icon: {fileID: 0}
+      - idx: 2
+        icon: {fileID: 0}
+      - idx: 3
+        icon: {fileID: 0}
+    - header: "### 4-\uD76C\uADC0"
+      rating: 4
+      equip_res:
+      - idx: 1
+        icon: {fileID: 0}
+      - idx: 2
+        icon: {fileID: 0}
+      - idx: 3
+        icon: {fileID: 0}
+      - idx: 4
+        icon: {fileID: 0}
+    - header: "### 5-\uC601\uC6C5"
+      rating: 5
+      equip_res:
+      - idx: 1
+        icon: {fileID: 0}
+      - idx: 2
+        icon: {fileID: 0}
+      - idx: 3
+        icon: {fileID: 0}
+      - idx: 4
+        icon: {fileID: 0}
+    - header: "### 6-\uACE0\uB300"
+      rating: 6
+      equip_res:
+      - idx: 1
+        icon: {fileID: 0}
+      - idx: 2
+        icon: {fileID: 0}
+      - idx: 3
+        icon: {fileID: 0}
+    - header: "### 7-\uC804\uC124"
+      rating: 7
+      equip_res:
+      - idx: 1
+        icon: {fileID: 0}
+      - idx: 2
+        icon: {fileID: 0}
+  - header: "### 10-\uBC18\uC9C0"
+    equip_name: ring
+    parts_type: 10
+    equip_res_array:
+    - header: "### 0-\uAE30\uBCF8"
+      rating: 0
+      equip_res:
+      - idx: 0
+        icon: {fileID: 0}
+    - header: "### 1-\uC77C\uBC18"
+      rating: 1
+      equip_res:
+      - idx: 1
+        icon: {fileID: 0}
+    - header: "### 2-\uC911\uAE09"
+      rating: 2
+      equip_res:
+      - idx: 1
+        icon: {fileID: 0}
+      - idx: 2
+        icon: {fileID: 0}
+    - header: "### 3-\uACE0\uAE09"
+      rating: 3
+      equip_res:
+      - idx: 1
+        icon: {fileID: 0}
+      - idx: 2
+        icon: {fileID: 0}
+      - idx: 3
+        icon: {fileID: 0}
+    - header: "### 4-\uD76C\uADC0"
+      rating: 4
+      equip_res:
+      - idx: 1
+        icon: {fileID: 0}
+      - idx: 2
+        icon: {fileID: 0}
+      - idx: 3
+        icon: {fileID: 0}
+      - idx: 4
+        icon: {fileID: 0}
+    - header: "### 5-\uC601\uC6C5"
+      rating: 5
+      equip_res:
+      - idx: 1
+        icon: {fileID: 0}
+      - idx: 2
+        icon: {fileID: 0}
+      - idx: 3
+        icon: {fileID: 0}
+      - idx: 4
+        icon: {fileID: 0}
+    - header: "### 6-\uACE0\uB300"
+      rating: 6
+      equip_res:
+      - idx: 1
+        icon: {fileID: 0}
+      - idx: 2
+        icon: {fileID: 0}
+      - idx: 3
+        icon: {fileID: 0}
+    - header: "### 7-\uC804\uC124"
+      rating: 7
+      equip_res:
+      - idx: 1
+        icon: {fileID: 0}
+      - idx: 2
+        icon: {fileID: 0}
+  chatRankColor:
+  - {r: 1, g: 1, b: 0, a: 1}
+  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0.5019608, a: 1}
+  - {r: 1, g: 0, b: 1, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 0.50980395, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.11812568, a: 1}
+  - {r: 0, g: 0.50980395, b: 0.11251116, a: 1}
+  - {r: 0.6132076, g: 0.23137489, b: 0, a: 1}
+  - {r: 0.65882355, g: 0.5176471, b: 0.3647059, a: 1}
+  itemColors:
+  - {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 1}
+  - {r: 0.6603774, g: 0.5182179, b: 0.36445355, a: 1}
+  - {r: 0.34509805, g: 0.7058824, b: 0.45098042, a: 1}
+  - {r: 0.41176474, g: 0.56078434, b: 1, a: 1}
+  - {r: 0.77647066, g: 0.3647059, b: 1, a: 1}
+  - {r: 1, g: 0.3254902, b: 0.6784314, a: 1}
+  - {r: 1, g: 0.6472527, b: 0, a: 1}
+  - {r: 1, g: 0.909804, b: 0, a: 1}
+  itemHexColors:
+  - '#FFFFFF'
+  - '#A9855D'
+  - '#58B473'
+  - '#698FFF'
+  - '#C65DFF'
+  - '#FF53AD'
+  - '#FFA436'
+  - '#FFE800'
+  itemGradientColors:
+  - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 0.5882353}
+  - {r: 0.6132076, g: 0.44742233, b: 0.26321647, a: 1}
+  - {r: 0.2392157, g: 0.5647059, b: 0.33333334, a: 1}
+  - {r: 0.29803923, g: 0.40000004, b: 0.69803923, a: 1}
+  - {r: 0.54901963, g: 0.2784314, b: 0.69803923, a: 1}
+  - {r: 0.6784314, g: 0.23529413, b: 0.4666667, a: 1}
+  - {r: 0.8000001, g: 0.54901963, b: 0.2392157, a: 1}
+  - {r: 0.76470596, g: 0.70980394, b: 0.15686275, a: 1}
+  itemShinyColors:
+  - {r: 1, g: 1, b: 1, a: 0.39215687}
+  - {r: 0.6627451, g: 0.52156866, b: 0.3647059, a: 0.39215687}
+  - {r: 0.34509805, g: 0.7058824, b: 0.4509804, a: 0.39215687}
+  - {r: 0.4117647, g: 0.56078434, b: 1, a: 0.39215687}
+  - {r: 0.7764706, g: 0.3647059, b: 1, a: 0.39215687}
+  - {r: 0.32156864, g: 0, b: 0.16862746, a: 1}
+  - {r: 0.40392157, g: 0.2509804, b: 0, a: 1}
+  - {r: 0.62352943, g: 0.5137255, b: 0, a: 1}
+  textColorWhite: {r: 1, g: 1, b: 1, a: 1}
+  textColorGray: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
+  textColorRed: {r: 1, g: 0, b: 0, a: 1}
+  hitColor_General: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 1}
+  hitColor_Critical: {r: 1, g: 0.3647059, b: 0, a: 1}
+  hitColor_Bomb: {r: 1, g: 0.79607844, b: 0, a: 1}
+  hitColor_Bonus: {r: 1, g: 0.65882355, b: 0.67058825, a: 1}
+  hitColor_Bleeding: {r: 1, g: 0, b: 0, a: 1}
+  hitColor_Reflect: {r: 1, g: 0, b: 1, a: 1}
+  hitColor_Skill: {r: 0, g: 0.74509805, b: 1, a: 1}
+  hitColor_Evasion: {r: 0, g: 1, b: 0, a: 1}

@@ -1,0 +1,445 @@
+fileFormatVersion: 2
+guid: 9849b03d33d88f6418129bd4431a248e
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Guardian-Bip001
+    100002: Guardian-Bip001 Head
+    100004: Guardian-Bip001 HeadNub
+    100006: Guardian-Bip001 L Calf
+    100008: Guardian-Bip001 L Clavicle
+    100010: Guardian-Bip001 L Finger0
+    100012: Guardian-Bip001 L Finger01
+    100014: Guardian-Bip001 L Finger02
+    100016: Guardian-Bip001 L Finger0Nub
+    100018: Guardian-Bip001 L Finger1
+    100020: Guardian-Bip001 L Finger11
+    100022: Guardian-Bip001 L Finger12
+    100024: Guardian-Bip001 L Finger1Nub
+    100026: Guardian-Bip001 L Foot
+    100028: Guardian-Bip001 L Forearm
+    100030: Guardian-Bip001 L Hand
+    100032: Guardian-Bip001 L Thigh
+    100034: Guardian-Bip001 L Toe0
+    100036: Guardian-Bip001 L Toe0Nub
+    100038: Guardian-Bip001 L UpperArm
+    100040: Guardian-Bip001 Neck
+    100042: Guardian-Bip001 Pelvis
+    100044: Guardian-Bip001 R Calf
+    100046: Guardian-Bip001 R Clavicle
+    100048: Guardian-Bip001 R Finger0
+    100050: Guardian-Bip001 R Finger01
+    100052: Guardian-Bip001 R Finger02
+    100054: Guardian-Bip001 R Finger0Nub
+    100056: Guardian-Bip001 R Finger1
+    100058: Guardian-Bip001 R Finger11
+    100060: Guardian-Bip001 R Finger12
+    100062: Guardian-Bip001 R Finger1Nub
+    100064: Guardian-Bip001 R Foot
+    100066: Guardian-Bip001 R Forearm
+    100068: Guardian-Bip001 R Hand
+    100070: Guardian-Bip001 R Thigh
+    100072: Guardian-Bip001 R Toe0
+    100074: Guardian-Bip001 R Toe0Nub
+    100076: Guardian-Bip001 R UpperArm
+    100078: Guardian-Bip001 Spine
+    100080: Guardian-Bip001 Spine1
+    100082: //RootNode
+    100084: Guardian-shoulderL06
+    100086: Guardian-shoulderR06
+    100088: lefthandweapon
+    100090: leftshoulder
+    100092: righthandweapon
+    100094: rightshoulder
+    400000: Guardian-Bip001
+    400002: Guardian-Bip001 Head
+    400004: Guardian-Bip001 HeadNub
+    400006: Guardian-Bip001 L Calf
+    400008: Guardian-Bip001 L Clavicle
+    400010: Guardian-Bip001 L Finger0
+    400012: Guardian-Bip001 L Finger01
+    400014: Guardian-Bip001 L Finger02
+    400016: Guardian-Bip001 L Finger0Nub
+    400018: Guardian-Bip001 L Finger1
+    400020: Guardian-Bip001 L Finger11
+    400022: Guardian-Bip001 L Finger12
+    400024: Guardian-Bip001 L Finger1Nub
+    400026: Guardian-Bip001 L Foot
+    400028: Guardian-Bip001 L Forearm
+    400030: Guardian-Bip001 L Hand
+    400032: Guardian-Bip001 L Thigh
+    400034: Guardian-Bip001 L Toe0
+    400036: Guardian-Bip001 L Toe0Nub
+    400038: Guardian-Bip001 L UpperArm
+    400040: Guardian-Bip001 Neck
+    400042: Guardian-Bip001 Pelvis
+    400044: Guardian-Bip001 R Calf
+    400046: Guardian-Bip001 R Clavicle
+    400048: Guardian-Bip001 R Finger0
+    400050: Guardian-Bip001 R Finger01
+    400052: Guardian-Bip001 R Finger02
+    400054: Guardian-Bip001 R Finger0Nub
+    400056: Guardian-Bip001 R Finger1
+    400058: Guardian-Bip001 R Finger11
+    400060: Guardian-Bip001 R Finger12
+    400062: Guardian-Bip001 R Finger1Nub
+    400064: Guardian-Bip001 R Foot
+    400066: Guardian-Bip001 R Forearm
+    400068: Guardian-Bip001 R Hand
+    400070: Guardian-Bip001 R Thigh
+    400072: Guardian-Bip001 R Toe0
+    400074: Guardian-Bip001 R Toe0Nub
+    400076: Guardian-Bip001 R UpperArm
+    400078: Guardian-Bip001 Spine
+    400080: Guardian-Bip001 Spine1
+    400082: //RootNode
+    400084: Guardian-shoulderL06
+    400086: Guardian-shoulderR06
+    400088: lefthandweapon
+    400090: leftshoulder
+    400092: righthandweapon
+    400094: rightshoulder
+    2300000: Guardian-shoulderL06
+    2300002: Guardian-shoulderR06
+    3300000: Guardian-shoulderL06
+    3300002: Guardian-shoulderR06
+    4300000: Guardian-shoulderL06
+    4300002: Guardian-shoulderR06
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #287'
+    second: {fileID: 2100000, guid: 94d3c5b7bfac04b4b8e18513ba995a11, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #288'
+    second: {fileID: 2100000, guid: 94d3c5b7bfac04b4b8e18513ba995a11, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton:
+    - name: Guardian-shoulder06A(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0.00000161195, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Guardian-Bip001
+      parentName: Guardian-shoulder06A(Clone)
+      position: {x: -0, y: 0.93484634, z: 0.057205953}
+      rotation: {x: -0.50000036, y: 0.49999967, z: 0.49999967, w: 0.50000036}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: Guardian-Bip001 Pelvis
+      parentName: Guardian-Bip001
+      position: {x: 0, y: 0, z: 0.034981966}
+      rotation: {x: 0.5, y: -0.5, z: -0.5, w: -0.5}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: Guardian-Bip001 Spine
+      parentName: Guardian-Bip001 Pelvis
+      position: {x: -0.23509505, y: 0.0021358205, z: 0.0000003200303}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: Guardian-Bip001 Spine1
+      parentName: Guardian-Bip001 Spine
+      position: {x: -0.17402618, y: -0.00020872116, z: -5.7771105e-10}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: Guardian-Bip001 Neck
+      parentName: Guardian-Bip001 Spine1
+      position: {x: -0.2581276, y: 0.0074954606, z: 0.000000011585543}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+    - name: Guardian-Bip001 L Clavicle
+      parentName: Guardian-Bip001 Neck
+      position: {x: 0.03835907, y: 0.0022685623, z: 0.09354326}
+      rotation: {x: 0.7071068, y: -0.000000030908623, z: -0.7071068, w: 0.000000030908623}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+    - name: Guardian-Bip001 L UpperArm
+      parentName: Guardian-Bip001 L Clavicle
+      position: {x: -0.17457207, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000001}
+    - name: Guardian-Bip001 L Forearm
+      parentName: Guardian-Bip001 L UpperArm
+      position: {x: -0.26947305, y: -0.000000019073486, z: 0.000000076293944}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.9999999, y: 0.99999994, z: 0.99999994}
+    - name: Guardian-Bip001 L Hand
+      parentName: Guardian-Bip001 L Forearm
+      position: {x: -0.2949292, y: -0.000000009536743, z: 0}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: -0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Guardian-Bip001 L Finger0
+      parentName: Guardian-Bip001 L Hand
+      position: {x: -0.048160553, y: 0.023382606, z: -0.05739599}
+      rotation: {x: 0, y: 0.3826835, z: 0, w: -0.9238795}
+      scale: {x: 0.99999976, y: 0.99999994, z: 0.99999994}
+    - name: Guardian-Bip001 L Finger01
+      parentName: Guardian-Bip001 L Finger0
+      position: {x: -0.042586744, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: Guardian-Bip001 L Finger02
+      parentName: Guardian-Bip001 L Finger01
+      position: {x: -0.043578565, y: 0, z: -0.000000038146972}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: Guardian-Bip001 L Finger0Nub
+      parentName: Guardian-Bip001 L Finger02
+      position: {x: -0.047077864, y: 0.000000028610229, z: -0.000000019073486}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: Guardian-Bip001 L Finger1
+      parentName: Guardian-Bip001 L Hand
+      position: {x: -0.11228042, y: -0.012984429, z: 0.009550437}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999994, y: 1, z: 1.0000001}
+    - name: Guardian-Bip001 L Finger11
+      parentName: Guardian-Bip001 L Finger1
+      position: {x: -0.035996247, y: 0, z: -0.000000038146972}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.9999999, y: 0.99999994, z: 0.99999976}
+    - name: Guardian-Bip001 L Finger12
+      parentName: Guardian-Bip001 L Finger11
+      position: {x: -0.04667122, y: -0.000000019073486, z: -0.000000038146972}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Guardian-Bip001 L Finger1Nub
+      parentName: Guardian-Bip001 L Finger12
+      position: {x: -0.07082252, y: 0.000000076293944, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: lefthandweapon
+      parentName: Guardian-Bip001 L Forearm
+      position: {x: -0.25809684, y: -0.0012813759, z: 0.11599746}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: -1, y: -1.0000001, z: -1.0000001}
+    - name: leftshoulder
+      parentName: Guardian-Bip001 L Clavicle
+      position: {x: -0.037193146, y: -0.000000019073486, z: 0.118690185}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: Guardian-shoulderL06
+      parentName: leftshoulder
+      position: {x: 0.54366356, y: -0.17896411, z: -1.5613552}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.9999998, y: 1.0000001, z: 0.9999998}
+    - name: Guardian-Bip001 R Clavicle
+      parentName: Guardian-Bip001 Neck
+      position: {x: 0.03835907, y: 0.0022691344, z: -0.09354319}
+      rotation: {x: 0.7071068, y: -0.000000030908623, z: 0.7071068, w: -0.000000030908623}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+    - name: Guardian-Bip001 R UpperArm
+      parentName: Guardian-Bip001 R Clavicle
+      position: {x: -0.1745721, y: 0.000000019073486, z: 0.00000015258789}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+    - name: Guardian-Bip001 R Forearm
+      parentName: Guardian-Bip001 R UpperArm
+      position: {x: -0.2694731, y: 0, z: 0.000000076293944}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Guardian-Bip001 R Hand
+      parentName: Guardian-Bip001 R Forearm
+      position: {x: -0.29492903, y: -0.000000014305114, z: 0}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: Guardian-Bip001 R Finger0
+      parentName: Guardian-Bip001 R Hand
+      position: {x: -0.048160627, y: 0.023382569, z: 0.057395972}
+      rotation: {x: 0, y: 0.38268346, z: 0, w: 0.9238795}
+      scale: {x: 0.99999976, y: 0.9999999, z: 0.99999994}
+    - name: Guardian-Bip001 R Finger01
+      parentName: Guardian-Bip001 R Finger0
+      position: {x: -0.04258667, y: -0.000000038146972, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1.0000001}
+    - name: Guardian-Bip001 R Finger02
+      parentName: Guardian-Bip001 R Finger01
+      position: {x: -0.043578718, y: 0, z: 0.000000038146972}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: Guardian-Bip001 R Finger0Nub
+      parentName: Guardian-Bip001 R Finger02
+      position: {x: -0.04707779, y: -0.000000009536743, z: -0.000000019073486}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: -1, y: -1, z: -1.0000001}
+    - name: Guardian-Bip001 R Finger1
+      parentName: Guardian-Bip001 R Hand
+      position: {x: -0.11228042, y: -0.012984466, z: -0.009550437}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: Guardian-Bip001 R Finger11
+      parentName: Guardian-Bip001 R Finger1
+      position: {x: -0.03599632, y: 0.000000038146972, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: Guardian-Bip001 R Finger12
+      parentName: Guardian-Bip001 R Finger11
+      position: {x: -0.046671294, y: -0.000000019073486, z: 0.000000038146972}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 0.9999999}
+    - name: Guardian-Bip001 R Finger1Nub
+      parentName: Guardian-Bip001 R Finger12
+      position: {x: -0.07082252, y: -0.000000038146972, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: -1, y: -1, z: -1}
+    - name: righthandweapon
+      parentName: Guardian-Bip001 R Hand
+      position: {x: -0.135971, y: 0.033682592, z: 0.014124679}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.9999998, y: 0.9999999, z: 0.99999994}
+    - name: rightshoulder
+      parentName: Guardian-Bip001 R Clavicle
+      position: {x: -0.03719303, y: 0, z: -0.11869049}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000002}
+    - name: Guardian-shoulderR06
+      parentName: rightshoulder
+      position: {x: -0.5436633, y: 0.17896375, z: 1.5613556}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999976, y: 1, z: 0.9999999}
+    - name: Guardian-Bip001 Head
+      parentName: Guardian-Bip001 Neck
+      position: {x: -0.1042157, y: -0.000000038146972, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: Guardian-Bip001 HeadNub
+      parentName: Guardian-Bip001 Head
+      position: {x: -0.20019089, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Guardian-Bip001 L Thigh
+      parentName: Guardian-Bip001 Spine
+      position: {x: 0.23295975, y: -0.031686746, z: 0.12905008}
+      rotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: Guardian-Bip001 L Calf
+      parentName: Guardian-Bip001 L Thigh
+      position: {x: -0.34531122, y: -0.000000009536743, z: 0.000000019073486}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 1, z: 1.0000001}
+    - name: Guardian-Bip001 L Foot
+      parentName: Guardian-Bip001 L Calf
+      position: {x: -0.46974197, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+    - name: Guardian-Bip001 L Toe0
+      parentName: Guardian-Bip001 L Foot
+      position: {x: -0.12860082, y: 0.116665445, z: 0}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: -0.7071068}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: Guardian-Bip001 L Toe0Nub
+      parentName: Guardian-Bip001 L Toe0
+      position: {x: -0.1046973, y: -7.4505804e-11, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: -1, y: -0.99999994, z: -1}
+    - name: Guardian-Bip001 R Thigh
+      parentName: Guardian-Bip001 Spine
+      position: {x: 0.23295967, y: -0.031686038, z: -0.12905031}
+      rotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
+      scale: {x: 1, y: 1.0000001, z: 1.0000002}
+    - name: Guardian-Bip001 R Calf
+      parentName: Guardian-Bip001 R Thigh
+      position: {x: -0.3453113, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 0.99999994, z: 1}
+    - name: Guardian-Bip001 R Foot
+      parentName: Guardian-Bip001 R Calf
+      position: {x: -0.46974197, y: 0.000000014305114, z: 0.000000019073486}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999994, y: 1, z: 0.99999994}
+    - name: Guardian-Bip001 R Toe0
+      parentName: Guardian-Bip001 R Foot
+      position: {x: -0.12860082, y: 0.11666543, z: -0.000000019073486}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: -0.7071068}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: Guardian-Bip001 R Toe0Nub
+      parentName: Guardian-Bip001 R Toe0
+      position: {x: -0.1046973, y: -7.4505804e-11, z: 0.000000019073486}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 1
+    hasExtraRoot: 1
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

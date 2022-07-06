@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "308632846895",
+    "project_id": "api-project-49346588",
+    "storage_bucket": "api-project-49346588.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:308632846895:android:81ad55ec6fedfd17a2bcda",
+        "android_client_info": {
+          "package_name": "com.two.people.zombie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "308632846895-b28da6f8bir5ii3kg4lme3kn47mogkbp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrERGApWDo755__y2V7lA3r9sJOM9l9zo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "308632846895-b28da6f8bir5ii3kg4lme3kn47mogkbp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,5429 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24243035de371c04296e6df1a85e6b25, type: 3}
+  m_Name: language_game_data
+  m_EditorClassIdentifier: 
+  m_Items:
+  - id: ui.button.name.character
+    ko: "\uD648ss"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.button.name.inventory
+    ko: "\uC778\uBCA4\uD1A0\uB9AC"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.button.name.wear
+    ko: "\uC7A5\uCC29"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.button.name.release
+    ko: "\uD574\uC81C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.button.name.new
+    ko: "\uC2E0\uADDC"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.button.name.levelup
+    ko: "\uAC15\uD654"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.button.name.level_exodus
+    ko: "\uC804\uC2B9 \uBC1B\uAE30"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.button.name.sale
+    ko: "\uD310\uB9E4"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.button.name.all
+    ko: "\uC804\uCCB4"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.button.name.wepshi
+    ko: "\uBB34\uAE30/\uBC29\uD328"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.button.name.equipcost
+    ko: "\uBC29\uC5B4\uAD6C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.button.name.acce
+    ko: "\uC7A5\uC2E0\uAD6C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.button.name.etc
+    ko: "\uAE30\uD0C0"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.button.name.skill
+    ko: "\uC2A4\uD0AC"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.button.name.shop
+    ko: "\uC0C1\uC810"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.button.name.smithy
+    ko: "\uB300\uC7A5\uAC04"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.button.name.equipmentEnhancement
+    ko: "\uC7A5\uBE44 \uAC15\uD654"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.button.name.stonEvolution
+    ko: "\uAC15\uD654\uC11D \uC9C4\uD654"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.button.name.levelTransfer
+    ko: "\uAC15\uD654 \uB808\uBCA8 \uC804\uC2B9"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.button.name.changeOrnamentOptions
+    ko: "\uC7A5\uC2E0\uAD6C \uC635\uC158 \uBCC0\uACBD"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.button.name.ornamentSynthesis
+    ko: "\uC7A5\uC2E0\uAD6C \uD569\uC131"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.button.name.ornamentChangeOption
+    ko: "\uC7A5\uC2E0\uAD6C \uC635\uC158 \uBCC0\uACBD"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.button.name.changeOption
+    ko: "\uC635\uC158 \uBCC0\uACBD"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.button.open.all
+    ko: "\uBAA8\uB450 \uC624\uD508"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: txt.eq.auto.sale.reward
+    ko: "<{0} \uC7A5\uBE44 \uD310\uB9E4><color=#FFF666>\uACE8\uB4DC +{1}</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: txt.ac.auto.sale.reward
+    ko: "<{0} \uC7A5\uC2E0\uAD6C \uD310\uB9E4><color=#FFF666>\uACE8\uB4DC +{1}</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: txt.eq.auto.decomp.reward
+    ko: "<{0} \uC7A5\uBE44 \uBD84\uD574><color=#00DFFF>\uB8E8\uBE44 +{1}</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: txt.ac.auto.decomp.reward
+    ko: "<{0} \uC7A5\uC2E0\uAD6C \uBD84\uD574><color=#00DFFF>\uC5D0\uD14C\uB974 +{1}</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.name.option
+    ko: "\uC635\uC158"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.name.default.stat
+    ko: "\uAE30\uBCF8 \uC2A4\uD0EF \uBCF4\uAE30"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.name.combat_power
+    ko: "\uC804\uD22C\uB825"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.name.option_change
+    ko: "\uC635\uC158 \uBCC0\uACBD"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.name.stat
+    ko: "\uC2A4\uD0EF"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ui.name.enhancement_percent
+    ko: "\uAC15\uD654 \uC131\uACF5 \uD655\uB960"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.attendance.book
+    ko: "\uCD9C\uC11D\uBD80"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.achievement
+    ko: "\uC5C5\uC801"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.mail
+    ko: "\uBA54\uC77C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.setting
+    ko: "\uC124\uC815"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.daily.product.reward
+    ko: "\uD3B8\uC758 \uAE30\uB2A5 / \uC77C\uC77C \uC0C1\uD488 \uBCF4\uC0C1"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.potion.auto.use
+    ko: "\uBB3C\uC57D \uC790\uB3D9 \uC0AC\uC6A9"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.equip.piece.exchange
+    ko: "\uC7A5\uBE44 \uC870\uAC01 \uAD50\uD658"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.acce.piece.exchange
+    ko: "\uC7A5\uC2E0\uAD6C \uC870\uAC01 \uAD50\uD658"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.auto.sale.decomp
+    ko: "\uC7A5\uBE44/\uC7A5\uC2E0\uAD6C - \uD310\uB9E4or\uBD84\uD574"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: titke.sub.shop.use.diamond
+    ko: "\uC544\uC774\uD15C \uAD6C\uB9E4\uC2DC \uBE14\uB8E8 \uB2E4\uC774\uC544\uAC00
+      \uBA3C\uC800 \uC0AC\uC6A9\uB418\uACE0 \uADF8\uB2E4\uC74C\uC73C\uB85C \uACE0\uAE09
+      \uB2E4\uC774\uC544\uAC00 \uC0AC\uC6A9\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.auto.potion.use1
+    ko: "<color=red>*</color> \uCCB4\uB825\uC744 <color=#A9855D>\uC77C\uBC18</color>
+      15%, <color=#58B473>\uC911\uAE09</color> 30%, <color=#698FFF>\uACE0\uAE09</color>
+      60%\uB97C \uD68C\uBCF5\uD569\uB2C8\uB2E4. <color=red>*</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.auto.potion.use2
+    ko: "<color=red>*</color> \uC0AC\uC6A9 HP \uAE30\uC900 <color=red>*</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.shop.luck1
+    ko: "\uB2E4\uC774\uC544 \uC7A5\uC2E0\uAD6C \uC18C\uD658"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.shop.luck1-1
+    ko: "\uBB34\uB8CC \uC18C\uD658 \uBC0F \uB2E4\uC774\uC544\uB97C \uC0AC\uC6A9\uD558\uC5EC
+      \uC7A5\uC2E0\uAD6C\uB97C \uC18C\uD658\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.shop.luck1-2
+    ko: "\uACE0\uAE09 \uB2E4\uC774\uC544 11\uD68C \uC18C\uD658"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.shop.luck1-3
+    ko: "\uB2E4\uC774\uC544 11\uD68C \uC18C\uD658"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.shop.luck1-4
+    ko: "\uB2E4\uC774\uC544 1\uD68C \uC18C\uD658"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.shop.luck1-5
+    ko: "\uBB34\uB8CC 1\uD68C \uC18C\uD658"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.shop.luck1-6
+    ko: "<color=#58B473>\uC911\uAE09</color> ~ <color=#FFA436>\uACE0\uB300</color>
+      \uC7A5\uC2E0\uAD6C\uAC00 \uB4F1\uC7A5\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.shop.luck1-7
+    ko: "\uBCF4\uB108\uC2A4 1.\uD76C\uADC0 \uC7A5\uC2E0\uAD6C 1\uAC1C \uD655\uC815
+      \uC9C0\uAE09"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.shop.luck1-8
+    ko: "\uBCF4\uB108\uC2A4 2.\uC601\uC6C5 \uC7A5\uC2E0\uAD6C \uC870\uAC01 100\uAC1C
+      \uC9C0\uAE09"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.shop.luck1-9
+    ko: "\uBCF4\uB108\uC2A4 3.\uC5D0\uD14C\uB974 100\uAC1C \uC9C0\uAE09"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.shop.luck1-10
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.shop.luck1-11
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.shop.luck2
+    ko: "\uC5D0\uD14C\uB974 \uC7A5\uC2E0\uAD6C \uC18C\uD658"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.shop.luck2-1
+    ko: "\uC5D0\uD14C\uB974\uB97C \uC0AC\uC6A9\uD558\uC5EC \uC7A5\uC2E0\uAD6C\uB97C
+      \uC18C\uD658\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.shop.luck2-2
+    ko: "\uC5D0\uD14C\uB974 10\uD68C \uC18C\uD658"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.shop.luck2-3
+    ko: "\uC5D0\uD14C\uB974 1\uD68C \uC18C\uD658"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.shop.luck2-4
+    ko: "<color=#58B473>\uC911\uAE09</color> ~ <color=#FFA436>\uACE0\uB300</color>
+      \uC7A5\uC2E0\uAD6C\uAC00 \uB4F1\uC7A5\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.shop.luck3
+    ko: "\uB8E8\uBE44 \uC7A5\uBE44 \uC18C\uD658"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.shop.luck3-1
+    ko: "\uB8E8\uBE44\uB97C \uC0AC\uC6A9\uD558\uC5EC \uC7A5\uBE44\uB97C \uC18C\uD658\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.shop.luck3-2
+    ko: "\uB8E8\uBE44 10\uD68C \uC18C\uD658"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.shop.luck3-3
+    ko: "\uB8E8\uBE44 1\uD68C \uC18C\uD658"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: title.sub.shop.luck3-4
+    ko: "<color=#698FFF>\uACE0\uAE09</color> ~ <color=#FFE800>\uC804\uC124</color>
+      \uC7A5\uBE44\uAC00 \uB4F1\uC7A5\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: product.name.auto.sale
+    ko: "\uC7A5\uBE44 \uC790\uB3D9 \uD310\uB9E4/\uBD84\uD574"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: product.sub.name.auto.sale
+    ko: "\uC7A5\uBE44\uB97C \uC790\uB3D9\uC73C\uB85C \uD310\uB9E4/\uBD84\uD574\uC2DC\uCF1C\uC8FC\uB294
+      \uD3B8\uB9AC\uD55C \uAE30\uB2A5\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: shop.purchase
+    ko: "\uAD6C\uB9E4"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: shop.item.total.price
+    ko: "\uCD1D \uAD6C\uB9E4 \uBE44\uC6A9"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: shop.item.eq.enhant.ston
+    ko: "\uC7A5\uBE44 \uAC15\uD654\uC11D \uAD6C\uB9E4"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: shop.item.ac.enhant.ston
+    ko: "\uC7A5\uC2E0\uAD6C \uAC15\uD654\uC11D \uAD6C\uB9E4"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: shop.item.enhant.blessing
+    ko: "\uAC15\uD654 \uCD95\uBCF5 \uC8FC\uBB38\uC11C \uAD6C\uB9E4"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: shop.item.purchase.success
+    ko: "\uAD6C\uB9E4 \uC644\uB8CC\uD558\uC600\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: purchase.30day
+    ko: "30\uC77C \uAD6C\uB9E4"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: purchase.7day
+    ko: "7\uC77C \uAD6C\uB9E4"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: purchase.auto.sale.video.free.1hour
+    ko: "1\uC2DC\uAC04 \uAD6C\uB9E4\\n\uAD11\uACE0 \uC2DC\uCCAD \uD6C4"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: purchase.auto.sale.video.free.1hour.delay
+    ko: "\uAD11\uACE0 \uB300\uAE30\uC911 {0:00}\uBD84{1:00}\uCD08"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: purchase.auto.sale.1day.ask
+    ko: "\uC7A5\uBE44 \uC790\uB3D9\uD310\uB9E4 1\uC77C\uAD8C\uC744 \uAD6C\uB9E4\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: purchase.auto.sale.7day.ask
+    ko: "\uC7A5\uBE44 \uC790\uB3D9\uD310\uB9E4 7\uC77C\uAD8C\uC744 \uAD6C\uB9E4\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: purchase.auto.sale.30day.ask
+    ko: "\uC7A5\uBE44 \uC790\uB3D9\uD310\uB9E4 30\uC77C\uAD8C\uC744 \uAD6C\uB9E4\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: shop.item.title.gold
+    ko: "\uC5EC\uAE30\uC800\uAE30 \uB9CE\uC774 \uC0AC\uC6A9\uB418\uB294 \uC7AC\uD654\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: shop.item.title.rt1.potion.recovert
+    ko: "\uCCB4\uB825\uC744 15% \uC989\uC2DC \uD68C\uBCF5\uC2DC\uCF1C \uC90D\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: shop.item.title.rt2.potion.recovert
+    ko: "\uCCB4\uB825\uC744 30% \uC989\uC2DC \uD68C\uBCF5\uC2DC\uCF1C \uC90D\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: shop.item.title.rt3.potion.recovert
+    ko: "\uCCB4\uB825\uC744 60% \uC989\uC2DC \uD68C\uBCF5\uC2DC\uCF1C \uC90D\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: shop.item.title.dg.ticket
+    ko: "\uB358\uC804 \uC785\uC7A5\uAD8C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: shop.item.title.eq.ston
+    ko: "\uC7A5\uBE44 \uAC15\uD654\uC11D"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: shop.item.title.ac.ston
+    ko: "\uC7A5\uC2E0\uAD6C \uAC15\uD654\uC11D"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: shop.item.title.enhant.blessing
+    ko: "\uAC15\uD654 \uCD95\uBCF5 \uC8FC\uBB38\uC11C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: shop.item.sub.title.dg.ticket
+    ko: "\uB358\uC804\uC744 \uC785\uC7A5\uD558\uB294\uB370 \uC0AC\uC6A9\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: shop.item.sub.title.eq.ston
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370
+      \uC0AC\uC6A9\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: shop.item.sub.title.ac.ston
+    ko: "\uADC0\uAC78\uC774/\uBAA9\uAC78\uC774/\uBC29\uC9C0\uB97C \uAC15\uD654\uD558\uB294\uB370
+      \uC0AC\uC6A9\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: shop.item.sub.title.enhant.blessing
+    ko: "\uC7A5\uBE44\uC758 \uAC15\uD654 \uC131\uACF5 \uD655\uB960\uC744 \uB192\uC5EC\uC90D\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: shop.item.max.buy
+    ko: "1\uC77C \uCD5C\uB300 \uAD6C\uB9E4\uB7C9"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: shop.luck.free.sohwan.possible
+    ko: "\uBB34\uB8CC \uC18C\uD658 \uAC00\uB2A5\uD55C \uC0C1\uD0DC\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: shop.luck.free.sohwan
+    ko: "\uBB34\uB8CC \uC18C\uD658"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: shop.luck.free.sohwan.wait
+    ko: "\uBB34\uB8CC \uC18C\uD658 \uB300\uAE30\uC2DC\uAC04\uC774 \uC874\uC7AC\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: report.1
+    ko: "\uC695\uC124"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: report.2
+    ko: "\uAD11\uACE0"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: report.3
+    ko: "\uBD88\uAC74\uC804 \uB2C9\uB124\uC784"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: report.4
+    ko: "\uAE30\uD0C0"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: block.date
+    ko: "\uCC28\uB2E8 \uB0A0\uC9DC"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: block.ok
+    ko: "\uCC28\uB2E8 \uD558\uAE30"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: block.release
+    ko: "\uCC28\uB2E8 \uD574\uC81C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.auto.sale.purchase.popup
+    ko: "\uC790\uB3D9 \uD310\uB9E4 \uAE30\uB2A5\uC758 \uC0AC\uC6A9 \uAC00\uB2A5 \uC2DC\uAC04\uC774
+      \uC5C6\uC2B5\uB2C8\uB2E4.\\n\uD655\uC778 \uBC84\uD2BC\uC744 \uB204\uB974\uC2DC\uBA74
+      \uAD6C\uB9E4\uCC3D\uC73C\uB85C \uC774\uB3D9\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.reward
+    ko: "\uBCF4\uC0C1 \uBC1B\uAE30"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.reset.attend
+    ko: "Reset : \uCD9C\uC11D \uCCB4\uD06C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.daily.reset
+    ko: "\uC77C\uC77C \uBBF8\uC158\uC740 \uB2E4\uC74C\uB0A0 \uCD9C\uC11D \uCCB4\uD06C\uC2DC
+      \uB9AC\uC14B\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.x1use
+    ko: "x1 \uC0AC\uC6A9"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.enhancement_tip1
+    ko: "\uAC15\uD654\uC5D0 \uC2E4\uD328\uD574\uB3C4 \uAC15\uD654\uB808\uBCA8\uC740
+      \uC720\uC9C0\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.enhancement_tip2
+    ko: "\uC8FC\uBB38\uC11C \uC0AC\uC6A9\uC2DC \uC131\uACF5 \uD655\uB960\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.enhancement
+    ko: "\uAC15\uD654"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.1acquisition
+    ko: "1\uAC1C \uD68D\uB4DD"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.ston_evolution_one
+    ko: "1\uAC1C \uC9C4\uD654"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.ston_evolution_all
+    ko: "\uBAA8\uB450 \uC9C4\uD654"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.level_transfer_success
+    ko: "\uB808\uBCA8 \uC774\uC804 \uC644\uB8CC"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.enhant_success
+    ko: "\uAC15\uD654 \uC131\uACF5"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.enhant_failed
+    ko: "\uAC15\uD654 \uC2E4\uD328"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.ornamentOption
+    ko: "\uC7A5\uC2E0\uAD6C \uC804\uC6A9 \uC635\uC158"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.magic.option
+    ko: "\uB9C8\uBC95\uC11D \uC635\uC158 (coming soon)"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.cancel
+    ko: "\uCDE8\uC18C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.close
+    ko: "\uB2EB\uAE30"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.change
+    ko: "\uBCC0\uACBD"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.changeConfirmation
+    ko: "\uD655\uC815"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.changeReStore
+    ko: "\uB418\uB3CC\uB9AC\uAE30"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: txt.acce.synthesis.release.to.confirm
+    ko: "\uD574\uB2F9 \uC544\uC774\uD15C\uC740 \uD604\uC7AC \uC7A5\uCC29\uC911\uC785\uB2C8\uB2E4.\\n\uC7A5\uCC29\uC744
+      \uD574\uC81C\uD558\uACE0 \uB4F1\uB85D\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.acceSynthesisFailTip
+    ko: "\uC2E4\uD328\uC2DC \uBCF4\uB108\uC2A4 \uC131\uACF5 \uD655\uB960\uC774 +15%\uC529
+      \uC99D\uAC00\uD558\uC5EC \uB2E4\uC74C \uD569\uC131\uB960\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.acceSynthesisFailPercent
+    ko: "\uC131\uACF5 \uD655\uB960 <size=50><color=orange>{0}%</color></size> \\n(\uBCF4\uB108\uC2A4
+      \uC131\uACF5\uB960 <color=yellow>+{1}%</color>)"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.synthesis
+    ko: "\uD569\uC131"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.synthesisSuccess
+    ko: "<color=orange>\uD569\uC131 \uC131\uACF5</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.synthesisFailed
+    ko: "<color=red>\uD569\uC131 \uC2E4\uD328</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.synthesisBonusProbability
+    ko: "\uB2E4\uC74C \uD569\uC131 \uC131\uACF5\uC2DC \uBCF4\uB108\uC2A4 \uC131\uACF5\uB960
+      <size=50><color=orange>+{0}%</color></size>\uC99D\uAC00"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.coin
+    ko: "\uACE8\uB4DC"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dia
+    ko: "\uB2E4\uC774\uC544"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.ether
+    ko: "\uC5D0\uD14C\uB974"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.ruby
+    ko: "\uB8E8\uBE44"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.exchange
+    ko: "\uAD50\uD658"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.skill
+    ko: "\uC2A4\uD0AC"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.equip
+    ko: "\uC7A5\uBE44"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.acce
+    ko: "\uC7A5\uC2E0\uAD6C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.item
+    ko: "\uC544\uC774\uD15C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.normal.level.up
+    ko: "\uB808\uBCA8 \uC5C5"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.pvp
+    ko: "PvP \uBC30\uD2C0 \uC544\uB808\uB098"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.top.exit
+    ko: "\uC54C \uC218 \uC5C6\uB294 \uD0D1 \uC9C4\uD589\uC744 \uD3EC\uAE30\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.mine.exit
+    ko: "\uAD11\uC0B0 \uC9C4\uD589\uC744 \uD3EC\uAE30\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.raid.exit
+    ko: "\uB808\uC774\uB4DC \uC9C4\uD589\uC744 \uD3EC\uAE30\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.top.floor
+    ko: "{0}\uCE35"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.top.stage
+    ko: "\uC54C \uC218 \uC5C6\uB294 \uD0D1 <size=24>{0}\uCE35</size>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.top
+    ko: "\uC54C \uC218 \uC5C6\uB294 \uD0D1"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.top.go
+    ko: "{0}\uCE35 \uB3C4\uC804"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.top.rego
+    ko: "{0}\uCE35 \uC7AC\uB3C4\uC804"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.top.clear.in
+    ko: "{0}\uCE35 \uD074\uB9AC\uC5B4\uB97C \uD558\uBA74 \uC785\uC7A5\uD560 \uC218
+      \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.top.clear
+    ko: "\uC774\uBBF8 \uD074\uB9AC\uC5B4\uD55C \uB358\uC804\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.mine
+    ko: "\uAD11\uC0B0"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.mine.stage_0
+    ko: "\uAD11\uC0B0 <size=24>(\uC77C\uBC18)</size>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.mine.stage_1
+    ko: "\uAD11\uC0B0 <size=24>(\uC601\uC6C5)</size>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.mine.stage_2
+    ko: "\uAD11\uC0B0 <size=24>(\uC545\uBABD)</size>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.mine.stage_3
+    ko: "\uAD11\uC0B0 <size=24>(\uC9C0\uC625)</size>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.mine.stage_4
+    ko: "\uAD11\uC0B0 <size=24>(\uBD88\uC9C0\uC625 \uC77C\uBC18)</size>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.mine.stage_5
+    ko: "\uAD11\uC0B0 <size=24>(\uBD88\uC9C0\uC625 \uC601\uC6C5)</size>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.mine.stage_6
+    ko: "\uAD11\uC0B0 <size=24>(\uBD88\uC9C0\uC625 \uC545\uBABD)</size>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.raid
+    ko: "\uB808\uC774\uB4DC"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.raid.stage_0
+    ko: "\uB808\uC774\uB4DC <size=24>(\uC77C\uBC18)</size>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.raid.stage_1
+    ko: "\uB808\uC774\uB4DC <size=24>(\uC601\uC6C5)</size>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.raid.stage_2
+    ko: "\uB808\uC774\uB4DC <size=24>(\uC545\uBABD)</size>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.raid.stage_3
+    ko: "\uB808\uC774\uB4DC <size=24>(\uC9C0\uC625)</size>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.raid.stage_4
+    ko: "\uB808\uC774\uB4DC <size=24>(\uBD88 \uC9C0\uC625 \uC77C\uBC18)</size>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.raid.stage_5
+    ko: "\uB808\uC774\uB4DC <size=25>(\uBD88 \uC9C0\uC625 \uC601\uC6C5)</size>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.raid.stage_6
+    ko: "\uB808\uC774\uB4DC <size=26>(\uBD88 \uC9C0\uC625 \uC545\uBABD)</size>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.equip.sale.bunhae
+    ko: "\uC7A5\uBE44 \uD310\uB9E4/\uBD84\uD574"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.sale
+    ko: "\uD310\uB9E4"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.bunhae
+    ko: "\uBD84\uD574"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.item.sale.select.equip
+    ko: "\uD310\uB9E4\uD560 \uC7A5\uBE44 \uD0C0\uC785\uC744 \uC120\uD0DD\uD558\uC138\uC694."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.item.sale.select.rating
+    ko: "\uD310\uB9E4\uD560 \uC7A5\uBE44 \uB4F1\uAE09\uC744 \uC120\uD0DD\uD558\uC138\uC694."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.equip.sale.question
+    ko: "\uCD1D <color=yellow>{0}</color>\uAC1C\uC758 \uC7A5\uBE44\uB97C \uBAA8\uB450
+      <color=red>\uD310\uB9E4</color>\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.equip.bunhae.question
+    ko: "\uCD1D <color=yellow>{0}</color>\uAC1C\uC758 \uC7A5\uBE44\uB97C \uBAA8\uB450
+      <color=red>\uBD84\uD574</color>\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.difficulty.nbr0
+    ko: "\uC77C\uBC18"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.difficulty.nbr1
+    ko: "\uC601\uC6C5"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.difficulty.nbr2
+    ko: "\uC545\uBABD"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.difficulty.nbr3
+    ko: "\uC9C0\uC625"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.difficulty.nbr4
+    ko: "\uBD88\uC9C0\uC625 \uC77C\uBC18"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.difficulty.nbr5
+    ko: "\uBD88\uC9C0\uC625 \uC601\uC6C5"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.difficulty.nbr6
+    ko: "\uBD88\uC9C0\uC625 \uC545\uBABD"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.nbr0
+    ko: "\uB09C\uC774\uB3C4 - \uC77C\uBC18"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.nbr1
+    ko: "\uB09C\uC774\uB3C4 - \uC601\uC6C5"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.nbr2
+    ko: "\uB09C\uC774\uB3C4 - \uC545\uBABD"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.nbr3
+    ko: "\uB09C\uC774\uB3C4 - \uC9C0\uC625"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.nbr4
+    ko: "\uB09C\uC774\uB3C4 - \uBD88\uC9C0\uC625 \uC77C\uBC18"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.nbr5
+    ko: "\uB09C\uC774\uB3C4 - \uBD88\uC9C0\uC625 \uC601\uC6C5"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.nbr6
+    ko: "\uB09C\uC774\uB3C4 - \uBD88\uC9C0\uC625 \uC545\uBABD"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dungeon.rank.score.str
+    ko: "\uD074\uB9AC\uC5B4 \uD0C0\uC784"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.pvp.battle.arena
+    ko: "PvP \uBC30\uD2C0 \uC544\uB808\uB098"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.reward.complete
+    ko: "\uBCF4\uC0C1 \uC644\uB8CC"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.remaining.day
+    ko: "\uB0A8\uC740 \uAE30\uAC04"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.nickname
+    ko: "\uB2C9\uB124\uC784"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.rank
+    ko: "\uC21C\uC704"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dg.clear.rank
+    ko: "\uD074\uB9AC\uC5B4 \uB7AD\uD06C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dg.clear.time
+    ko: "\uD074\uB9AC\uC5B4 \uD0C0\uC784"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dg.clear.high.time
+    ko: "\uB0B4 \uCD5C\uACE0 \uAE30\uB85D"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.dg.clear.time.rank
+    ko: "\uB0B4 \uB7AD\uD0B9"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.confirm.close.time
+    ko: "\uD655\uC778 ({0})"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.rank.str
+    ko: "{0}\uB4F1"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.none.rank
+    ko: "\uC21C\uC704 \uC5C6\uC74C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.failure.dungeon
+    ko: "\uB3C4\uC804 \uC2E4\uD328"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.score
+    ko: "\uC810\uC218"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.stage
+    ko: "\uC2A4\uD14C\uC774\uC9C0"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.second
+    ko: "\uCD08"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.rank.refresh.wait
+    ko: "\uAC31\uC2E0 \uB300\uAE30\uC911"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: notice.btn.name.cancel
+    ko: "\uCDE8\uC18C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: notice.btn.name.close
+    ko: "\uB2EB\uAE30"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: notice.btn.name.confirm
+    ko: "\uD655\uC778"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: notice.btn.name.enrollment
+    ko: "\uB4F1\uB85D"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: rank.title.stage.top
+    ko: "\uC2A4\uD14C\uC774\uC9C0 (TOP50)"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: rank.title.stage.around
+    ko: "\uC2A4\uD14C\uC774\uC9C0 (\uB0B4 \uC8FC\uBCC0)"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: rank.title.pvp.top
+    ko: PvP (TOP50)
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: rank.title.pvp.around
+    ko: "PvP (\uB0B4 \uC8FC\uBCC0)"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: rank.title.combat.power.top
+    ko: "\uC804\uD22C\uB825 (TOP50)"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: rank.title.combat.power.around
+    ko: "\uC804\uD22C\uB825 (\uB0B4 \uC8FC\uBCC0)"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: str.frm.shop.item.eq.ston.buy.success
+    ko: "[\uC544\uC774\uD15C] \uC7A5\uBE44 \uAC15\uD654\uC11D {0} x{1}\uAC1C\uB97C
+      \uAD6C\uB9E4\uD558\uC600\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: str.frm.shop.item.ac.ston.buy.success
+    ko: "[\uC544\uC774\uD15C] \uC7A5\uC2E0\uAD6C \uAC15\uD654\uC11D {0} x{1}\uAC1C\uB97C
+      \uAD6C\uB9E4\uD558\uC600\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: str.frm.shop.item.enhant.bles.buy.success
+    ko: "[\uC544\uC774\uD15C] \uAC15\uD654 \uCD95\uBCF5 \uC8FC\uBB38\uC11C {0} x{1}\uAC1C\uB97C
+      \uAD6C\uB9E4\uD558\uC600\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: str.frm.shop.item.dg.top.ticket.buy.success
+    ko: "[\uC544\uC774\uD15C] \uC54C \uC218 \uC5C6\uB294 \uD0D1 \uC785\uC7A5\uAD8C
+      x{0}\uAC1C\uB97C \uAD6C\uB9E4\uD558\uC600\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: str.frm.shop.item.dg.mine.ticket.buy.success
+    ko: "[\uC544\uC774\uD15C] \uAD11\uC0B0 \uC785\uC7A5\uAD8C x{0}\uAC1C\uB97C \uAD6C\uB9E4\uD558\uC600\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: str.frm.shop.item.dg.raid.ticket.buy.success
+    ko: "[\uC544\uC774\uD15C] \uB808\uC774\uB4DC \uC785\uC7A5\uAD8C x{0}\uAC1C\uB97C
+      \uAD6C\uB9E4\uD558\uC600\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: str.frm.shop.item.dg.pvp.ticket.buy.success
+    ko: "[\uC544\uC774\uD15C] PvP \uBC30\uD2C0 \uC544\uB808\uB098 \uC785\uC7A5\uAD8C
+      x{0}\uAC1C\uB97C \uAD6C\uB9E4\uD558\uC600\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: str.frm.shop.item.potion.buy.success
+    ko: "[\uC544\uC774\uD15C] {0} \uBB3C\uC57D x{1}\uAC1C\uB97C \uAD6C\uB9E4\uD558\uC600\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: str.frm.shop.item.gold.buy.success
+    ko: "\uACE8\uB4DC {0:#,###}\uC6D0\uC744 \uAD6C\uB9E4\uD558\uC600\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.type.0
+    ko: "\uBB34\uAE30"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.type.1
+    ko: "\uBC29\uD328"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.type.2
+    ko: "\uD5EC\uBA67"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.type.3
+    ko: "\uC5B4\uAE68"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.type.4
+    ko: "\uAC11\uC637"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.type.5
+    ko: "\uC7A5\uAC11"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.type.6
+    ko: "\uBC14\uC9C0"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.type.7
+    ko: "\uC2E0\uBC1C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.type.8
+    ko: "\uBAA9\uAC78\uC774"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.type.9
+    ko: "\uADC0\uAC78\uC774"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.type.10
+    ko: "\uBC18\uC9C0"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.rating.string.0
+    ko: "\uAE30\uBCF8"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.rating.string.1
+    ko: "\uC77C\uBC18"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.rating.string.2
+    ko: "\uC911\uAE09"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.rating.string.3
+    ko: "\uACE0\uAE09"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.rating.string.4
+    ko: "\uD76C\uADC0"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.rating.string.5
+    ko: "\uC601\uC6C5"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.rating.string.6
+    ko: "\uACE0\uB300"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.rating.string.7
+    ko: "\uC804\uC124"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.color.rating.string.0
+    ko: "<color=#FFFFFF>\uAE30\uBCF8</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.color.rating.string.1
+    ko: "<color=#A9855D>\uC77C\uBC18</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.color.rating.string.2
+    ko: "<color=#58B473>\uC911\uAE09</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.color.rating.string.3
+    ko: "<color=#698FFF>\uACE0\uAE09</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.color.rating.string.4
+    ko: "<color=#C65DFF>\uD76C\uADC0</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.color.rating.string.5
+    ko: "<color=#FF53AD>\uC601\uC6C5</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.color.rating.string.6
+    ko: "<color=#FFA436>\uACE0\uB300</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.color.rating.string.7
+    ko: "<color=#FFE800>\uC804\uC124</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: goods.gold
+    ko: "\uACE8\uB4DC"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: goods.dia
+    ko: "\uBE14\uB8E8 \uB2E4\uC774\uC544"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: goods.ether
+    ko: "\uC5D0\uD14C\uB974"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: goods.ruby
+    ko: "\uB8E8\uBE44"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: goods.descript.gold
+    ko: "\uC5EC\uAE30\uC800\uAE30 \uB9CE\uC774 \uC0AC\uC6A9\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: goods.descript.dia
+    ko: "\uC5EC\uAE30\uC800\uAE30 \uB9CE\uC774 \uC0AC\uC6A9\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: goods.descript.ether
+    ko: "\uC7A5\uC2E0\uAD6C(\uBAA9\uAC78\uC774/\uADC0\uAC78\uC774/\uBC18\uC9C0)\uB97C
+      \uBD84\uD574\uD558\uBA74 \uC5BB\uC744 \uC218 \uC788\uB294 \uC7AC\uD654\uC785\uB2C8\uB2E4.\\n\uC7A5\uC2E0\uAD6C
+      \uC18C\uD658 \uBC0F \uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uD560\uB54C \uC0AC\uC6A9\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: goods.descript.ruby
+    ko: "\uC7A5\uBE44(\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C)\uB97C \uBD84\uD574\uD558\uBA74
+      \uC5BB\uC744 \uC218 \uC788\uB294 \uC7AC\uD654\uC785\uB2C8\uB2E4.\\n\uC7A5\uBE44
+      \uC18C\uD658 \uBC0F \uC7A5\uBE44\uB97C \uAC15\uD654\uD560\uB54C \uC0AC\uC6A9\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: string.format.one.type.reward.confirm
+    ko: "\uBCF4\uC0C1\uC73C\uB85C {0} x{1}\uAC1C\uB97C \uD68D\uB4DD\uD558\uC600\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.cnvc.fun.skill
+    ko: "\uC2A4\uD0AC"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.cnvc.fun.posion
+    ko: "\uC790\uB3D9 \uBB3C\uC57D"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.cnvc.fun.speed.x2
+    ko: "\uC9C4\uD589 \uC18D\uB3C4 x2"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.cnvc.fun.speed.x3
+    ko: "\uC9C4\uD589 \uC18D\uB3C4 x3"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.cnvc.fun.sale
+    ko: "\uC7A5\uBE44 \uC790\uB3D9 <color=red>\uD310\uB9E4</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: text.cnvc.fun.decomp
+    ko: "\uC7A5\uBE44 \uC790\uB3D9 <color=red>\uBD84\uD574</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_20_1
+    ko: "<color=#A9855D>\uC77C\uBC18</color> \uBB3C\uC57D"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_20_2
+    ko: "<color=#58B473>\uC911\uAE09</color> \uBB3C\uC57D"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_20_3
+    ko: "<color=#698FFF>\uACE0\uAE09</color> \uBB3C\uC57D"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_21_1
+    ko: "<color=#A9855D>\uC77C\uBC18</color> \uC7A5\uBE44 \uAC15\uD654\uC11D"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_21_2
+    ko: "<color=#58B473>\uC911\uAE09</color> \uC7A5\uBE44 \uAC15\uD654\uC11D"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_21_3
+    ko: "<color=#698FFF>\uACE0\uAE09</color> \uC7A5\uBE44 \uAC15\uD654\uC11D"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_21_4
+    ko: "<color=#C65DFF>\uD76C\uADC0</color> \uC7A5\uBE44 \uAC15\uD654\uC11D"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_22_1
+    ko: "<color=#A9855D>\uC77C\uBC18</color> \uAC15\uD654 \uCD95\uBCF5 \uC8FC\uBB38\uC11C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_22_2
+    ko: "<color=#58B473>\uC911\uAE09</color> \uAC15\uD654 \uCD95\uBCF5 \uC8FC\uBB38\uC11C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_22_3
+    ko: "<color=#698FFF>\uACE0\uAE09</color> \uAC15\uD654 \uCD95\uBCF5 \uC8FC\uBB38\uC11C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_23_1
+    ko: "<color=#FFFFFF>\uC54C \uC218 \uC5C6\uB294 \uD0D1 \uC785\uC7A5\uAD8C</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_24_1
+    ko: "<color=#FFFFFF>\uAD11\uC0B0 \uC785\uC7A5\uAD8C</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_25_1
+    ko: "<color=#FFFFFF>\uB808\uC774\uB4DC \uC785\uC7A5\uAD8C</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_26_1
+    ko: "<color=#FFFFFF>\uBD80\uD65C\uC11D</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_27_1
+    ko: "<color=#A9855D>\uC77C\uBC18</color> \uC7A5\uC2E0\uAD6C \uAC15\uD654\uC11D"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_27_2
+    ko: "<color=#58B473>\uC911\uAE09</color> \uC7A5\uC2E0\uAD6C \uAC15\uD654\uC11D"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_27_3
+    ko: "<color=#698FFF>\uACE0\uAE09</color> \uC7A5\uC2E0\uAD6C \uAC15\uD654\uC11D"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_27_4
+    ko: "<color=#C65DFF>\uD76C\uADC0</color> \uC7A5\uC2E0\uAD6C \uAC15\uD654\uC11D"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_28_1
+    ko: "<color=#A9855D>\uC77C\uBC18</color> \uC7A5\uBE44 \uC870\uAC01"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_28_2
+    ko: "<color=#58B473>\uC911\uAE09</color> \uC7A5\uBE44 \uC870\uAC01"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_28_3
+    ko: "<color=#698FFF>\uACE0\uAE09</color> \uC7A5\uBE44 \uC870\uAC01"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_28_4
+    ko: "<color=#C65DFF>\uD76C\uADC0</color> \uC7A5\uBE44 \uC870\uAC01"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_28_5
+    ko: "<color=#FF53AD>\uC601\uC6C5</color> \uC7A5\uBE44 \uC870\uAC01"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_28_6
+    ko: "<color=#FFA436>\uACE0\uB300</color> \uC7A5\uBE44 \uC870\uAC01"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_28_7
+    ko: "<color=#FFE800>\uC804\uC124</color> \uC7A5\uBE44 \uC870\uAC01"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_29_1
+    ko: "<color=#A9855D>\uC77C\uBC18</color> \uC7A5\uC2E0\uAD6C \uC870\uAC01"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_29_2
+    ko: "<color=#58B473>\uC911\uAE09</color> \uC7A5\uC2E0\uAD6C \uC870\uAC01"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_29_3
+    ko: "<color=#698FFF>\uACE0\uAE09</color> \uC7A5\uC2E0\uAD6C \uC870\uAC01"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_29_4
+    ko: "<color=#C65DFF>\uD76C\uADC0</color> \uC7A5\uC2E0\uAD6C \uC870\uAC01"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_29_5
+    ko: "<color=#FF53AD>\uC601\uC6C5</color> \uC7A5\uC2E0\uAD6C \uC870\uAC01"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_29_6
+    ko: "<color=#FFA436>\uACE0\uB300</color> \uC7A5\uC2E0\uAD6C \uC870\uAC01"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_29_7
+    ko: "<color=#FFE800>\uC804\uC124</color> \uC7A5\uC2E0\uAD6C \uC870\uAC01"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_30_1
+    ko: "<color=#FFFFFF>PvP \uBC30\uD2C0 \uC544\uB808\uB098 \uC785\uC7A5\uAD8C</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_31_3
+    ko: "<color=#698FFF>\uACE0\uAE09</color> \uD3AB \uC54C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_31_4
+    ko: "<color=#C65DFF>\uD76C\uADC0</color> \uD3AB \uC54C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_31_5
+    ko: "<color=#FF53AD>\uC601\uC6C5</color> \uD3AB \uC54C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item_31_6
+    ko: "<color=#FFA436>\uACE0\uB300</color> \uD3AB \uC54C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_20_1
+    ko: "\uCCB4\uB825\uC744 15% \uC989\uC2DC \uD68C\uBCF5\uC2DC\uCF1C\uC90D\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_20_2
+    ko: "\uCCB4\uB825\uC744 30% \uC989\uC2DC \uD68C\uBCF5\uC2DC\uCF1C\uC90D\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_20_3
+    ko: "\uCCB4\uB825\uC744 60% \uC989\uC2DC \uD68C\uBCF5\uC2DC\uCF1C\uC90D\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_21_1
+    ko: "\uC7A5\uBE44(\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C)\uB97C \uAC15\uD654\uD558\uB294\uB370
+      \uC0AC\uC6A9\uB418\uBA70, \uAC15\uD654 \uB808\uBCA8 1~9\uB808\uBCA8\uAE4C\uC9C0
+      \uC0AC\uC6A9\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_21_2
+    ko: "\uC7A5\uBE44(\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C)\uB97C \uAC15\uD654\uD558\uB294\uB370
+      \uC0AC\uC6A9\uB418\uBA70, \uAC15\uD654 \uB808\uBCA8 10~19\uB808\uBCA8\uAE4C\uC9C0
+      \uC0AC\uC6A9\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_21_3
+    ko: "\uC7A5\uBE44(\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C)\uB97C \uAC15\uD654\uD558\uB294\uB370
+      \uC0AC\uC6A9\uB418\uBA70, \uAC15\uD654 \uB808\uBCA8 20~29\uB808\uBCA8\uAE4C\uC9C0
+      \uC0AC\uC6A9\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_21_4
+    ko: "\uC7A5\uBE44(\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C)\uB97C \uAC15\uD654\uD558\uB294\uB370
+      \uC0AC\uC6A9\uB418\uBA70, \uAC15\uD654 \uB808\uBCA8 30~35\uB808\uBCA8\uAE4C\uC9C0
+      \uC0AC\uC6A9\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_22_1
+    ko: "\uC7A5\uBE44/\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uD560\uB54C \uC0AC\uC6A9\uD558\uBA74
+      \uAC15\uD654 \uC131\uACF5\uB960\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_22_2
+    ko: "\uC7A5\uBE44/\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uD560\uB54C \uC0AC\uC6A9\uD558\uBA74
+      \uAC15\uD654 \uC131\uACF5\uB960\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_22_3
+    ko: "\uC7A5\uBE44/\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uD560\uB54C \uC0AC\uC6A9\uD558\uBA74
+      \uAC15\uD654 \uC131\uACF5\uB960\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_23_1
+    ko: "\uB358\uC804 : \uC54C \uC218 \uC5C6\uB294 \uD0D1\uC5D0 \uC785\uC7A5\uD560
+      \uB54C \uC0AC\uC6A9\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_24_1
+    ko: "\uB358\uC804 : \uAD11\uC0B0\uC5D0 \uC785\uC7A5\uD560 \uB54C \uC0AC\uC6A9\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_25_1
+    ko: "\uB358\uC804 : \uB808\uC774\uB4DC\uC5D0 \uC785\uC7A5\uD560 \uB54C \uC0AC\uC6A9\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_26_1
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_27_1
+    ko: "\uC7A5\uC2E0\uAD6C(\uBAA9\uAC78\uC774/\uADC0\uAC78\uC774/\uBC18\uC9C0)\uB97C
+      \uAC15\uD654\uD558\uB294\uB370 \uC0AC\uC6A9\uB418\uBA70, \uAC15\uD654 \uB808\uBCA8
+      1~9\uB808\uBCA8\uAE4C\uC9C0 \uC0AC\uC6A9\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_27_2
+    ko: "\uC7A5\uC2E0\uAD6C(\uBAA9\uAC78\uC774/\uADC0\uAC78\uC774/\uBC18\uC9C0)\uB97C
+      \uAC15\uD654\uD558\uB294\uB370 \uC0AC\uC6A9\uB418\uBA70, \uAC15\uD654 \uB808\uBCA8
+      10~19\uB808\uBCA8\uAE4C\uC9C0 \uC0AC\uC6A9\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_27_3
+    ko: "\uC7A5\uC2E0\uAD6C(\uBAA9\uAC78\uC774/\uADC0\uAC78\uC774/\uBC18\uC9C0)\uB97C
+      \uAC15\uD654\uD558\uB294\uB370 \uC0AC\uC6A9\uB418\uBA70, \uAC15\uD654 \uB808\uBCA8
+      20~29\uB808\uBCA8\uAE4C\uC9C0 \uC0AC\uC6A9\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_27_4
+    ko: "\uC7A5\uC2E0\uAD6C(\uBAA9\uAC78\uC774/\uADC0\uAC78\uC774/\uBC18\uC9C0)\uB97C
+      \uAC15\uD654\uD558\uB294\uB370 \uC0AC\uC6A9\uB418\uBA70, \uAC15\uD654 \uB808\uBCA8
+      30~35\uB808\uBCA8\uAE4C\uC9C0 \uC0AC\uC6A9\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_28_1
+    ko: "<color=#A9855D>\uC77C\uBC18</color> \uB4F1\uAE09\uC758 \uC7A5\uBE44(\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C)\uB85C
+      \uAD50\uD658\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_28_2
+    ko: "<color=#58B473>\uC911\uAE09</color> \uB4F1\uAE09\uC758 \uC7A5\uBE44(\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C)\uB85C
+      \uAD50\uD658\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_28_3
+    ko: "<color=#698FFF>\uACE0\uAE09</color> \uB4F1\uAE09\uC758 \uC7A5\uBE44(\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C)\uB85C
+      \uAD50\uD658\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_28_4
+    ko: "<color=#C65DFF>\uD76C\uADC0</color> \uB4F1\uAE09\uC758 \uC7A5\uBE44(\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C)\uB85C
+      \uAD50\uD658\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_28_5
+    ko: "<color=#FF53AD>\uC601\uC6C5</color> \uB4F1\uAE09\uC758 \uC7A5\uBE44(\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C)\uB85C
+      \uAD50\uD658\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_28_6
+    ko: "<color=#FFA436>\uACE0\uB300</color> \uB4F1\uAE09\uC758 \uC7A5\uBE44(\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C)\uB85C
+      \uAD50\uD658\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_28_7
+    ko: "<color=#FFE800>\uC804\uC124</color> \uB4F1\uAE09\uC758 \uC7A5\uBE44(\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C)\uB85C
+      \uAD50\uD658\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_29_1
+    ko: "<color=#A9855D>\uC77C\uBC18</color> \uB4F1\uAE09\uC758 \uC7A5\uC2E0\uAD6C(\uADC0\uAC78\uC774/\uBAA9\uAC78\uC774/\uBC18\uC9C0)\uB85C
+      \uAD50\uD658\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_29_2
+    ko: "<color=#58B473>\uC911\uAE09</color> \uB4F1\uAE09\uC758 \uC7A5\uC2E0\uAD6C(\uADC0\uAC78\uC774/\uBAA9\uAC78\uC774/\uBC18\uC9C0)\uB85C
+      \uAD50\uD658\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_29_3
+    ko: "<color=#698FFF>\uACE0\uAE09</color> \uB4F1\uAE09\uC758 \uC7A5\uC2E0\uAD6C(\uADC0\uAC78\uC774/\uBAA9\uAC78\uC774/\uBC18\uC9C0)\uB85C
+      \uAD50\uD658\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_29_4
+    ko: "<color=#C65DFF>\uD76C\uADC0</color> \uB4F1\uAE09\uC758 \uC7A5\uC2E0\uAD6C(\uADC0\uAC78\uC774/\uBAA9\uAC78\uC774/\uBC18\uC9C0)\uB85C
+      \uAD50\uD658\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_29_5
+    ko: "<color=#FF53AD>\uC601\uC6C5</color> \uB4F1\uAE09\uC758 \uC7A5\uC2E0\uAD6C(\uADC0\uAC78\uC774/\uBAA9\uAC78\uC774/\uBC18\uC9C0)\uB85C
+      \uAD50\uD658\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_29_6
+    ko: "<color=#FFA436>\uACE0\uB300</color> \uB4F1\uAE09\uC758 \uC7A5\uC2E0\uAD6C(\uADC0\uAC78\uC774/\uBAA9\uAC78\uC774/\uBC18\uC9C0)\uB85C
+      \uAD50\uD658\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_29_7
+    ko: "<color=#FFE800>\uC804\uC124</color> \uB4F1\uAE09\uC758 \uC7A5\uC2E0\uAD6C(\uADC0\uAC78\uC774/\uBAA9\uAC78\uC774/\uBC18\uC9C0)\uB85C
+      \uAD50\uD658\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_30_1
+    ko: "PvP \uBC30\uD2C0 \uC544\uB808\uB098\uC5D0 \uC785\uC7A5\uD560 \uB54C \uC0AC\uC6A9\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_31_3
+    ko: "\uCD5C\uB300 <color=#698FFF>\uACE0\uAE09</color> \uB4F1\uAE09\uAE4C\uC9C0
+      \uC18C\uD658 \uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\\n<color=#00FFFF>[\uC0C1\uC810]->[\uD589\uC6B4
+      \uC0C1\uC810]\uC5D0\uC11C \uAC1C\uBD09\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_31_4
+    ko: "<color=#698FFF>\uACE0\uAE09</color>\uB4F1\uAE09 \uBD80\uD130 \uCD5C\uB300
+      <color=#C65DFF>\uD76C\uADC0</color> \uB4F1\uAE09\uAE4C\uC9C0 \uC18C\uD658 \uD560
+      \uC218 \uC788\uC2B5\uB2C8\uB2E4.\\n<color=#00FFFF>[\uC0C1\uC810]->[\uD589\uC6B4
+      \uC0C1\uC810]\uC5D0\uC11C \uAC1C\uBD09\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_31_5
+    ko: "<color=#698FFF>\uACE0\uAE09</color>\uB4F1\uAE09 \uBD80\uD130 \uCD5C\uB300
+      <color=#FF53AD>\uC601\uC6C5</color> \uB4F1\uAE09\uAE4C\uC9C0 \uC18C\uD658 \uD560
+      \uC218 \uC788\uC2B5\uB2C8\uB2E4.\\n<color=#00FFFF>[\uC0C1\uC810]->[\uD589\uC6B4
+      \uC0C1\uC810]\uC5D0\uC11C \uAC1C\uBD09\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: item.name.item.descript_31_6
+    ko: "<color=#698FFF>\uACE0\uAE09</color>\uB4F1\uAE09 \uBD80\uD130 \uCD5C\uB300
+      <color=#FFA436>\uACE0\uB300</color> \uB4F1\uAE09\uAE4C\uC9C0 \uC18C\uD658 \uD560
+      \uC218 \uC788\uC2B5\uB2C8\uB2E4.\\n<color=#00FFFF>[\uC0C1\uC810]->[\uD589\uC6B4
+      \uC0C1\uC810]\uC5D0\uC11C \uAC1C\uBD09\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ency.now.level
+    ko: "\uD604\uC7AC \uB3C4\uAC10 \uAC15\uD654 \uB808\uBCA8 {0}/{1}"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ency.enhant.success.rate
+    ko: "\uC131\uACF5\uB960 {0}%"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ency.enhant.start
+    ko: "{0}/{1} [\uAC15\uD654]"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ency.enhant.success
+    ko: "\uAC15 \uD654  \uC131 \uACF5!!!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ency.enhant.failled
+    ko: "\uAC15 \uD654  \uC2E4 \uD328\u2026"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.name.gold
+    ko: "\uACE8\uB4DC"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.name.equip_all
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.name.weapon_shield
+    ko: "\uBB34\uAE30/\uBC29\uD328"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.name.armor
+    ko: "\uBC29\uC5B4\uAD6C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.name.acce
+    ko: "\uC7A5\uC2E0\uAD6C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.name.skill
+    ko: "\uC2A4\uD0AC"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.name.equip_piece
+    ko: "\uC7A5\uBE44 \uC870\uAC01"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.name.acce_piece
+    ko: "\uC7A5\uC2E0\uAD6C \uC870\uAC01"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.name.ether
+    ko: "\uC5D0\uD14C\uB974"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.name.equip_enhant_ston
+    ko: "\uC7A5\uBE44 \uAC15\uD654\uC11D"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.name.acce_enhant_ston
+    ko: "\uC7A5\uC2E0\uAD6C \uAC15\uD654\uC11D"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.name.enhant_bless
+    ko: "\uAC15\uD654 \uCD95\uBCF5 \uC8FC\uBB38\uC11C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.name.potion
+    ko: "\uBB3C\uC57D"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.name.key_all
+    ko: "\uB358\uC804 \uC785\uC7A5 \uC5F4\uC1E0"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.gold
+    ko: "\uC5EC\uAE30 \uC800\uAE30 \uB9CE\uC774 \uC0AC\uC6A9\uB418\uB294 \uC7AC\uD654\uC785\uB2C8\uB2E4.\u203B\uC2E4\uD328\uC2DC\uC5D0\uB3C4
+      \uC9C0\uAE09\uB429\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_all_rt1
+    ko: "<color=#A9855D>\uC77C\uBC18</color> \uB4F1\uAE09\uC758 \uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB97C
+      \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_all_rt2
+    ko: "<color=#58B473>\uC911\uAE09</color> \uB4F1\uAE09\uC758 \uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB97C
+      \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_all_rt3
+    ko: "<color=#698FFF>\uACE0\uAE09</color> \uB4F1\uAE09\uC758 \uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB97C
+      \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_all_rt4
+    ko: "<color=#C65DFF>\uD76C\uADC0</color> \uB4F1\uAE09\uC758 \uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB97C
+      \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_all_rt5
+    ko: "<color=#FF53AD>\uC601\uC6C5</color> \uB4F1\uAE09\uC758 \uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB97C
+      \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_all_rt6
+    ko: "<color=#FFA436>\uACE0\uB300</color> \uB4F1\uAE09\uC758 \uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB97C
+      \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_all_rt7
+    ko: "<color=#FFE800>\uC804\uC124</color> \uB4F1\uAE09\uC758 \uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB97C
+      \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_rt1
+    ko: "<color=#A9855D>\uC77C\uBC18</color> \uB4F1\uAE09\uC758 \uC7A5\uC2E0\uAD6C\uB97C
+      \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_rt2
+    ko: "<color=#58B473>\uC911\uAE09</color> \uB4F1\uAE09\uC758 \uC7A5\uC2E0\uAD6C\uB97C
+      \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_rt3
+    ko: "<color=#698FFF>\uACE0\uAE09</color> \uB4F1\uAE09\uC758 \uC7A5\uC2E0\uAD6C\uB97C
+      \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_rt4
+    ko: "<color=#C65DFF>\uD76C\uADC0</color> \uB4F1\uAE09\uC758 \uC7A5\uC2E0\uAD6C\uB97C
+      \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_rt5
+    ko: "<color=#FF53AD>\uC601\uC6C5</color> \uB4F1\uAE09\uC758 \uC7A5\uC2E0\uAD6C\uB97C
+      \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_rt6
+    ko: "<color=#FFA436>\uACE0\uB300</color> \uB4F1\uAE09\uC758 \uC7A5\uC2E0\uAD6C\uB97C
+      \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_rt7
+    ko: "<color=#FFE800>\uC804\uC124</color> \uB4F1\uAE09\uC758 \uC7A5\uC2E0\uAD6C\uB97C
+      \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.weapon_shield_once
+    ko: "\uBB34\uAE30/\uBC29\uD328\uB97C \uD68D\uB4DD \uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\\n<color=#FFC500>\u203B\uCCAB
+      \uD074\uB9AC\uC5B4\uC2DC 1\uD68C\uB9CC \uC9C0\uAE09\uB429\uB2C8\uB2E4.\u203B</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.armor_once
+    ko: "\uBC29\uC5B4\uAD6C\uB97C \uD68D\uB4DD \uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\\n<color=#FFC500>\u203B\uCCAB
+      \uD074\uB9AC\uC5B4\uC2DC 1\uD68C\uB9CC \uC9C0\uAE09\uB429\uB2C8\uB2E4.\u203B</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_once
+    ko: "\uC7A5\uC2E0\uAD6C\uB97C \uD68D\uB4DD \uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\\n<color=#FFC500>\u203B\uCCAB
+      \uD074\uB9AC\uC5B4\uC2DC 1\uD68C\uB9CC \uC9C0\uAE09\uB429\uB2C8\uB2E4.\u203B</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.weapon_shield
+    ko: "\uBB34\uAE30/\uBC29\uD328\uB97C \uD68D\uB4DD \uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.armor
+    ko: "\uBC29\uC5B4\uAD6C\uB97C \uD68D\uB4DD \uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce
+    ko: "\uC7A5\uC2E0\uAD6C\uB97C \uD68D\uB4DD \uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.skill
+    ko: "\uC2A4\uD0AC\uC744 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_piece
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB85C \uAD50\uD658\uD560 \uC218
+      \uC788\uB294 \uC7A5\uBE44 \uC870\uAC01\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_piece_rt1
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB85C \uAD50\uD658\uD560 \uC218
+      \uC788\uB294 <color=#A9855D>\uC77C\uBC18</color> \uB4F1\uAE09 \uC7A5\uBE44
+      \uC870\uAC01\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_piece_rt2
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB85C \uAD50\uD658\uD560 \uC218
+      \uC788\uB294 <color=#58B473>\uC911\uAE09</color> \uB4F1\uAE09 \uC7A5\uBE44
+      \uC870\uAC01\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_piece_rt3
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB85C \uAD50\uD658\uD560 \uC218
+      \uC788\uB294 <color=#698FFF>\uACE0\uAE09</color> \uB4F1\uAE09 \uC7A5\uBE44
+      \uC870\uAC01\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_piece_rt4
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB85C \uAD50\uD658\uD560 \uC218
+      \uC788\uB294 <color=#C65DFF>\uD76C\uADC0</color> \uB4F1\uAE09 \uC7A5\uBE44
+      \uC870\uAC01\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_piece_rt5
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB85C \uAD50\uD658\uD560 \uC218
+      \uC788\uB294 <color=#FF53AD>\uC601\uC6C5</color> \uB4F1\uAE09 \uC7A5\uBE44
+      \uC870\uAC01\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_piece_rt6
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB85C \uAD50\uD658\uD560 \uC218
+      \uC788\uB294 <color=#FFA436>\uACE0\uB300</color> \uB4F1\uAE09 \uC7A5\uBE44
+      \uC870\uAC01\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_piece_rt7
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB85C \uAD50\uD658\uD560 \uC218
+      \uC788\uB294 <color=#FFE800>\uC804\uC124</color> \uB4F1\uAE09 \uC7A5\uBE44
+      \uC870\uAC01\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_piece_max_rt1
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB85C \uAD50\uD658\uD560 \uC218
+      \uC788\uB294 \uC7A5\uBE44 \uC870\uAC01\uC785\uB2C8\uB2E4.\\n\u203B<color=#A9855D>\uC77C\uBC18</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_piece_max_rt2
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB85C \uAD50\uD658\uD560 \uC218
+      \uC788\uB294 \uC7A5\uBE44 \uC870\uAC01\uC785\uB2C8\uB2E4.\\n\u203B<color=#58B473>\uC911\uAE09</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_piece_max_rt3
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB85C \uAD50\uD658\uD560 \uC218
+      \uC788\uB294 \uC7A5\uBE44 \uC870\uAC01\uC785\uB2C8\uB2E4.\\n\u203B<color=#698FFF>\uACE0\uAE09</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_piece_max_rt4
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB85C \uAD50\uD658\uD560 \uC218
+      \uC788\uB294 \uC7A5\uBE44 \uC870\uAC01\uC785\uB2C8\uB2E4.\\n\u203B<color=#C65DFF>\uD76C\uADC0</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_piece_max_rt5
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB85C \uAD50\uD658\uD560 \uC218
+      \uC788\uB294 \uC7A5\uBE44 \uC870\uAC01\uC785\uB2C8\uB2E4.\\n\u203B<color=#FF53AD>\uC601\uC6C5</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_piece_max_rt6
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB85C \uAD50\uD658\uD560 \uC218
+      \uC788\uB294 \uC7A5\uBE44 \uC870\uAC01\uC785\uB2C8\uB2E4.\\n\u203B<color=#FFA436>\uACE0\uB300</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_piece_max_rt7
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB85C \uAD50\uD658\uD560 \uC218
+      \uC788\uB294 \uC7A5\uBE44 \uC870\uAC01\uC785\uB2C8\uB2E4.\\n\u203B<color=#FFE800>\uC804\uC124</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_piece
+    ko: "\uC7A5\uC2E0\uAD6C\uB85C \uAD50\uD658\uD560 \uC218 \uC788\uB294 \uC870\uAC01\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_piece_rt1
+    ko: "\uC7A5\uC2E0\uAD6C\uB85C \uAD50\uD658\uD560 \uC218 \uC788\uB294 <color=#A9855D>\uC77C\uBC18</color>
+      \uB4F1\uAE09 \uC870\uAC01\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_piece_rt2
+    ko: "\uC7A5\uC2E0\uAD6C\uB85C \uAD50\uD658\uD560 \uC218 \uC788\uB294 <color=#58B473>\uC911\uAE09</color>
+      \uB4F1\uAE09 \uC870\uAC01\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_piece_rt3
+    ko: "\uC7A5\uC2E0\uAD6C\uB85C \uAD50\uD658\uD560 \uC218 \uC788\uB294 <color=#698FFF>\uACE0\uAE09</color>
+      \uB4F1\uAE09 \uC870\uAC01\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_piece_rt4
+    ko: "\uC7A5\uC2E0\uAD6C\uB85C \uAD50\uD658\uD560 \uC218 \uC788\uB294 <color=#C65DFF>\uD76C\uADC0</color>
+      \uB4F1\uAE09 \uC870\uAC01\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_piece_rt5
+    ko: "\uC7A5\uC2E0\uAD6C\uB85C \uAD50\uD658\uD560 \uC218 \uC788\uB294 <color=#FF53AD>\uC601\uC6C5</color>
+      \uB4F1\uAE09 \uC870\uAC01\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_piece_rt6
+    ko: "\uC7A5\uC2E0\uAD6C\uB85C \uAD50\uD658\uD560 \uC218 \uC788\uB294 <color=#FFA436>\uACE0\uB300</color>
+      \uB4F1\uAE09 \uC870\uAC01\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_piece_rt7
+    ko: "\uC7A5\uC2E0\uAD6C\uB85C \uAD50\uD658\uD560 \uC218 \uC788\uB294 <color=#FFE800>\uC804\uC124</color>
+      \uB4F1\uAE09 \uC870\uAC01\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_piece_max_rt1
+    ko: "\uC7A5\uC2E0\uAD6C\uB85C \uAD50\uD658\uD560 \uC218 \uC788\uB294 \uC7A5\uC2E0\uAD6C
+      \uC870\uAC01\uC785\uB2C8\uB2E4.\\n\u203B<color=#A9855D>\uC77C\uBC18</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_piece_max_rt2
+    ko: "\uC7A5\uC2E0\uAD6C\uB85C \uAD50\uD658\uD560 \uC218 \uC788\uB294 \uC7A5\uC2E0\uAD6C
+      \uC870\uAC01\uC785\uB2C8\uB2E4.\\n\u203B<color=#58B473>\uC911\uAE09</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_piece_max_rt3
+    ko: "\uC7A5\uC2E0\uAD6C\uB85C \uAD50\uD658\uD560 \uC218 \uC788\uB294 \uC7A5\uC2E0\uAD6C
+      \uC870\uAC01\uC785\uB2C8\uB2E4.\\n\u203B<color=#698FFF>\uACE0\uAE09</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_piece_max_rt4
+    ko: "\uC7A5\uC2E0\uAD6C\uB85C \uAD50\uD658\uD560 \uC218 \uC788\uB294 \uC7A5\uC2E0\uAD6C
+      \uC870\uAC01\uC785\uB2C8\uB2E4.\\n\u203B<color=#C65DFF>\uD76C\uADC0</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_piece_max_rt5
+    ko: "\uC7A5\uC2E0\uAD6C\uB85C \uAD50\uD658\uD560 \uC218 \uC788\uB294 \uC7A5\uC2E0\uAD6C
+      \uC870\uAC01\uC785\uB2C8\uB2E4.\\n\u203B<color=#FF53AD>\uC601\uC6C5</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_piece_max_rt6
+    ko: "\uC7A5\uC2E0\uAD6C\uB85C \uAD50\uD658\uD560 \uC218 \uC788\uB294 \uC7A5\uC2E0\uAD6C
+      \uC870\uAC01\uC785\uB2C8\uB2E4.\\n\u203B<color=#FFA436>\uACE0\uB300</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_piece_max_rt7
+    ko: "\uC7A5\uC2E0\uAD6C\uB85C \uAD50\uD658\uD560 \uC218 \uC788\uB294 \uC7A5\uC2E0\uAD6C
+      \uC870\uAC01\uC785\uB2C8\uB2E4.\\n\u203B<color=#FFE800>\uC804\uC124</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.ether_once
+    ko: "\uC7A5\uC2E0\uAD6C\uB97C \uC18C\uD658\uD560 \uC218 \uC788\uB294 \uC5D0\uD14C\uB974\uB97C
+      \uBCF4\uC0C1\uC73C\uB85C \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\\n<color=#FFC500>\u203B\uCCAB
+      \uD074\uB9AC\uC5B4\uC2DC 1\uD68C\uB9CC \uC9C0\uAE09\uB429\uB2C8\uB2E4.\u203B</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.ether
+    ko: "\uC7A5\uC2E0\uAD6C\uB97C \uC18C\uD658\uD560 \uC218 \uC788\uB294 \uC5D0\uD14C\uB974\uB97C
+      \uBCF4\uC0C1\uC73C\uB85C \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_enhant_ston
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370
+      \uD544\uC694\uD55C \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_enhant_ston_rt1
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370
+      \uD544\uC694\uD55C <color=#A9855D>\uC77C\uBC18</color> \uB4F1\uAE09\uC758 \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_enhant_ston_rt2
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370
+      \uD544\uC694\uD55C <color=#58B473>\uC911\uAE09</color> \uB4F1\uAE09\uC758 \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_enhant_ston_rt3
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370
+      \uD544\uC694\uD55C <color=#698FFF>\uACE0\uAE09</color> \uB4F1\uAE09\uC758 \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_enhant_ston_rt4
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370
+      \uD544\uC694\uD55C <color=#C65DFF>\uD76C\uADC0</color> \uB4F1\uAE09\uC758 \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_enhant_ston_rt5
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370
+      \uD544\uC694\uD55C <color=#FF53AD>\uC601\uC6C5</color> \uB4F1\uAE09\uC758 \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_enhant_ston_rt6
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370
+      \uD544\uC694\uD55C <color=#FFA436>\uACE0\uB300</color> \uB4F1\uAE09\uC758 \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_enhant_ston_rt7
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370
+      \uD544\uC694\uD55C <color=#FFE800>\uC804\uC124</color> \uB4F1\uAE09\uC758 \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_enhant_ston_max_rt1
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370
+      \uD544\uC694\uD55C \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4.\\n\u203B<color=#A9855D>\uC77C\uBC18</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_enhant_ston_max_rt2
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370
+      \uD544\uC694\uD55C \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4.\\n\u203B<color=#58B473>\uC911\uAE09</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_enhant_ston_max_rt3
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370
+      \uD544\uC694\uD55C \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4.\\n\u203B<color=#698FFF>\uACE0\uAE09</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_enhant_ston_max_rt4
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370
+      \uD544\uC694\uD55C \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4.\\n\u203B<color=#C65DFF>\uD76C\uADC0</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_enhant_ston_max_rt5
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370
+      \uD544\uC694\uD55C \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4.\\n\u203B<color=#FF53AD>\uC601\uC6C5</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_enhant_ston_max_rt6
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370
+      \uD544\uC694\uD55C \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4.\\n\u203B<color=#FFA436>\uACE0\uB300</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.equip_enhant_ston_max_rt7
+    ko: "\uBB34\uAE30/\uBC29\uD328/\uBC29\uC5B4\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370
+      \uD544\uC694\uD55C \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4.\\n\u203B<color=#FFE800>\uC804\uC124</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_enhant_ston
+    ko: "\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370 \uD544\uC694\uD55C
+      \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_enhant_ston_rt1
+    ko: "\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370 \uD544\uC694\uD55C
+      <color=#A9855D>\uC77C\uBC18</color> \uB4F1\uAE09 \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_enhant_ston_rt2
+    ko: "\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370 \uD544\uC694\uD55C
+      <color=#58B473>\uC911\uAE09</color> \uB4F1\uAE09 \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_enhant_ston_rt3
+    ko: "\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370 \uD544\uC694\uD55C
+      <color=#698FFF>\uACE0\uAE09</color> \uB4F1\uAE09 \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_enhant_ston_rt4
+    ko: "\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370 \uD544\uC694\uD55C
+      <color=#C65DFF>\uD76C\uADC0</color> \uB4F1\uAE09 \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_enhant_ston_rt5
+    ko: "\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370 \uD544\uC694\uD55C
+      <color=#FF53AD>\uC601\uC6C5</color> \uB4F1\uAE09 \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_enhant_ston_rt6
+    ko: "\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370 \uD544\uC694\uD55C
+      <color=#FFA436>\uACE0\uB300</color> \uB4F1\uAE09 \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_enhant_ston_rt7
+    ko: "\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370 \uD544\uC694\uD55C
+      <color=#FFE800>\uC804\uC124</color> \uB4F1\uAE09 \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_enhant_ston_max_rt1
+    ko: "\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370 \uD544\uC694\uD55C
+      \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4.\\n\u203B<color=#A9855D>\uC77C\uBC18</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_enhant_ston_max_rt2
+    ko: "\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370 \uD544\uC694\uD55C
+      \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4.\\n\u203B<color=#58B473>\uC911\uAE09</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_enhant_ston_max_rt3
+    ko: "\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370 \uD544\uC694\uD55C
+      \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4.\\n\u203B<color=#698FFF>\uACE0\uAE09</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_enhant_ston_max_rt4
+    ko: "\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370 \uD544\uC694\uD55C
+      \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4.\\n\u203B<color=#C65DFF>\uD76C\uADC0</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_enhant_ston_max_rt5
+    ko: "\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370 \uD544\uC694\uD55C
+      \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4.\\n\u203B<color=#FF53AD>\uC601\uC6C5</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_enhant_ston_max_rt6
+    ko: "\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370 \uD544\uC694\uD55C
+      \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4.\\n\u203B<color=#FFA436>\uACE0\uB300</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.acce_enhant_ston_max_rt7
+    ko: "\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uD558\uB294\uB370 \uD544\uC694\uD55C
+      \uAC15\uD654\uC11D\uC785\uB2C8\uB2E4.\\n\u203B<color=#FFE800>\uC804\uC124</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.enhant_bless
+    ko: "\uC7A5\uBE44/\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uC2DC \uAC15\uD654 \uC131\uACF5\uB960\uC744
+      \uB192\uC5EC\uC8FC\uB294 \uC8FC\uBB38\uC11C\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.enhant_bless_rt1
+    ko: "\uC7A5\uBE44/\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uC2DC \uAC15\uD654 \uC131\uACF5\uB960\uC744
+      \uB192\uC5EC\uC8FC\uB294 <color=#A9855D>\uC77C\uBC18</color> \uB4F1\uAE09 \uC8FC\uBB38\uC11C\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.enhant_bless_rt2
+    ko: "\uC7A5\uBE44/\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uC2DC \uAC15\uD654 \uC131\uACF5\uB960\uC744
+      \uB192\uC5EC\uC8FC\uB294 <color=#58B473>\uC911\uAE09</color> \uB4F1\uAE09 \uC8FC\uBB38\uC11C\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.enhant_bless_rt3
+    ko: "\uC7A5\uBE44/\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uC2DC \uAC15\uD654 \uC131\uACF5\uB960\uC744
+      \uB192\uC5EC\uC8FC\uB294 <color=#698FFF>\uACE0\uAE09</color> \uB4F1\uAE09 \uC8FC\uBB38\uC11C\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.enhant_bless_rt4
+    ko: "\uC7A5\uBE44/\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uC2DC \uAC15\uD654 \uC131\uACF5\uB960\uC744
+      \uB192\uC5EC\uC8FC\uB294 <color=#C65DFF>\uD76C\uADC0</color> \uB4F1\uAE09 \uC8FC\uBB38\uC11C\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.enhant_bless_rt5
+    ko: "\uC7A5\uBE44/\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uC2DC \uAC15\uD654 \uC131\uACF5\uB960\uC744
+      \uB192\uC5EC\uC8FC\uB294 <color=#FF53AD>\uC601\uC6C5</color> \uB4F1\uAE09 \uC8FC\uBB38\uC11C\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.enhant_bless_rt6
+    ko: "\uC7A5\uBE44/\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uC2DC \uAC15\uD654 \uC131\uACF5\uB960\uC744
+      \uB192\uC5EC\uC8FC\uB294 <color=#FFA436>\uACE0\uB300</color> \uB4F1\uAE09 \uC8FC\uBB38\uC11C\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.enhant_bless_rt7
+    ko: "\uC7A5\uBE44/\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uC2DC \uAC15\uD654 \uC131\uACF5\uB960\uC744
+      \uB192\uC5EC\uC8FC\uB294 <color=#FFE800>\uC804\uC124</color> \uB4F1\uAE09 \uC8FC\uBB38\uC11C\uC785\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.enhant_bless_max_rt1
+    ko: "\uC7A5\uBE44/\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uC2DC \uAC15\uD654 \uC131\uACF5\uB960\uC744
+      \uB192\uC5EC\uC8FC\uB294 \uC8FC\uBB38\uC11C\uC785\uB2C8\uB2E4.\\n\u203B<color=#A9855D>\uC77C\uBC18</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.enhant_bless_max_rt2
+    ko: "\uC7A5\uBE44/\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uC2DC \uAC15\uD654 \uC131\uACF5\uB960\uC744
+      \uB192\uC5EC\uC8FC\uB294 \uC8FC\uBB38\uC11C\uC785\uB2C8\uB2E4.\\n\u203B<color=#58B473>\uC911\uAE09</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.enhant_bless_max_rt3
+    ko: "\uC7A5\uBE44/\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uC2DC \uAC15\uD654 \uC131\uACF5\uB960\uC744
+      \uB192\uC5EC\uC8FC\uB294 \uC8FC\uBB38\uC11C\uC785\uB2C8\uB2E4.\\n\u203B<color=#698FFF>\uACE0\uAE09</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.enhant_bless_max_rt4
+    ko: "\uC7A5\uBE44/\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uC2DC \uAC15\uD654 \uC131\uACF5\uB960\uC744
+      \uB192\uC5EC\uC8FC\uB294 \uC8FC\uBB38\uC11C\uC785\uB2C8\uB2E4.\\n\u203B<color=#C65DFF>\uD76C\uADC0</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.enhant_bless_max_rt5
+    ko: "\uC7A5\uBE44/\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uC2DC \uAC15\uD654 \uC131\uACF5\uB960\uC744
+      \uB192\uC5EC\uC8FC\uB294 \uC8FC\uBB38\uC11C\uC785\uB2C8\uB2E4.\\n\u203B<color=#FF53AD>\uC601\uC6C5</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.enhant_bless_max_rt6
+    ko: "\uC7A5\uBE44/\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uC2DC \uAC15\uD654 \uC131\uACF5\uB960\uC744
+      \uB192\uC5EC\uC8FC\uB294 \uC8FC\uBB38\uC11C\uC785\uB2C8\uB2E4.\\n\u203B<color=#FFA436>\uACE0\uB300</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.enhant_bless_max_rt7
+    ko: "\uC7A5\uBE44/\uC7A5\uC2E0\uAD6C\uB97C \uAC15\uD654\uC2DC \uAC15\uD654 \uC131\uACF5\uB960\uC744
+      \uB192\uC5EC\uC8FC\uB294 \uC8FC\uBB38\uC11C\uC785\uB2C8\uB2E4.\\n\u203B<color=#FFE800>\uC804\uC124</color>
+      \uB4F1\uAE09\uAE4C\uC9C0 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\u203B"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.potion
+    ko: "\uCCB4\uB825 \uD68C\uBCF5\uC5D0 \uB3C4\uC6C0\uC774 \uB418\uB294 \uBB3C\uC57D\uC744
+      \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: contents.reward.preview.descript.key_all
+    ko: "\uB358\uC804\uC5D0 \uC785\uC7A5\uD560 \uC218 \uC788\uB294 \uC5F4\uC1E0\uB4E4\uC744
+      \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_1
+    ko: "\uC0AC\uC77C\uB7F0\uD2B8"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_2
+    ko: "3\uD134 \uD3ED\uD0C4"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_3
+    ko: "\uD050\uC5B4 \uC274\uB4DC"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_4
+    ko: "\uC2A4\uD134\uC2A4 \uB9E4\uC154"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_5
+    ko: "\uB300\uBBF8\uC9C0 \uB9AC\uD50C\uB809\uC158"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_6
+    ko: "\uACFC\uB2E4 \uCD9C\uD608"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_7
+    ko: "\uC2A4\uD134\uCEE4\uC2A4"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_8
+    ko: "\uD790\uB9C1"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_9
+    ko: "\uD30C\uC6CC \uD53C\uC2A4\uD2B8"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_10
+    ko: "\uBD88\uC2A4\uC544\uC774"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_11
+    ko: "\uC274\uB4DC \uBD80\uC2A4\uD130"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_12
+    ko: "\uC2A4\uD134 \uCEE4\uD130"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_13
+    ko: "\uB77C\uC774\uD504 \uB4DC\uB808\uC778"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_14
+    ko: "\uC274\uB4DC\uCC28\uC9C0"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_15
+    ko: "\uC6E8\uD3F0 \uBE0C\uB808\uC774\uCEE4"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_16
+    ko: "\uB2E4\uD06C \uC0AC\uC774\uD2B8"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_17
+    ko: "\uAE09\uC18C \uBC1C\uACAC"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_18
+    ko: "\uB77C\uC774\uD504 \uC774\uD130"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_19
+    ko: "\uCD94\uD48D \uB099\uC5FD"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_20
+    ko: "\uBC14\uB78C \uC790\uB974\uAE30"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_21
+    ko: "\uBC40\uD30C\uC774\uC5B4\uC758 \uBBF8\uC18C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_22
+    ko: "\uD53C\uC758 \uCC44\uBB34\uC790"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_23
+    ko: "\uC6A9\uAE30\uC758 \uBC29\uD328"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_24
+    ko: "\uADF8\uB85C\uAE30 \uC2AC\uB7EC\uD130"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_25
+    ko: "\uC880\uBE44\uC758 \uC228\uACB0"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.name_26
+    ko: "\uD37C\uD399\uD2B8 \uC274\uB4DC"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_1
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_2
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_3
+    ko: "\uBB34\uC801 \uBCF4\uD638\uB9C9! \uAE30\uC808, \uACBD\uC9C1 \uC800\uD56D!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_4
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_5
+    ko: "3\uD68C \uB300\uBBF8\uC9C0 \uBC18\uC0AC! \uACBD\uC9C1 \uC800\uD56D!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_6
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_7
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_8
+    ko: "\uCCB4\uB825 \uD68C\uBCF5!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_9
+    ko: "4\uD68C \uACF5\uACA9\uB825 <color=yellow>\u25B2</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_10
+    ko: "2\uD68C \uBA85\uC911\uB960 <color=yellow>\u25B2</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_11
+    ko: "2\uD68C \uACF5\uACA9 \uC18D\uB3C4 <color=yellow>\u25B2</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_12
+    ko: "\uCD94\uAC00 \uD53C\uD574!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_13
+    ko: "\uCCB4\uB825 \uD68C\uBCF5!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_14
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_15
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_16
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_17
+    ko: "\uCE58\uBA85\uD0C0 \uC131\uACF5<color=yellow>100%</color> \uCE58\uBA85\uD0C0
+      \uB300\uBBF8\uC9C0<color=yellow>\u25B2</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_18
+    ko: "5\uD68C \uCCB4\uB825 \uD68C\uBCF5!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_19
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_20
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_21
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_22
+    ko: "\uB514\uBC84\uD504 \uBAA8\uB450 \uC81C\uAC70! \uCCB4\uB825 \uD68C\uBCF5!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_23
+    ko: "5\uD68C \uBC29\uC5B4\uB825<color=yellow>\u25B2</color> \uD68C\uD53C\uC728<color=yellow>\u25B2</color>
+      \uCE58\uBA85\uD0C0 \uBC29\uC5B4\uB825<color=yellow>\u25B2</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_24
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_25
+    ko: "3\uD68C \uCD9C\uD608 100% \uC800\uD56D"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.bf.label_26
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_1
+    ko: "5\uD68C \uC2A4\uD0AC \uC0AC\uC6A9 \uAE08\uC9C0!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_2
+    ko: "3\uD68C \uD3ED\uBC1C \uB300\uAE30!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_3
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_4
+    ko: "2\uD68C \uAE30\uC808!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_5
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_6
+    ko: "5\uD68C \uCD9C\uD608!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_7
+    ko: "3\uD68C \uACBD\uC9C1!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_8
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_9
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_10
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_11
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_12
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_13
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_14
+    ko: "\uBC29\uC5B4\uB825 \uAC10\uC18C 2\uD68C!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_15
+    ko: "\uACF5\uACA9\uB825 \uAC10\uC18C 2\uD68C!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_16
+    ko: "\uBA85\uC911\uB960 \uAC10\uC18C 2\uD68C!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_17
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_18
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_19
+    ko: "1\uD68C \uACBD\uC9C1!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_20
+    ko: "3\uD68C \uCCB4\uB825 \uD68C\uBCF5\uC2DC \uACF5\uC18D <color=red>\u25BC</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_21
+    ko: "\uC2A4\uD0AC \uBC1C\uB3D9 \uD3EC\uC778\uD2B8<color=red>(\u25CF)</color>\uBAA8\uB450
+      \uC0AD\uC81C!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_22
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_23
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_24
+    ko: "2\uD68C \uAE30\uC808 \uC5F0\uC7A5!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_25
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.dbf.label_26
+    ko: "5\uD68C \uBC1B\uB294 \uD53C\uD574 \uC99D\uAC00!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_1
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_2
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_3
+    ko: SHIELD!
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_4
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_5
+    ko: DAMAGE REFLECTION!
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_6
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_7
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_8
+    ko: HEALING!
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_9
+    ko: ATTACK POWER UP!
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_10
+    ko: ACCURACY UP!
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_11
+    ko: DEFENSE POWER UP!
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_12
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_13
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_14
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_15
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_16
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_17
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_18
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_19
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_20
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_21
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_22
+    ko: HEALING!
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_23
+    ko: DODGE, DEFENSE POWER UP!
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_24
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_25
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.en.label_26
+    ko: STAT RECOVERY, DEFENSE SKILL!
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_1
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_2
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_3
+    ko: "\uBCF4\uD638\uB9C9"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_4
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_5
+    ko: "\uB300\uBBF8\uC9C0 \uBC18\uC0AC"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_6
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_7
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_8
+    ko: "\uB0A8\uC740 \uCCB4\uB825\uC744 \uAE30\uC900\uC73C\uB85C \uD68C\uBCF5!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_9
+    ko: "\uACF5\uACA9\uB825 \uC99D\uAC00!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_10
+    ko: "\uBA85\uC911\uB825 \uC99D\uAC00!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_11
+    ko: "\uBC29\uC5B4\uB825 \uC99D\uAC00!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_12
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_13
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_14
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_15
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_16
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_17
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_18
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_19
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_20
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_21
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_22
+    ko: "\uC774\uC804\uC5D0 \uD53C\uD574\uBC1B\uC740 \uB300\uBBF8\uC9C0\uB97C \uCCB4\uB825\uC73C\uB85C
+      \uD68C\uBCF5!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_23
+    ko: "\uD68C\uD53C\uB825, \uBC29\uC5B4\uB825, \uCE58\uBA85\uD0C0 \uBC29\uC5B4\uB825
+      \uC99D\uAC00!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_24
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_25
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.active.kr.label_26
+    ko: "\uAC10\uC18C \uC2A4\uD0EF \uBCF5\uAD6C! \uC2A4\uD0AC \uB300\uBBF8\uC9C0
+      \uAC10\uC18C!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_1
+    ko: "\uACF5\uACA9\uB825\uC758 {0}%\uC758 \uB300\uBBF8\uC9C0\uB85C \uD0C0\uACA9\uD558\uACE0,
+      \uC0C1\uB300\uB294 3\uD68C \uACF5\uACA9 \uB3D9\uC548 \uC2A4\uD0AC \uC0AC\uC6A9
+      \uBD88\uAC00 \uC0C1\uD0DC\uAC00 \uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_2
+    ko: "\uC0C1\uB300\uC5D0\uAC8C \uD3ED\uD0C4\uC744 \uB358\uC9C0\uACE0, \uC790\uC2E0\uC758
+      3\uD68C \uACF5\uACA9 \uD6C4 \uD3ED\uBC1C\uD558\uC5EC \uACF5\uACA9\uB825\uC758
+      {0}%\uC758 \uB300\uBBF8\uC9C0\uB97C \uC785\uD799\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_3
+    ko: "\uC790\uC2E0\uC758 5\uD68C \uACF5\uACA9 \uB3D9\uC548 \uC0C1\uB300\uB85C
+      \uBD80\uD130 \uC77C\uBC18 \uACF5\uACA9 \uB300\uBBF8\uC9C0 \uD53C\uD574\uB97C
+      {0}%\uAC10\uC18C\uC2DC\uCF1C\uC8FC\uB294 \uBCF4\uD638\uB9C9\uC744 \uC0DD\uC131\uD558\uACE0
+      \uAE30\uC808, \uACBD\uC9C1\uC744 100% \uC800\uD56D\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_4
+    ko: "\uACF5\uACA9\uB825\uC758 {0}%\uC758 \uB300\uBBF8\uC9C0\uB85C \uD0C0\uACA9
+      \uD558\uACE0, \uC790\uC2E0\uC758 2\uD68C \uACF5\uACA9 \uB3D9\uC548 \uC0C1\uB300\uB97C
+      {1}% \uD655\uB960\uB85C \uAE30\uC808 \uC0C1\uD0DC\uB85C \uB9CC\uB4ED\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_5
+    ko: "\uC790\uC2E0\uC758 5\uD68C \uACF5\uACA9 \uB3D9\uC548 \uACBD\uC9C1\uC5D0
+      \uB300\uD574 100% \uC800\uD56D\uD558\uACE0, \uD0C0\uACA9\uC744 \uBC1B\uC744\uB54C\uB9C8\uB2E4
+      \uD53C\uD574\uB7C9\uC758 {0}%\uB97C \uBC18\uC0AC\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_6
+    ko: "\uACF5\uACA9\uB825\uC758 {0}%\uC758 \uB300\uBBF8\uC9C0\uB85C \uD0C0\uACA9
+      \uD558\uACE0, \uC0C1\uB300\uB294 5\uD68C \uACF5\uACA9 \uB3D9\uC548 \uB0B4 \uAE30\uBCF8
+      \uACF5\uACA9\uB825\uC758 {1}%\uB9CC\uD07C \uCD9C\uD608 \uD53C\uD574\uB97C \uC785\uC2B5\uB2C8\uB2E4.."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_7
+    ko: "\uACF5\uACA9\uB825\uC758 {0}%\uC758 \uB300\uBBF8\uC9C0\uB85C \uD0C0\uACA9
+      \uD558\uACE0, \uC0C1\uB300\uB294 5\uD68C \uACF5\uACA9 \uB3D9\uC548 \uC77C\uBC18
+      \uACF5\uACA9\uC744 \uD560 \uACBD\uC6B0 \uACBD\uC9C1 \uC0C1\uD0DC\uAC00 \uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_8
+    ko: "\uD604\uC7AC \uC790\uC2E0\uC758 \uB0A8\uC740 \uCCB4\uB825\uC744 \uAE30\uC900\uC73C\uB85C
+      {0}%\uC758 \uCCB4\uB825\uC744 \uC989\uC2DC \uD68C\uBCF5\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_9
+    ko: "\uC790\uC2E0\uC758 5\uD68C \uACF5\uACA9 \uB3D9\uC548 \uC790\uC2E0\uC758
+      \uACF5\uACA9\uB825\uC774 {0}% \uC99D\uAC00\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_10
+    ko: "\uC790\uC2E0\uC758 6\uD68C \uACF5\uACA9 \uB3D9\uC548 \uC790\uC2E0\uC758
+      \uBA85\uC911\uB960\uC774 {0}% \uC99D\uAC00\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_11
+    ko: "\uC790\uC2E0\uC758 7\uD68C \uACF5\uACA9 \uB3D9\uC548 \uC790\uC2E0\uC758
+      \uBC29\uC5B4\uB825\uC774 {0}% \uC99D\uAC00\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_12
+    ko: "\uAC80 \uB05D\uC5D0 \uAE30\uB97C \uBAA8\uC544 \uC0C1\uB300\uC5D0\uAC8C {0}%~{1}%
+      \uC0AC\uC774\uC758 \uB79C\uB364 \uB300\uBBF8\uC9C0\uB85C \uD0C0\uACA9\uD558\uACE0,
+      \uC0C1\uB300\uAC00 \uAE30\uC808 \uC0C1\uD0DC\uC77C \uACBD\uC6B0 \uAE30\uBCF8
+      \uACF5\uACA9\uB825\uC758 {2}%\uC758 \uACE0\uC815 \uB300\uBBF8\uC9C0\uB97C \uCD94\uAC00\uB85C
+      \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_13
+    ko: "\uACF5\uACA9\uB825\uC758 {0}%~{1}\uC0AC\uC774\uC758 \uB79C\uB364\uD55C \uB300\uBBF8\uC9C0\uB85C
+      \uD0C0\uACA9 \uD558\uACE0, \uD0C0\uACA9 \uB300\uBBF8\uC9C0\uC758 {2}%\uB9CC\uD07C
+      \uCCB4\uB825\uC744 \uD68C\uBCF5\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_14
+    ko: "\uACF5\uACA9\uB825\uC758 {0}%\uC758 \uB300\uBBF8\uC9C0\uB85C \uD0C0\uACA9
+      \uD558\uACE0, \uC0C1\uB300\uB294 5\uD68C \uACF5\uACA9 \uB3D9\uC548 \uBC29\uC5B4\uB825\uC774
+      {1}% \uAC10\uC18C\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_15
+    ko: "\uACF5\uACA9\uB825\uC758 {0}%\uC758 \uB300\uBBF8\uC9C0\uB85C \uD0C0\uACA9
+      \uD558\uACE0, \uC0C1\uB300\uB294 5\uD68C \uACF5\uACA9 \uB3D9\uC548 \uACF5\uACA9\uB825\uC774
+      {1}% \uAC10\uC18C\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_16
+    ko: "\uACF5\uACA9\uB825\uC758 {0}%\uC758 \uB300\uBBF8\uC9C0\uB85C \uD0C0\uACA9
+      \uD558\uACE0, \uC0C1\uB300\uB294 5\uD68C \uACF5\uACA9 \uB3D9\uC548 \uBA85\uC911\uB960\uC774
+      {1}% \uAC10\uC18C\uB429\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_17
+    ko: "\uACF5\uACA9\uB825\uC758 {0}%\uC758 \uB300\uBBF8\uC9C0\uB85C \uD0C0\uACA9
+      \uD558\uACE0, \uC790\uC2E0\uC758 1\uD68C \uACF5\uACA9 \uB3D9\uC548 \uCE58\uBA85\uD0C0
+      \uC131\uACF5\uB960\uC774 100%\uAC00 \uB418\uACE0, \uCE58\uBA85\uD0C0 \uB300\uBBF8\uC9C0\uAC00
+      {0}% \uC99D\uAC00\uB429\uB2C8\uB2E4. (\uC0C1\uB300\uB85C \uBD80\uD130 \uD6A8\uACFC
+      \uC911\uBCF5\uC2DC \uC6B0\uC120 \uC21C\uC704)"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_18
+    ko: "\uACF5\uACA9\uB825\uC758 {0}%\uC758 \uB300\uBBF8\uC9C0\uB85C \uD0C0\uACA9
+      \uD558\uACE0, \uC790\uC2E0\uC758 5\uD68C \uACF5\uACA9 \uB3D9\uC548 \uCD5C\uB300
+      \uCCB4\uB825\uC758 {1}%\uC529 \uCCB4\uB825\uC744 \uD68C\uBCF5\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_19
+    ko: "\uACF5\uACA9\uB825\uC758 {0}%\uC758 \uB300\uBBF8\uC9C0\uB85C \uD0C0\uACA9
+      \uD558\uACE0, \uC0C1\uB300\uB294 5\uD68C \uACF5\uACA9\uB3D9\uC548 \uCE58\uBA85\uD0C0
+      \uC131\uACF5\uB960\uC744 50% \uAC10\uC18C, \uCE58\uBA85\uD0C0 \uB300\uBBF8\uC9C0\uB97C
+      {0}% \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_20
+    ko: "\uACF5\uACA9\uB825\uC758 {0}%~{1}%\uC0AC\uC774\uC758 \uB79C\uB364\uD55C
+      \uB300\uBBF8\uC9C0\uB85C \uD0C0\uACA9 \uD558\uACE0, \uC0C1\uB300\uC7583\uD68C
+      \uACF5\uACA9 \uB3D9\uC548 \uACF5\uACA9 \uC18D\uB3C4\uB97C {2}%\uAC10\uC18C
+      \uC2DC\uD0B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_21
+    ko: "\uACF5\uACA9\uB825\uC758 {0}%~{1}%\uC0AC\uC774\uC758 \uB79C\uB364\uD55C
+      \uB300\uBBF8\uC9C0\uB85C \uD0C0\uACA9\uD558\uACE0, \uC0C1\uB300\uAC00 \uCD9C\uD608
+      \uC0C1\uD0DC\uC77C \uACBD\uC6B0 \uC0C1\uB300\uC758 \uC2A4\uD0AC \uBC1C\uB3D9
+      \uD3EC\uC778\uD2B8\uB97C \uBAA8\uB450 \uBE7C\uC557\uC544 \uC635\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_22
+    ko: "\uC790\uC2E0\uC5D0\uAC8C \uAC78\uB9B0 \uBC29\uD574 \uC694\uC18C\uB97C \uBAA8\uB450
+      \uC81C\uAC70\uD558\uACE0, \uC774\uC804\uC5D0 \uACF5\uACA9\uBC1B\uC740 \uB300\uBBF8\uC9C0\uC758
+      {0}%\uB97C \uCCB4\uB825\uC73C\uB85C \uD68C\uBCF5\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_23
+    ko: "\uC0C1\uB300\uAC00 5\uD68C \uACF5\uACA9 \uB3D9\uC548 \uC790\uC2E0\uC758
+      \uCCB4\uB825\uC774 30% \uC774\uD558\uC77C \uB54C \uBC29\uC5B4\uB825\uC774 {0}%
+      \uC99D\uAC00, \uD68C\uD53C\uC728\uC774 {1}%\uC99D\uAC00, \uCE58\uBA85\uD0C0
+      \uBC29\uC5B4\uB825\uC774 {2}% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_24
+    ko: "\uACF5\uACA9\uB825\uC758 {0}%\uC758 \uB300\uBBF8\uC9C0\uB85C \uD0C0\uACA9
+      \uD558\uACE0, \uC0C1\uB300\uAC00 \uAE30\uC808 \uC0C1\uD0DC\uC77C \uACBD\uC6B0
+      \uAE30\uC808\uC744 3\uD68C \uB354 \uC5F0\uC7A5\uC2DC\uD0B5\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_25
+    ko: "\uACF5\uACA9\uB825\uC758 {0}%\uC758 \uB300\uBBF8\uC9C0\uB85C \uD0C0\uACA9\uD558\uACE0,
+      \uC790\uC2E0\uC758 3\uD68C \uACF5\uACA9 \uB3D9\uC548 \uCD9C\uD608\uC5D0 100%
+      \uC800\uD56D\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: skill.description_26
+    ko: "\uC790\uC2E0\uC758 \uC2A4\uD0EF\uC774 \uAC10\uC18C\uB418\uB294 \uC2A4\uD0AC\uC744
+      \uBB34\uB825\uD654 \uC2DC\uD0A4\uACE0, \uC790\uC2E0\uC740 \uC0C1\uB300\uB85C
+      \uBD80\uD130 \uBC1B\uB294 \uC2A4\uD0AC \uB300\uBBF8\uC9C0\uB97C {0}% \uAC10\uC18C
+      \uC2DC\uD0B5\uB2C8\uB2E4. (\uC0C1\uB300 \uACF5\uACA9 4\uD68C \uB3D9\uC548)"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: stat.name.id_0
+    ko: "\uACF5\uACA9 \uC18D\uB3C4"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: stat.name.id_1
+    ko: "\uACF5\uACA9\uB825"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: stat.name.id_2
+    ko: "\uBC29\uC5B4\uB825"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: stat.name.id_3
+    ko: "\uBA85\uC911\uB960"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: stat.name.id_4
+    ko: "\uCE58\uBA85\uD0C0 \uACF5\uACA9\uB825"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: stat.name.id_5
+    ko: "\uCCB4\uB825"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: stat.name.id_6
+    ko: "\uCE58\uBA85\uD0C0 \uC131\uACF5\uB960"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: stat.name.id_7
+    ko: "\uD68C\uD53C\uC728"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: stat.name.id_8
+    ko: "\uCE58\uBA85\uD0C0 \uBC29\uC5B4\uB825"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: stat.name.id_9
+    ko: "\uCE58\uBA85\uD0C0 \uD68C\uD53C\uC728"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: acce.option.id_1
+    ko: "PvE\uD53C\uD574\uB7C9 \uC99D\uAC00"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: acce.option.id_2
+    ko: "PvP\uD53C\uD574\uB7C9 \uC99D\uAC00"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: acce.option.id_3
+    ko: "PvE\uD53C\uD574\uB7C9 \uAC10\uC18C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: acce.option.id_4
+    ko: "PvP\uD53C\uD574\uB7C9 \uAC10\uC18C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: acce.option.id_5
+    ko: "\uACE8\uB4DC \uD68D\uB4DD\uB7C9 \uC99D\uAC00"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: acce.option.id_6
+    ko: "\uC7A5\uBE44 \uB4DC\uB78D\uB960 \uC99D\uAC00"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: acce.option.id_7
+    ko: "\uBCF4\uC2A4 \uBAAC\uC2A4\uD130 \uD53C\uD574\uB7C9 \uC99D\uAC00"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: acce.option.id_8
+    ko: "\uCD5C\uB300 \uCCB4\uB825\uC758 {0}%\uB97C \uD68C\uBCF5 (\uD655\uB960 \uBC1C\uB3D9)"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: acce.option.id_9
+    ko: "\uC2A4\uD0AC \uD3EC\uC778\uD2B8 \uCD94\uAC00 \uD68D\uB4DD (\uD655\uB960
+      \uBC1C\uB3D9)"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: acce.option.id_10
+    ko: "\uC0C1\uB300 \uC2A4\uD0AC \uD3EC\uC778\uD2B8 \uCC28\uAC10 (\uD655\uB960
+      \uBC1C\uB3D9)"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.rating0_0
+    ko: "\uD6C8\uB828\uBCD1\uC758"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.rating1_1
+    ko: "\uACAC\uC2B5\uAE30\uC0AC\uC758"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.rating2_1
+    ko: "\uAE30\uC0AC\uB2E8\uC758"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.rating2_2
+    ko: "\uD478\uB978 \uBBF8\uB298\uC758"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.rating3_1
+    ko: "\uAE30\uC0AC \uB2E8\uC7A5\uC758"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.rating3_2
+    ko: "\uB179\uC2AC\uC5B4 \uBC84\uB9B0"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.rating3_3
+    ko: "\uACE0\uACB0\uD55C \uC655\uC758"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.rating4_1
+    ko: "\uBE5B\uB098\uB294 \uD310\uAE08\uC758"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.rating4_2
+    ko: "\uAC80\uC740 \uADF8\uB9BC\uC790\uC758"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.rating4_3
+    ko: "\uC624\uC2DC\uB9AC\uC2A4\uC758"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.rating4_4
+    ko: "\uBC14\uC2F8\uACE0\uC758"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.rating5_1
+    ko: "\uBD89\uC740 \uADF8\uB9BC\uC790\uC758"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.rating5_2
+    ko: "\uD638\uB8E8\uC2A4\uC758"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.rating5_3
+    ko: "\uC544\uAC00\uB808\uC2A4\uC758"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.rating5_4
+    ko: "\uC740\uAE30\uC0AC\uC758"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.rating6_1
+    ko: "\uC57C\uB204\uC2A4\uC758"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.rating6_2
+    ko: "\uBC14\uC54C\uC758"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.rating6_3
+    ko: "\uD06C\uB85C\uB178\uC2A4\uC758"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.rating7_1
+    ko: "\uAC00\uC774\uC544\uC758"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.rating7_2
+    ko: "\uC6B0\uB77C\uB178\uC2A4\uC758"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.type0
+    ko: "\uAC80"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.type1
+    ko: "\uBC29\uD328"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.type2
+    ko: "\uD22C\uAD6C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.type3
+    ko: "\uC204\uB354 \uC544\uBA38"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.type4
+    ko: "\uBC14\uB514 \uC544\uBA38"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.type5
+    ko: "\uAC74\uD2C0\uB9BF"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.type6
+    ko: "\uB808\uADF8 \uC544\uBA38"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.type7
+    ko: "\uADF8\uB9AC\uBE0C"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.type8
+    ko: "\uBAA9\uAC78\uC774"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.type9
+    ko: "\uADC0\uAC78\uC774"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: equip.name.type10
+    ko: "\uBC18\uC9C0"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: offline.reward.name.qst_gold
+    ko: "\uACE8\uB4DC"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: offline.reward.name.ruby
+    ko: "\uB8E8\uBE44"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: offline.reward.name.ether
+    ko: "\uC5D0\uD14C\uB974"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: offline.reward.name.piece_equip_rt5
+    ko: "\uC601\uC6C5 \uC7A5\uBE44 \uC870\uAC01"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: offline.reward.name.piece_equip_rt6
+    ko: "\uACE0\uB300 \uC7A5\uBE44 \uC870\uAC01"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: offline.reward.name.piece_equip_rt7
+    ko: "\uC804\uC124 \uC7A5\uBE44 \uC870\uAC01"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: offline.reward.name.piece_acce_rt5
+    ko: "\uC601\uC6C5 \uC7A5\uC2E0\uAD6C \uC870\uAC01"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: chat.drop.msg.equip
+    ko: "<color={0}>{1}\uB2D8\uC774 {2} \uB4F1\uAE09 [{3}]\uC744(\uB97C) \uD68D\uB4DD\uD558\uC600\uC2B5\uB2C8\uB2E4.</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: chat.notification
+    ko: "<color=#00FF22>[\uACF5\uC9C0] {0}</color>"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: notif.ad.video.delay
+    ko: "\uAD11\uACE0 \uB300\uAE30 \uC2DC\uAC04\uC774 \uC788\uC2B5\uB2C8\uB2E4. \uC7A0\uC2DC\uD6C4\uC5D0
+      \uB2E4\uC2DC \uC2DC\uB3C4\uD574\uC8FC\uC138\uC694."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ask.ad.video.blue.dia10
+    ko: "\uC9E7\uC740 \uAD11\uACE0 \uC2DC\uCCAD \uD6C4\\n\uB2E4\uC774\uC544 10~25\uAC1C\uB97C
+      \uB79C\uB364\uC73C\uB85C \uD68D\uB4DD\uD569\uB2C8\uB2E4!"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ask.ad.video.acce.sohawan.re.time
+    ko: "\uC9E7\uC740 \uAD11\uACE0 \uC2DC\uCCAD \uD6C4\\n\uC7A5\uC2E0\uAD6C \uBB34\uB8CC
+      \uC18C\uD658 \uB300\uAE30 \uC2DC\uAC04\uC744 {0}\uBD84 \uB2E8\uCD95\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ask.ad.video.equip.sohawan.re.time
+    ko: "\uC9E7\uC740 \uAD11\uACE0 \uC2DC\uCCAD \uD6C4\\n\uC7A5\uBE44 \uBB34\uB8CC
+      \uC18C\uD658 \uB300\uAE30 \uC2DC\uAC04\uC744 {0}\uBD84 \uB2E8\uCD95\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ask.ad.video.auto.sale.1hour
+    ko: "\uC9E7\uC740 \uAD11\uACE0 \uC2DC\uCCAD \uD6C4\\n\uC790\uB3D9 \uD310\uB9E4/\uBD84\uD574
+      1\uC2DC\uAC04\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: 
+    ko: 
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
+  - id: ad.video.minute.reduce
+    ko: "\uAD11\uACE0 \uC2DC\uCCAD \uD6C4 {0}\uBD84 \uB2E8\uCD95"
+    en: 
+    jp: 
+    cn: 
+    ru: 
+    fr: 
