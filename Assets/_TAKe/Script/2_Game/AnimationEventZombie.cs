@@ -14,10 +14,7 @@ public class AnimationEventZombie : MonoBehaviour
 
     public void EventGeneralAttack()
     {
-        //if (pz)
-        //{
         pz.TakeGeneralAttack();
-        //}
     }
 
     public void EventGeneralAttackEnd()

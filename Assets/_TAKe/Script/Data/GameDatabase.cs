@@ -2163,26 +2163,6 @@ public class GameDatabase
         /// </summary>
         public float GetCombatXValue(int stat_idx)
         {
-            // 스탯 
-            // 무기   : 공격력 (stat id : 1) 
-            // 방패   : 방어력 (stat id : 2) 
-            // 헬멧   : 명중력 (stat id : 3) 
-            // 어깨   : 치명타 공격력 (stat id : 4) 
-            // 갑옷   : 체력 (stat id : 5) 
-            // 팔     : 치명타 성공률 (stat id : 6) 
-            // 바지   : 회피율 (stat id : 7) 
-            // 부츠   : 치명타 방어력 (stat id : 8) 
-
-            // 목걸이 : 명중력 (stat id : 3) 
-            // 귀고리 : 공격 속도 (stat id : 9) 
-            // 반지   : 공격력 (stat id : 1) 
-
-            //if (StatCombatXVal.Count == 0)
-            //{
-            //    for (int stat_id = 1; stat_id <= 9; stat_id++)
-            //        StatCombatXVal.Add(stat_id, _chartDB.GetDicBalance(string.Format("combat.measure.x.val.stat{0}", stat_id)).val_float);
-            //}
-
             if(combat_default.min == 0)
             {
                 combat_default = list_cdb_stat.Find(x => x.eRating == 0 && x.eIdx == 0);
@@ -4340,6 +4320,7 @@ public class GameDatabase
 #region ----- 차트 이름 -----
         public const string chartName_balance = "cdb_balance"; // 밸런스 
         public const string chartName_stat = "cdb_stat";  // 장비 스탯 
+        public const string chartName_equip_stat = "cdb_equip_stat";  // 장비 스탯 
         public const string charName_sop_acce = "cdb_stat_acce_sop"; // 장신구 전용 옵션 
         public const string chartName_skill = "cdb_stat_skill"; // 스킬 
         public const string chartName_MonsterSstat = "cdb_chpt_mnst_stat";  // 챕터 스테이지 몬스터 차트 네임
@@ -4356,13 +4337,6 @@ public class GameDatabase
 
         public const string chartName_chapter_drop_rating = "chapter_drop_rating";
         public const string chartName_chapter_drop_db = "chapter_drop_db";
-        //public const string chartName_r_field_chest1 = "r_field_chest1";
-        //public const string chartName_r_field_chest2 = "r_field_chest2";
-        //public const string chartName_r_field_chest3 = "r_field_chest3";
-        //public const string chartName_r_field_chest4 = "r_field_chest4";
-        //public const string chartName_r_field_chest5 = "r_field_chest5";
-        //public const string chartName_r_field_chest6 = "r_field_chest6";
-        //public const string chartName_r_field_chest7 = "r_field_chest7";
         public const string chartName_r_acce_special_op = "r_acce_special_op";
         public const string chartName_equip_option = "cdb_equip_option";
         public const string chartName_pet = "cdb_pet";
@@ -4370,10 +4344,7 @@ public class GameDatabase
 
         private string[] chartNames = new string[]
         {
-            chartName_stat, chartName_pet, chartName_pet_sop, 
-            //chartName_weapon,       chartName_shield,   chartName_helmet,   chartName_shoulder,
-            //chartName_armor,        chartName_arm,      chartName_pants,    chartName_boots,
-            //chartName_necklace,     chartName_earring,  chartName_ring,     
+            chartName_stat, chartName_equip_stat, chartName_pet, chartName_pet_sop,  
             charName_sop_acce,      chartName_skill,
 
             chartName_balance, chartName_MonsterSstat, chartName_DungeonTop, chartName_DungeonMine, chartName_DungeonRaid,
@@ -4382,22 +4353,14 @@ public class GameDatabase
 
             chartName_attendance_book, chartName_achievements, chartName_daily_mission, chartName_quest, chartName_offline_reward
         };
+        #endregion
 
-        //public string GetDicChestName(int chs_rat)
-        //{
-        //    if (chs_rat == 1) return chartName_r_field_chest1;
-        //    else if (chs_rat == 2) return chartName_r_field_chest2;
-        //    else if (chs_rat == 3) return chartName_r_field_chest3;
-        //    else if (chs_rat == 4) return chartName_r_field_chest4;
-        //    else if (chs_rat == 5) return chartName_r_field_chest5;
-        //    else if (chs_rat == 6) return chartName_r_field_chest6;
-        //    else if (chs_rat == 7) return chartName_r_field_chest7;
+        #region ----- 장비 -----
 
-        //    return "null";
-        //}
-#endregion
+        // 장비 스탯 : 무기~방어구~장신구
+        private static readonly List<Cdb_stat> _cdb_stat = new List<Cdb_stat>();
+        public List<Cdb_stat> list_cdb_stat = _cdb_stat;
 
-#region ----- 장비 -----
         /// <summary>
         /// 장비 스탯 
         /// </summary>
@@ -4417,12 +4380,94 @@ public class GameDatabase
             public int      min_typ10, max_typ10;
         };
 
-        // 장비 스탯 : 무기~방어구~장신구
-        private static readonly List<Cdb_stat> _cdb_stat = new List<Cdb_stat>();
-        public List<Cdb_stat> list_cdb_stat = _cdb_stat;
-#endregion
+        private static readonly List<Cdb_EquipStat> _list_cdb_equipstat = new List<Cdb_EquipStat>();
+        public List<Cdb_EquipStat> list_cdb_equipstat = _list_cdb_equipstat;
 
-#region ----- 출석부 #####
+        public struct Cdb_EquipStat
+        {
+            public int level;
+            public long wea_r1, shi_r1, arm_r1, gau_r1, pan_r1;
+            public long wea_r2, shi_r2, arm_r2, gau_r2, pan_r2;
+            public long wea_r3, shi_r3, arm_r3, gau_r3, pan_r3;
+            public long wea_r4, shi_r4, arm_r4, gau_r4, pan_r4;
+            public long wea_r5, shi_r5, arm_r5, gau_r5, pan_r5;
+            public long wea_r6, shi_r6, arm_r6, gau_r6, pan_r6;
+            public long wea_r7, shi_r7, arm_r7, gau_r7, pan_r7;
+
+            public float hel_r1, sho_r1, boo_r1, nec_r1, ear_r1, rin_r1;
+            public float hel_r2, sho_r2, boo_r2, nec_r2, ear_r2, rin_r2;
+            public float hel_r3, sho_r3, boo_r3, nec_r3, ear_r3, rin_r3;
+            public float hel_r4, sho_r4, boo_r4, nec_r4, ear_r4, rin_r4;
+            public float hel_r5, sho_r5, boo_r5, nec_r5, ear_r5, rin_r5;
+            public float hel_r6, sho_r6, boo_r6, nec_r6, ear_r6, rin_r6;
+            public float hel_r7, sho_r7, boo_r7, nec_r7, ear_r7, rin_r7;
+        }
+
+        // 장비 강화 스탯 
+        public object GetEquipEnchantLevelStatValue(int lv, int eq_ty, int rt)
+        {
+            var find = list_cdb_equipstat.Find(obj => obj.level == lv);
+            switch (eq_ty)
+            {
+                case 0: // 무기 : wea_r0 ~ wea_r7 
+                    switch (rt) { case 1: return find.wea_r1; case 2: return find.wea_r2; case 3: return find.wea_r3; case 4: return find.wea_r4; case 5: return find.wea_r5; case 6: return find.wea_r6; case 7: return find.wea_r7; }
+                    break;
+
+                case 1: // 방패 
+                    switch (rt) { case 1: return find.shi_r1; case 2: return find.shi_r2; case 3: return find.shi_r3; case 4: return find.shi_r4; case 5: return find.shi_r5; case 6: return find.shi_r6; case 7: return find.shi_r7; }
+                    break;
+
+                case 2: // 헬멧 %
+                    switch (rt) { case 1: return find.hel_r1; case 2: return find.hel_r2; case 3: return find.hel_r3; case 4: return find.hel_r4; case 5: return find.hel_r5; case 6: return find.hel_r6; case 7: return find.hel_r7; }
+                    break;
+
+                case 3: // 어깨 %
+                    switch (rt) { case 1: return find.sho_r1; case 2: return find.sho_r2; case 3: return find.sho_r3; case 4: return find.sho_r4; case 5: return find.sho_r5; case 6: return find.sho_r6; case 7: return find.sho_r7; }
+                    break;
+
+                case 4: // 갑옷 
+                    switch (rt) { case 1: return find.arm_r1; case 2: return find.arm_r2; case 3: return find.arm_r3; case 4: return find.arm_r4; case 5: return find.arm_r5; case 6: return find.arm_r6; case 7: return find.arm_r7; }
+                    break;
+
+                case 5: // 팔 
+                    switch (rt) { case 1: return find.gau_r1; case 2: return find.gau_r2; case 3: return find.gau_r3; case 4: return find.gau_r4; case 5: return find.gau_r5; case 6: return find.gau_r6; case 7: return find.gau_r7; }
+                    break;
+
+                case 6: // 바지 
+                    switch (rt) { case 1: return find.pan_r1; case 2: return find.pan_r2; case 3: return find.pan_r3; case 4: return find.pan_r4; case 5: return find.pan_r5; case 6: return find.pan_r6; case 7: return find.pan_r7; }
+                    break;
+
+                case 7: // 신발 %
+                    switch (rt) { case 1: return find.boo_r1; case 2: return find.boo_r2; case 3: return find.boo_r3; case 4: return find.boo_r4; case 5: return find.boo_r5; case 6: return find.boo_r6; case 7: return find.boo_r7; }
+                    break;
+
+                case 8: // 목걸이 %
+                    switch (rt) { case 1: return find.nec_r1; case 2: return find.nec_r2; case 3: return find.nec_r3; case 4: return find.nec_r4; case 5: return find.nec_r5; case 6: return find.nec_r6; case 7: return find.nec_r7; }
+                    break;
+
+                case 9: // 귀고리 %
+                    switch (rt) { case 1: return find.ear_r1; case 2: return find.ear_r2; case 3: return find.ear_r3; case 4: return find.ear_r4; case 5: return find.ear_r5; case 6: return find.ear_r6; case 7: return find.ear_r7; }
+                    break;
+
+                case 10: // 반지 %
+                    switch (rt) { case 1: return find.rin_r1; case 2: return find.rin_r2; case 3: return find.rin_r3; case 4: return find.rin_r4; case 5: return find.rin_r5; case 6: return find.rin_r6; case 7: return find.rin_r7; }
+                    break;
+            }
+
+            return 0;
+        }
+
+        #endregion
+
+        #region ----- 능력치 스탯 업 -----
+        // 능력치 스탯 
+        public object GetAbilityLevelStatsValue(int lv, int eq_ty, int rt)
+        {
+            return 0;
+        }
+        #endregion
+
+        #region ----- 출석부 #####
         private static readonly List<cdb_attendance_book> _list_cdb_attendance_book = new List<cdb_attendance_book>();
         protected List<cdb_attendance_book> list_cdb_attendance_book = _list_cdb_attendance_book;
 
@@ -4704,7 +4749,12 @@ public class GameDatabase
                         BackendReturnObject bro = Backend.Chart.GetChartContents("21383");
                         cdb_data = JsonMapper.ToObject(bro.GetReturnValue());
                     }
-            }
+                    else if(string.Equals(cdb_key, chartName_equip_stat))
+                    {
+                        BackendReturnObject bro = Backend.Chart.GetChartContents("55038");
+                        cdb_data = JsonMapper.ToObject(bro.GetReturnValue());
+                    }
+                }
 #endif
 
             if (!string.IsNullOrEmpty(cdb_data.ToJson()))
@@ -4713,6 +4763,101 @@ public class GameDatabase
                     {
                         switch (cdb_key)
                         {
+                            case chartName_equip_stat:
+                                list_cdb_equipstat.Add(
+                                    new Cdb_EquipStat()
+                                    {
+                                        level = RowPaser.IntPaser(cdb_val, "level"),
+                                        wea_r1 = RowPaser.LongPaser(cdb_val, "wea_r1"),
+                                        wea_r2 = RowPaser.LongPaser(cdb_val, "wea_r2"),
+                                        wea_r3 = RowPaser.LongPaser(cdb_val, "wea_r3"),
+                                        wea_r4 = RowPaser.LongPaser(cdb_val, "wea_r4"),
+                                        wea_r5 = RowPaser.LongPaser(cdb_val, "wea_r5"),
+                                        wea_r6 = RowPaser.LongPaser(cdb_val, "wea_r6"),
+                                        wea_r7 = RowPaser.LongPaser(cdb_val, "wea_r7"),
+                                        
+                                        shi_r1 = RowPaser.LongPaser(cdb_val, "shi_r1"),
+                                        shi_r2 = RowPaser.LongPaser(cdb_val, "shi_r2"),
+                                        shi_r3 = RowPaser.LongPaser(cdb_val, "shi_r3"),
+                                        shi_r4 = RowPaser.LongPaser(cdb_val, "shi_r4"),
+                                        shi_r5 = RowPaser.LongPaser(cdb_val, "shi_r5"),
+                                        shi_r6 = RowPaser.LongPaser(cdb_val, "shi_r6"),
+                                        shi_r7 = RowPaser.LongPaser(cdb_val, "shi_r7"),
+
+                                        hel_r1 = RowPaser.FloatPaser(cdb_val, "hel_r1"),
+                                        hel_r2 = RowPaser.FloatPaser(cdb_val, "hel_r2"),
+                                        hel_r3 = RowPaser.FloatPaser(cdb_val, "hel_r3"),
+                                        hel_r4 = RowPaser.FloatPaser(cdb_val, "hel_r4"),
+                                        hel_r5 = RowPaser.FloatPaser(cdb_val, "hel_r5"),
+                                        hel_r6 = RowPaser.FloatPaser(cdb_val, "hel_r6"),
+                                        hel_r7 = RowPaser.FloatPaser(cdb_val, "hel_r7"),
+
+                                        sho_r1 = RowPaser.FloatPaser(cdb_val, "sho_r1"),
+                                        sho_r2 = RowPaser.FloatPaser(cdb_val, "sho_r2"),
+                                        sho_r3 = RowPaser.FloatPaser(cdb_val, "sho_r3"),
+                                        sho_r4 = RowPaser.FloatPaser(cdb_val, "sho_r4"),
+                                        sho_r5 = RowPaser.FloatPaser(cdb_val, "sho_r5"),
+                                        sho_r6 = RowPaser.FloatPaser(cdb_val, "sho_r6"),
+                                        sho_r7 = RowPaser.FloatPaser(cdb_val, "sho_r7"),
+
+                                        arm_r1 = RowPaser.LongPaser(cdb_val, "arm_r1"),
+                                        arm_r2 = RowPaser.LongPaser(cdb_val, "arm_r2"),
+                                        arm_r3 = RowPaser.LongPaser(cdb_val, "arm_r3"),
+                                        arm_r4 = RowPaser.LongPaser(cdb_val, "arm_r4"),
+                                        arm_r5 = RowPaser.LongPaser(cdb_val, "arm_r5"),
+                                        arm_r6 = RowPaser.LongPaser(cdb_val, "arm_r6"),
+                                        arm_r7 = RowPaser.LongPaser(cdb_val, "arm_r7"),
+
+                                        gau_r1 = RowPaser.LongPaser(cdb_val, "gau_r1"),
+                                        gau_r2 = RowPaser.LongPaser(cdb_val, "gau_r2"),
+                                        gau_r3 = RowPaser.LongPaser(cdb_val, "gau_r3"),
+                                        gau_r4 = RowPaser.LongPaser(cdb_val, "gau_r4"),
+                                        gau_r5 = RowPaser.LongPaser(cdb_val, "gau_r5"),
+                                        gau_r6 = RowPaser.LongPaser(cdb_val, "gau_r6"),
+                                        gau_r7 = RowPaser.LongPaser(cdb_val, "gau_r7"),
+
+                                        pan_r1 = RowPaser.LongPaser(cdb_val, "pan_r1"),
+                                        pan_r2 = RowPaser.LongPaser(cdb_val, "pan_r2"),
+                                        pan_r3 = RowPaser.LongPaser(cdb_val, "pan_r3"),
+                                        pan_r4 = RowPaser.LongPaser(cdb_val, "pan_r4"),
+                                        pan_r5 = RowPaser.LongPaser(cdb_val, "pan_r5"),
+                                        pan_r6 = RowPaser.LongPaser(cdb_val, "pan_r6"),
+                                        pan_r7 = RowPaser.LongPaser(cdb_val, "pan_r7"),
+
+                                        boo_r1 = RowPaser.FloatPaser(cdb_val, "boo_r1"),
+                                        boo_r2 = RowPaser.FloatPaser(cdb_val, "boo_r2"),
+                                        boo_r3 = RowPaser.FloatPaser(cdb_val, "boo_r3"),
+                                        boo_r4 = RowPaser.FloatPaser(cdb_val, "boo_r4"),
+                                        boo_r5 = RowPaser.FloatPaser(cdb_val, "boo_r5"),
+                                        boo_r6 = RowPaser.FloatPaser(cdb_val, "boo_r6"),
+                                        boo_r7 = RowPaser.FloatPaser(cdb_val, "boo_r7"),
+
+                                        nec_r1 = RowPaser.FloatPaser(cdb_val, "nec_r1"),
+                                        nec_r2 = RowPaser.FloatPaser(cdb_val, "nec_r2"),
+                                        nec_r3 = RowPaser.FloatPaser(cdb_val, "nec_r3"),
+                                        nec_r4 = RowPaser.FloatPaser(cdb_val, "nec_r4"),
+                                        nec_r5 = RowPaser.FloatPaser(cdb_val, "nec_r5"),
+                                        nec_r6 = RowPaser.FloatPaser(cdb_val, "nec_r6"),
+                                        nec_r7 = RowPaser.FloatPaser(cdb_val, "nec_r7"),
+
+                                        ear_r1 = RowPaser.FloatPaser(cdb_val, "ear_r1"),
+                                        ear_r2 = RowPaser.FloatPaser(cdb_val, "ear_r2"),
+                                        ear_r3 = RowPaser.FloatPaser(cdb_val, "ear_r3"),
+                                        ear_r4 = RowPaser.FloatPaser(cdb_val, "ear_r4"),
+                                        ear_r5 = RowPaser.FloatPaser(cdb_val, "ear_r5"),
+                                        ear_r6 = RowPaser.FloatPaser(cdb_val, "ear_r6"),
+                                        ear_r7 = RowPaser.FloatPaser(cdb_val, "ear_r7"),
+
+                                        rin_r1 = RowPaser.FloatPaser(cdb_val, "rin_r1"),
+                                        rin_r2 = RowPaser.FloatPaser(cdb_val, "rin_r2"),
+                                        rin_r3 = RowPaser.FloatPaser(cdb_val, "rin_r3"),
+                                        rin_r4 = RowPaser.FloatPaser(cdb_val, "rin_r4"),
+                                        rin_r5 = RowPaser.FloatPaser(cdb_val, "rin_r5"),
+                                        rin_r6 = RowPaser.FloatPaser(cdb_val, "rin_r6"),
+                                        rin_r7 = RowPaser.FloatPaser(cdb_val, "rin_r7"),
+                                    });
+                                break;
+
                             case chartName_stat:
                                 if (RowPaser.IntPaser(cdb_val, "eRating") >= 0)
                                 {
@@ -5851,22 +5996,22 @@ public class GameDatabase
         public float GetEqEnhantLvStatIncr(int st_id) => GetInstance().chartDB.GetDicBalance(string.Format("equip.enhant.lv.Incr.value.stat.id{0}", st_id)).val_float;
 
         // 스탯 
-        // 무기   : 공격력 (stat id : 1) 
-        // 방패   : 방어력 (stat id : 2) 
-        // 헬멧   : 명중력 (stat id : 3) 
-        // 어깨   : 치명타 공격력 (stat id : 4) 
-        // 갑옷   : 체력 (stat id : 5) 
-        // 팔     : 치명타 성공률 (stat id : 6) 
-        // 바지   : 회피율 (stat id : 7) 
-        // 부츠   : 치명타 방어력 (stat id : 8) 
-                    
-        // 목걸이 : 명중력 (stat id : 3) 
-        // 귀고리 : 공격 속도 (stat id : 9) 
-        // 반지   : 공격력 (stat id : 1) 
+        // 0무기    : 공격력 
+        // 1방패    : 방어력 
+        // 2헬멧%   : 피해량 감소
+        // 3어깨%   : 체력
+        // 4갑옷    : 체력 
+        // 5팔      : 치명타 공격력
+        // 6바지    : 공격력
+        // 7부츠%   : 공격 속도
+
+        // 8목걸이% : 치명타 발동률 
+        // 9귀고리% : 방어력
+        // 10반지%   : 공격력
 
         // 장신구 전용 옵션
         // 1:pve피해 증가(공격력의 ?%)
-        // 2:pvp피해 증가(공격력의 ?%)
+        // 2:pvp피해 증가(공격력의 ?%) 
         // 3:pve피해 감소(%) 
         // 4:pvp피해 감소(%) 
         // 5:골드 획득 증가 
@@ -5892,255 +6037,224 @@ public class GameDatabase
             int get_nor_lv   = equip_data.m_norm_lv;
             int get_eht_lv   = equip_data.m_ehnt_lv;
 
-            float incr = GetInstance().chartDB.GetDicBalance(string.Format("equip.main.stat.Incr.value.eqty{0}", get_eq_ty)).val_float; // 장비ty -> 매인 스탯 증가 값 (기본,렙업,강화)
-            // 무기   :   공격력 (stat id : 1) 
-            if (get_eq_ty == 0) 
+            //float incr = GetInstance().chartDB.GetDicBalance(string.Format("equip.main.stat.Incr.value.eqty{0}", get_eq_ty)).val_float; // 장비ty -> 매인 스탯 증가 값 (기본,렙업,강화)
+            switch (get_eq_ty)
             {
-                return new object[]
-                {
-                    (long)(GetStat1LevelValue(get_eq_rt, get_eq_id, get_mast_lv, 0, get_nor_lv, get_eht_lv) * incr),
-                    (long)(GetStat1LevelValue(get_eq_rt, get_eq_id, 0, 0, get_nor_lv, get_eht_lv) * incr)
-                };
-            }
-            // 방패   :   방어력 (stat id : 2) 
-            else if (get_eq_ty == 1) 
-            {
-                return new object[]
-                 {
-                    (long)(GetStat2LevelValue(get_eq_rt, get_eq_id, get_mast_lv, 0, get_nor_lv, get_eht_lv) * incr),
-                    (long)(GetStat2LevelValue(get_eq_rt, get_eq_id, 0, 0, get_nor_lv, get_eht_lv) * incr)
-                 };
-            }
-            // 헬멧   :   명중력 (stat id : 3) 
-            else if (get_eq_ty == 2) 
-            {
-                return new object[]
-                {
-                    (float)GetStat3LevelValue(get_eq_rt, get_eq_id, get_mast_lv, 0, get_nor_lv, get_eht_lv) * incr,
-                    (float)GetStat3LevelValue(get_eq_rt, get_eq_id, 0, 0, get_nor_lv, get_eht_lv) * incr
-                };
-            }
-            // 어깨   :   치명타 공격력 (stat id : 4) 
-            else if (get_eq_ty == 3) 
-            {
-                return new object[]
-                {
-                    (long)(GetStat4LevelValue(get_eq_rt, get_eq_id, get_mast_lv, 0, get_nor_lv, get_eht_lv) * incr),
-                    (long)(GetStat4LevelValue(get_eq_rt, get_eq_id, 0, 0, get_nor_lv, get_eht_lv) * incr)
-                };
-            }
-            // 갑옷   :   체력 (stat id : 5) 
-            else if (get_eq_ty == 4) 
-            {
-                return new object[]
-                 {
-                    (long)(GetStat5LevelValue(get_eq_rt, get_eq_id, get_mast_lv, 0, get_nor_lv, get_eht_lv) * incr),
-                    (long)(GetStat5LevelValue(get_eq_rt, get_eq_id, 0, 0, get_nor_lv, get_eht_lv) * incr)
-                 };
-            }
-            // 팔     :  치명타 성공률 (stat id : 6) 
-            else if (get_eq_ty == 5) 
-            {
-                return new object[]
-                 {
-                    (float)GetStat6LevelValue(get_eq_rt, get_eq_id, get_mast_lv, 0, get_nor_lv, get_eht_lv) * incr,
-                    (float)GetStat6LevelValue(get_eq_rt, get_eq_id, 0, 0, get_nor_lv, get_eht_lv) * incr
-                 };
-            }
-            // 바지   :   회피율 (stat id : 7) 
-            else if (get_eq_ty == 6) 
-            {
-                return new object[]
-                {
-                    (float)GetStat7LevelValue(get_eq_rt, get_eq_id, get_mast_lv, 0, get_nor_lv, get_eht_lv) * incr,
-                    (float)GetStat7LevelValue(get_eq_rt, get_eq_id, 0, 0, get_nor_lv, get_eht_lv) * incr
-                };
-            }
-            // 부츠   :   치명타 방어력 (stat id : 8) 
-            else if (get_eq_ty == 7) 
-            {
-                return new object[]
-                {
-                    (long)(GetStat8LevelValue(get_eq_rt, get_eq_id, get_mast_lv, 0, get_nor_lv, get_eht_lv) * incr),
-                    (long)(GetStat8LevelValue(get_eq_rt, get_eq_id, 0, 0, get_nor_lv, get_eht_lv) * incr)
-                };
-            }
-            // 목걸이 :    명중력 (stat id : 3) 
-            else if (get_eq_ty == 8) 
-            {
-                return new object[]
-                {
-                    (float)GetStat3LevelValue(get_eq_rt, get_eq_id, get_mast_lv, 0, get_nor_lv, get_eht_lv) * incr,
-                    (float)GetStat3LevelValue(get_eq_rt, get_eq_id, 0, 0, get_nor_lv, get_eht_lv) * incr
-                };
-            }
-            // 귀고리 :    치명타 회피율 (stat id : 9) 
-            else if (get_eq_ty == 9) 
-            {
-                return new object[]
-                {
-                    (float)GetStat9LevelValue(get_eq_rt, get_eq_id, get_mast_lv, 0, get_nor_lv, get_eht_lv) * incr,
-                    (float)GetStat9LevelValue(get_eq_rt, get_eq_id, 0, 0, get_nor_lv, get_eht_lv) * incr
-                };
-            }
-            // 반지   :   공격력 (stat id : 1) 
-            else if (get_eq_ty == 10) 
-            {
-                return new object[]
-                {
-                    (long)(GetStat1LevelValue(get_eq_rt, get_eq_id, get_mast_lv, 0, get_nor_lv, get_eht_lv) * incr),
-                    (long)(GetStat1LevelValue(get_eq_rt, get_eq_id, 0, 0, get_nor_lv, get_eht_lv) * incr)
-                };
+                case 0: // 무기 : 공격력 
+                    return new object[]
+                    {
+                        //(long)(GetEquipWeaponStat(get_eq_rt, get_eq_id, get_mast_lv, 0, get_nor_lv, get_eht_lv) * incr),
+                        //(long)(GetEquipWeaponStat(get_eq_rt, get_eq_id, 0, 0, get_nor_lv, get_eht_lv) * incr)
+                        (long)GetEquipWeaponStat(get_eq_rt, get_eq_id, get_mast_lv, 0, get_nor_lv, get_eht_lv),
+                        (long)GetEquipWeaponStat(get_eq_rt, get_eq_id, 0, 0, get_nor_lv, get_eht_lv)
+                    };
+
+                case 1: // 방패 : 방어력 
+                    return new object[]
+                    {
+                        (long)GetEquipShieldStat(get_eq_rt, get_eq_id, get_mast_lv, 0, get_nor_lv, get_eht_lv),
+                        (long)GetEquipShieldStat(get_eq_rt, get_eq_id, 0, 0, get_nor_lv, get_eht_lv)
+                    };
+                case 2: // 헬멧 : 피해량 감소%
+                    return new object[]
+                    {
+                        (float)GetEquipHelmetStat(get_eq_rt, get_eq_id, get_mast_lv, 0, get_nor_lv, get_eht_lv),
+                        (float)GetEquipHelmetStat(get_eq_rt, get_eq_id, 0, 0, get_nor_lv, get_eht_lv)
+                    };
+                case 3: // 어깨 : 체력%
+                    return new object[]
+                    {
+                        (float)GetEquipShoulderStat(get_eq_rt, get_eq_id, get_mast_lv, 0, get_nor_lv, get_eht_lv),
+                        (float)GetEquipShoulderStat(get_eq_rt, get_eq_id, 0, 0, get_nor_lv, get_eht_lv)
+                    };
+                case 4: // 갑옷 : 체력
+                    return new object[]
+                    {
+                        (long)GetEquipArmorStat(get_eq_rt, get_eq_id, get_mast_lv, 0, get_nor_lv, get_eht_lv),
+                        (long)GetEquipArmorStat(get_eq_rt, get_eq_id, 0, 0, get_nor_lv, get_eht_lv)
+                    };
+                case 5: // 팔 : 치명타 공격력 
+                    return new object[]
+                    {
+                        (long)GetEquipGauntlets(get_eq_rt, get_eq_id, get_mast_lv, 0, get_nor_lv, get_eht_lv),
+                        (long)GetEquipGauntlets(get_eq_rt, get_eq_id, 0, 0, get_nor_lv, get_eht_lv)
+                    };
+                case 6: // 바지 : 공격력 
+                    return new object[]
+                    {
+                        (long)GetEquipPantsStat(get_eq_rt, get_eq_id, get_mast_lv, 0, get_nor_lv, get_eht_lv),
+                        (long)GetEquipPantsStat(get_eq_rt, get_eq_id, 0, 0, get_nor_lv, get_eht_lv)
+                    };
+                case 7: // 부츠 : 공격 속도 %
+                    return new object[]
+                    {
+                        (float)GetEquipBootsStat(get_eq_rt, get_eq_id, get_mast_lv, 0, get_nor_lv, get_eht_lv),
+                        (float)GetEquipBootsStat(get_eq_rt, get_eq_id, 0, 0, get_nor_lv, get_eht_lv)
+                    };
+                case 8: // 목걸이 : 치명타 발동률%
+                    return new object[]
+                    {
+                        (float)GetEquipNecklaceStat(get_eq_rt, get_eq_id, get_mast_lv, 0, get_nor_lv, get_eht_lv),
+                        (float)GetEquipNecklaceStat(get_eq_rt, get_eq_id, 0, 0, get_nor_lv, get_eht_lv)
+                    };
+                case 9: // 귀고리 : 방어력%
+                    return new object[]
+                    {
+                        (float)GetEquipEarringStat(get_eq_rt, get_eq_id, get_mast_lv, 0, get_nor_lv, get_eht_lv),
+                        (float)GetEquipEarringStat(get_eq_rt, get_eq_id, 0, 0, get_nor_lv, get_eht_lv)
+                    };
+                case 10: // 반지 : 공격력%
+                    return new object[]
+                    {
+                        (float)GetEquipRingStat(get_eq_rt, get_eq_id, get_mast_lv, 0, get_nor_lv, get_eht_lv),
+                        (float)GetEquipRingStat(get_eq_rt, get_eq_id, 0, 0, get_nor_lv, get_eht_lv)
+                    };
             }
 
             return new object[] { (long)0, (long)0 };
         }
 
-        /// <summary>
-        /// 공격 속도 
-        /// </summary>
-        public float GetStatAttackSpeedValue(int rt, int id)
+        /// <summary> 무기, 공격력 </summary>
+        public long GetEquipWeaponStat(int rt, int id, int mast_lv, int opst_lv, int nr_lv, int eh_lv, bool isEncy = false)
         {
-            return list_cdb_stat.Find(x => x.eRating == rt && x.eIdx == id).atk_spd;
-        }
-
-        /// <summary>   </summary>
-        /// <summary> 공격력 (stat id : 1) => 옵션 스탯 적용 </summary>
-        public long GetStat1LevelValue(int rt, int id, int mast_lv, int opst_lv, int nr_lv, int eh_lv, bool isEncy = false)
-        {
-            long value = 0; 
-            Cdb_stat cht = list_cdb_stat.Find((Cdb_stat obj) => obj.eRating == rt && obj.eIdx == id);
-            if (mast_lv > 0/* && mast_lv <= GetDicBalanceStatMaxLevel()*/) value += (long)((((cht.max_typ0 - cht.min_typ0) * 0.1f) * mast_lv) + cht.min_typ0);
-            if (opst_lv > 0/* && opst_lv <= GetDicBalanceStatMaxLevel()*/) value += (long)((((cht.max_typ0 - cht.min_typ0) * 0.1f) * opst_lv) + cht.min_typ0);
-            if (nr_lv > 0) value += (long)((((cht.max_typ0 - cht.min_typ0) * 0.1f) * nr_lv) * GetEqNormalLvStatIncr(1));
-            if (eh_lv > 0) value += (long)((((cht.max_typ0 - cht.min_typ0) * (isEncy ? 0.1f : 0.25f)) * eh_lv) * GetEqEnhantLvStatIncr(1));
-            return value;
-        }
-
-        /// <summary> 방어력 (stat id : 2) => 옵션 스탯 적용 </summary>
-        public long GetStat2LevelValue(int rt, int id, int mast_lv, int opst_lv, int nr_lv, int eh_lv, bool isEncy = false)
-        {
-            long value = 0;
-            Cdb_stat cht = list_cdb_stat.Find((Cdb_stat obj) => obj.eRating == rt && obj.eIdx == id);
-            if (mast_lv > 0/* && mast_lv <= GetDicBalanceStatMaxLevel()*/) value += (long)((((cht.max_typ1 - cht.min_typ1) * 0.1f) * mast_lv) + cht.min_typ1);
-            if (opst_lv > 0/* && opst_lv <= GetDicBalanceStatMaxLevel()*/) value += (long)((((cht.max_typ1 - cht.min_typ1) * 0.1f) * opst_lv) + cht.min_typ1);
-            if (nr_lv > 0) value += (long)((((cht.max_typ1 - cht.min_typ1) * 0.1f) * nr_lv) * GetEqNormalLvStatIncr(2));
-            if (eh_lv > 0) value += (long)((((cht.max_typ1 - cht.min_typ1) * (isEncy ? 0.1f : 0.25f)) * eh_lv) * GetEqEnhantLvStatIncr(2));
-            return value;
-        }
-
-        /// <summary> 명중률 (stat id : 3) => 옵션 스탯 적용 안함 </summary>
-        public float GetStat3LevelValue(int rt, int id, int mast_lv, int opst_lv, int nr_lv, int eh_lv, bool isEncy = false)
-        {
-            if (nr_lv > GetDicBalanceEquipMaxNormalLevel())
-                nr_lv = GetDicBalanceEquipMaxNormalLevel();
-            if (eh_lv > GetDicBalanceEquipMaxEnhantLevel())
-                eh_lv = GetDicBalanceEquipMaxEnhantLevel();
-
-            float value = 0;
-            Cdb_stat cht = list_cdb_stat.Find((Cdb_stat obj) => obj.eRating == rt && obj.eIdx == id);
-            if (mast_lv > 0/* && mast_lv <= GetDicBalanceStatMaxLevel()*/) value += Mathf.Round(((((cht.max_typ2 - cht.min_typ2) * 0.1f) * mast_lv) + cht.min_typ2) * 100.0f) * 0.01f;
-            if (opst_lv > 0/* && opst_lv <= GetDicBalanceStatMaxLevel()*/) value += Mathf.Round(((((cht.max_typ2 - cht.min_typ2) * 0.1f) * opst_lv) + cht.min_typ2) * 100.0f) * 0.01f;
-            if (nr_lv > 0) value += Mathf.Round(((((cht.max_typ2 - cht.min_typ2) * 0.1f) * nr_lv) * 100.0f) * GetEqNormalLvStatIncr(3)) * 0.01f;
-            if (eh_lv > 0) value += Mathf.Round(((((cht.max_typ2 - cht.min_typ2) * (isEncy ? 0.1f : 0.25f)) * eh_lv) * 100.0f) * GetEqEnhantLvStatIncr(3)) * 0.01f;
-
-           // LogPrint.Print("명중률 (stat id : 3) value : " + value + ", rt : " + rt + ", id : " + id + ", mast_lv : " + mast_lv + ", opst_lv : " + opst_lv + ", nr_lv : " + nr_lv + ", eh_lv : " + eh_lv);
-            return value;
-        }
-
-        /// <summary> 치명타 공격력 (stat id : 4) => 옵션 스탯 적용 </summary>
-        public long GetStat4LevelValue(int rt, int id, int mast_lv, int opst_lv, int nr_lv, int eh_lv, bool isEncy = false)
-        {
-            long value = 0;
-            Cdb_stat cht = list_cdb_stat.Find((Cdb_stat obj) => obj.eRating == rt && obj.eIdx == id);
-            if (mast_lv > 0/* && mast_lv <= GetDicBalanceStatMaxLevel()*/) value += (long)((((cht.max_typ3 - cht.min_typ3) * 0.1f) * mast_lv) + cht.min_typ3);
-            if (opst_lv > 0/* && opst_lv <= GetDicBalanceStatMaxLevel()*/) value += (long)((((cht.max_typ3 - cht.min_typ3) * 0.1f) * opst_lv) + cht.min_typ3);
-            if (nr_lv > 0) value += (long)((((cht.max_typ3 - cht.min_typ3) * 0.1f) * nr_lv) * GetEqNormalLvStatIncr(4));
-            if (eh_lv > 0) value += (long)((((cht.max_typ3 - cht.min_typ3) * (isEncy ? 0.1f : 0.25f)) * eh_lv) * GetEqEnhantLvStatIncr(4));
-            return value;
-        }
-
-        /// <summary> 체력 (stat id : 5) => 옵션 스탯 적용 </summary>
-        public long GetStat5LevelValue(int rt, int id, int mast_lv, int opst_lv, int nr_lv, int eh_lv, bool isEncy = false)
-        {
-            long value = 0;
-            Cdb_stat cht = list_cdb_stat.Find((Cdb_stat obj) => obj.eRating == rt && obj.eIdx == id);
-
-            if (mast_lv > 0/* && mast_lv <= GetDicBalanceStatMaxLevel()*/)
-                value += (long)((((cht.max_typ4 - cht.min_typ4) * 0.1f) * mast_lv) + cht.min_typ4); // lv 1 => 1,153 + 115313
-
-            if (opst_lv > 0/* && opst_lv <= GetDicBalanceStatMaxLevel()*/)
-                value += (long)((((cht.max_typ4 - cht.min_typ4) * 0.1f) * opst_lv) + cht.min_typ4); // 
-
-            if (nr_lv > 0)
-                value += (long)((((cht.max_typ4 - cht.min_typ4) * 0.1f) * nr_lv) * GetEqNormalLvStatIncr(5)); // 533 
-
-            if (eh_lv > 0)
-                value += (long)((((cht.max_typ4 - cht.min_typ4) * (isEncy ? 0.1f : 0.25f)) * eh_lv) * GetEqEnhantLvStatIncr(5)); // 5
+            int eq_ty = 0;
+            long value = (long)GetEquipEnchantLevelStatValue(eh_lv, eq_ty, rt);
+            value += (long)GetAbilityLevelStatsValue(nr_lv, eq_ty, rt);
+            //value += (long)GetEquipStatValue(opst_lv, eq_ty, rt);
+            //value += (long)GetEquipStatValue(mast_lv, eq_ty, rt);
 
             return value;
         }
 
-        /// <summary> 치명타 성공률 (stat id : 6) => 옵션 스탯 적용 안함 </summary>
-        public float GetStat6LevelValue(int rt, int id, int mast_lv, int opst_lv, int nr_lv, int eh_lv, bool isEncy = false)
+        /// <summary> 방패, 방어력 </summary>
+        public long GetEquipShieldStat(int rt, int id, int mast_lv, int opst_lv, int nr_lv, int eh_lv, bool isEncy = false)
         {
-            if (nr_lv > GetDicBalanceEquipMaxNormalLevel())
-                nr_lv = GetDicBalanceEquipMaxNormalLevel();
-            if (eh_lv > GetDicBalanceEquipMaxEnhantLevel())
-                eh_lv = GetDicBalanceEquipMaxEnhantLevel();
+            int eq_ty = 1;
+            long value = (long)GetEquipEnchantLevelStatValue(eh_lv, eq_ty, rt);
+            value += (long)GetAbilityLevelStatsValue(nr_lv, eq_ty, rt);
+            //value += (long)GetEquipStatValue(opst_lv, eq_ty, rt);
+            //value += (long)GetEquipStatValue(mast_lv, eq_ty, rt);
 
-            float value = 0;
-            Cdb_stat cht = list_cdb_stat.Find((Cdb_stat obj) => obj.eRating == rt && obj.eIdx == id);
-            if (mast_lv > 0/* && mast_lv <= GetDicBalanceStatMaxLevel()*/) value += Mathf.Round(((((cht.max_typ5 - cht.min_typ5) * 0.1f) * mast_lv) + cht.min_typ5) * 100.0f) * 0.01f;
-            if (opst_lv > 0/* && opst_lv <= GetDicBalanceStatMaxLevel()*/) value += Mathf.Round(((((cht.max_typ5 - cht.min_typ5) * 0.1f) * opst_lv) + cht.min_typ5) * 100.0f) * 0.01f;
-            if (nr_lv > 0) value += Mathf.Round(((((cht.max_typ5 - cht.min_typ5) * 0.1f) * nr_lv) * 100.0f) * GetEqNormalLvStatIncr(6)) * 0.01f;
-            if (eh_lv > 0) value += Mathf.Round(((((cht.max_typ5 - cht.min_typ5) * (isEncy ? 0.1f : 0.25f)) * eh_lv) * 100.0f) * GetEqEnhantLvStatIncr(6)) * 0.01f;
             return value;
         }
 
-        /// <summary> 회피율 (stat id : 7) => 옵션 스탯 적용 안함 </summary>
-        public float GetStat7LevelValue(int rt, int id, int mast_lv, int opst_lv, int nr_lv, int eh_lv, bool isEncy = false)
+        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        // 변경 스탯 : 명중력 -> 피해량 감소 
+        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        /// <summary> 헬멧, 피해량 감소% </summary>
+        public float GetEquipHelmetStat(int rt, int id, int mast_lv, int opst_lv, int nr_lv, int eh_lv, bool isEncy = false)
         {
-            if (nr_lv > GetDicBalanceEquipMaxNormalLevel())
-                nr_lv = GetDicBalanceEquipMaxNormalLevel();
-            if (eh_lv > GetDicBalanceEquipMaxEnhantLevel())
-                eh_lv = GetDicBalanceEquipMaxEnhantLevel();
+            int eq_ty = 2;
+            float value = (float)GetEquipEnchantLevelStatValue(eh_lv, eq_ty, rt);
+            value += (float)GetAbilityLevelStatsValue(nr_lv, eq_ty, rt);
+            //value += (float)GetEquipStatValue(opst_lv, eq_ty, rt);
+            //value += (float)GetEquipStatValue(mast_lv, eq_ty, rt);
 
-            float value = 0;
-            Cdb_stat cht = list_cdb_stat.Find((Cdb_stat obj) => obj.eRating == rt && obj.eIdx == id);
-            if (mast_lv > 0/* && mast_lv <= GetDicBalanceStatMaxLevel()*/) value += Mathf.Round(((((cht.max_typ6 - cht.min_typ6) * 0.1f) * mast_lv) + cht.min_typ6) * 100.0f) * 0.01f;
-            if (opst_lv > 0/* && opst_lv <= GetDicBalanceStatMaxLevel()*/) value += Mathf.Round(((((cht.max_typ6 - cht.min_typ6) * 0.1f) * opst_lv) + cht.min_typ6) * 100.0f) * 0.01f;
-            if (nr_lv > 0) value += Mathf.Round(((((cht.max_typ6 - cht.min_typ6) * 0.1f) * nr_lv) * 100.0f) * GetEqNormalLvStatIncr(7)) * 0.01f;
-            if (eh_lv > 0) value += Mathf.Round(((((cht.max_typ6 - cht.min_typ6) * (isEncy ? 0.1f : 0.25f)) * eh_lv) * 100.0f) * GetEqEnhantLvStatIncr(7)) * 0.01f;
             return value;
         }
 
-        /// <summary> 치명타 방어력 (stat id : 8) => 옵션 스탯 적용 </summary>
-        public long GetStat8LevelValue(int rt, int id, int mast_lv, int opst_lv, int nr_lv, int eh_lv, bool isEncy = false)
+        /// <summary> 어깨, 체력% </summary>
+        public float GetEquipShoulderStat(int rt, int id, int mast_lv, int opst_lv, int nr_lv, int eh_lv, bool isEncy = false)
         {
-            long value = 0;
-            Cdb_stat cht = list_cdb_stat.Find((Cdb_stat obj) => obj.eRating == rt && obj.eIdx == id);
-            if (mast_lv > 0/* && mast_lv <= GetDicBalanceStatMaxLevel()*/) value += (long)((((cht.max_typ7 - cht.min_typ7) * 0.1f) * mast_lv) + cht.min_typ7);
-            if (opst_lv > 0/* && opst_lv <= GetDicBalanceStatMaxLevel()*/) value += (long)((((cht.max_typ7 - cht.min_typ7) * 0.1f) * opst_lv) + cht.min_typ7);
-            if (nr_lv > 0) value += (long)((((cht.max_typ7 - cht.min_typ7) * 0.1f) * nr_lv) * GetEqNormalLvStatIncr(8));
-            if (eh_lv > 0) value += (long)((((cht.max_typ7 - cht.min_typ7) * (isEncy ? 0.1f : 0.25f)) * eh_lv) * GetEqEnhantLvStatIncr(8));
+            int eq_ty = 3;
+            float value = (float)GetEquipEnchantLevelStatValue(eh_lv, eq_ty, rt);
+            value += (float)GetAbilityLevelStatsValue(nr_lv, eq_ty, rt);
+            //value += (float)GetEquipStatValue(opst_lv, eq_ty, rt);
+            //value += (float)GetEquipStatValue(mast_lv, eq_ty, rt);
+
             return value;
         }
 
-        /// <summary> 치명타 회피율 (stat id : 9) => 옵션 스탯 적용 안함  </summary>
-        public float GetStat9LevelValue(int rt, int id, int mast_lv, int opst_lv, int nr_lv, int eh_lv, bool isEncy = false)
+        /// <summary> 갑옷, 체력 </summary>
+        public long GetEquipArmorStat(int rt, int id, int mast_lv, int opst_lv, int nr_lv, int eh_lv, bool isEncy = false)
         {
-            if (nr_lv > GetDicBalanceEquipMaxNormalLevel())
-                nr_lv = GetDicBalanceEquipMaxNormalLevel();
-            if (eh_lv > GetDicBalanceEquipMaxEnhantLevel())
-                eh_lv = GetDicBalanceEquipMaxEnhantLevel();
+            int eq_ty = 4;
+            long value = (long)GetEquipEnchantLevelStatValue(eh_lv, eq_ty, rt);
+            value += (long)GetAbilityLevelStatsValue(nr_lv, eq_ty, rt);
+            //value += (long)GetEquipStatValue(opst_lv, eq_ty, rt);
+            //value += (long)GetEquipStatValue(mast_lv, eq_ty, rt);
 
-            float value = 0;
-            Cdb_stat cht = list_cdb_stat.Find((Cdb_stat obj) => obj.eRating == rt && obj.eIdx == id);
-            if (mast_lv > 0/* && mast_lv <= GetDicBalanceStatMaxLevel()*/) value += Mathf.Round(((((cht.max_typ9 - cht.min_typ9) * 0.1f) * mast_lv) + cht.min_typ9) * 100.0f) *0.01f;
-            if (opst_lv > 0/* && opst_lv <= GetDicBalanceStatMaxLevel()*/) value += Mathf.Round(((((cht.max_typ9 - cht.min_typ9) * 0.1f) * opst_lv) + cht.min_typ9) * 100.0f) * 0.01f;
-            if (nr_lv > 0) value += Mathf.Round(((((cht.max_typ9 - cht.min_typ9) * 0.1f) * nr_lv) * 100.0f) * GetEqNormalLvStatIncr(9)) * 0.01f;
-            if (eh_lv > 0) value += Mathf.Round(((((cht.max_typ9 - cht.min_typ9) * (isEncy ? 0.1f : 0.25f)) * eh_lv) * 100.0f) * GetEqEnhantLvStatIncr(9)) * 0.01f;
+            return value;
+        }
+
+        /// <summary> 팔, 치명타 공격력 </summary>
+        public long GetEquipGauntlets(int rt, int id, int mast_lv, int opst_lv, int nr_lv, int eh_lv, bool isEncy = false)
+        {
+            int eq_ty = 5;
+            long value = (long)GetEquipEnchantLevelStatValue(eh_lv, eq_ty, rt);
+            value += (long)GetAbilityLevelStatsValue(nr_lv, eq_ty, rt);
+            //value += (long)GetEquipStatValue(opst_lv, eq_ty, rt);
+            //value += (long)GetEquipStatValue(mast_lv, eq_ty, rt);
+
+            return value;
+        }
+
+        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        // 변경 스탯 : 회피율 -> 공격력 
+        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        /// <summary> 바지, 공격력 </summary>
+        public long GetEquipPantsStat(int rt, int id, int mast_lv, int opst_lv, int nr_lv, int eh_lv, bool isEncy = false)
+        {
+            int eq_ty = 6;
+            long value = (long)GetEquipEnchantLevelStatValue(eh_lv, eq_ty, rt);
+            value += (long)GetAbilityLevelStatsValue(nr_lv, eq_ty, rt);
+            //value += (long)GetEquipStatValue(opst_lv, eq_ty, rt);
+            //value += (long)GetEquipStatValue(mast_lv, eq_ty, rt);
+
+            return value;
+        }
+
+        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        // 변경 스탯 : 치명타 방어력 -> 공격 속도 
+        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        /// <summary> 부츠,공격 속도% </summary>
+        public float GetEquipBootsStat(int rt, int id, int mast_lv, int opst_lv, int nr_lv, int eh_lv, bool isEncy = false)
+        {
+            int eq_ty = 7;
+            float value = (float)GetEquipEnchantLevelStatValue(eh_lv, eq_ty, rt);
+            value += (float)GetAbilityLevelStatsValue(nr_lv, eq_ty, rt);
+            //value += (float)GetEquipStatValue(opst_lv, eq_ty, rt);
+            //value += (float)GetEquipStatValue(mast_lv, eq_ty, rt);
+
+            return value;
+        }
+
+        /// <summary> 목걸이, 치명타 발동률% </summary>
+        public float GetEquipNecklaceStat(int rt, int id, int mast_lv, int opst_lv, int nr_lv, int eh_lv, bool isEncy = false)
+        {
+            int eq_ty = 8;
+            float value = (float)GetEquipEnchantLevelStatValue(eh_lv, eq_ty, rt);
+            value += (float)GetAbilityLevelStatsValue(nr_lv, eq_ty, rt);
+            //value += (float)GetEquipStatValue(opst_lv, eq_ty, rt);
+            //value += (float)GetEquipStatValue(mast_lv, eq_ty, rt);
+
+            return value;
+        }
+
+        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        // 변경 스탯 : 치명타 회피율 -> 방어력 % 
+        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        /// <summary> 귀고리, 방어력% </summary>
+        public float GetEquipEarringStat(int rt, int id, int mast_lv, int opst_lv, int nr_lv, int eh_lv, bool isEncy = false)
+        {
+            int eq_ty = 9;
+            float value = (float)GetEquipEnchantLevelStatValue(eh_lv, eq_ty, rt);
+            value += (float)GetAbilityLevelStatsValue(nr_lv, eq_ty, rt);
+            //value += (float)GetEquipStatValue(opst_lv, eq_ty, rt);
+            //value += (float)GetEquipStatValue(mast_lv, eq_ty, rt);
+
+            return value;
+        }
+
+        /// <summary> 반지, 공격력% </summary>
+        public float GetEquipRingStat(int rt, int id, int mast_lv, int opst_lv, int nr_lv, int eh_lv, bool isEncy = false)
+        {
+            int eq_ty = 10;
+            float value = (float)GetEquipEnchantLevelStatValue(eh_lv, eq_ty, rt);
+            value += (float)GetAbilityLevelStatsValue(nr_lv, eq_ty, rt);
+            //value += (float)GetEquipStatValue(opst_lv, eq_ty, rt);
+            //value += (float)GetEquipStatValue(mast_lv, eq_ty, rt);
+
             return value;
         }
 
@@ -6164,15 +6278,25 @@ public class GameDatabase
                             encyDB.eh_lv = max_enhant_lv;
 
                         int opst_id = GetInstance().chartDB.GetDicBalance(string.Format("ency.option.stat.id.equip.ty.{0}", encyDB.ty)).val_int;
-                        float IncrVal = GetInstance().chartDB.GetDicBalance(string.Format("equip.ency.main.stat.Incr.value.eqty{0}", encyDB.ty)).val_float; // 장비ty ->도감 장비 매인 스탯 증가 값
+                        //float IncrVal = GetInstance().chartDB.GetDicBalance(string.Format("equip.ency.main.stat.Incr.value.eqty{0}", encyDB.ty)).val_float; // 장비ty ->도감 장비 매인 스탯 증가 값
                         switch (opst_id)
                         {
                             // 공격력 (stat id : 1) 
-                            case 1: /*공격력(stat id: 1)*/         stat.stat1_valPower += (long)(GetStat1LevelValue(encyDB.rt, encyDB.id, 0, 0, 0, encyDB.eh_lv, true) * IncrVal); break;
-                            case 2: /*방어력(stat id: 2)*/         stat.stat2_valDefense += (long)(GetStat2LevelValue(encyDB.rt, encyDB.id, 0, 0, 0, encyDB.eh_lv, true) * IncrVal); break;
-                            case 4: /*치명타 공격력(stat id : 4)*/ stat.stat4_valCriPower += (long)(GetStat4LevelValue(encyDB.rt, encyDB.id, 0, 0, 0, encyDB.eh_lv, true) * IncrVal); break;
-                            case 5: /*체력(stat id: 5)*/           stat.stat5_valHealth += (long)(GetStat5LevelValue(encyDB.rt, encyDB.id, 0, 0, 0, encyDB.eh_lv, true) * IncrVal); break;
-                            case 8: /*치명타 방어력(stat id : 8)*/ stat.stat8_valCriDefense += (long)(GetStat8LevelValue(encyDB.rt, encyDB.id, 0, 0, 0, encyDB.eh_lv, true) * IncrVal); break;
+                            case 1: //공격력
+                                stat.p0_wea_attackPower += (long)GetEquipWeaponStat(encyDB.rt, encyDB.id, 0, 0, 0, encyDB.eh_lv, true); 
+                                break;
+                            case 2: //방어력
+                                stat.p1_shi_defance += (long)GetEquipShieldStat(encyDB.rt, encyDB.id, 0, 0, 0, encyDB.eh_lv, true); 
+                                break;
+                            case 4: //치명타 공격력
+                                stat.p5_gau_criticalPower += (long)GetEquipShoulderStat(encyDB.rt, encyDB.id, 0, 0, 0, encyDB.eh_lv, true);
+                                break;
+                            case 5: //체력
+                                stat.p4_arm_health += (long)GetEquipArmorStat(encyDB.rt, encyDB.id, 0, 0, 0, encyDB.eh_lv, true);
+                                break;
+                            //case 8: //치명타 방어력
+                            //    stat.stat8_valCriDefense += (long)GetEquipBootsStat(encyDB.rt, encyDB.id, 0, 0, 0, encyDB.eh_lv, true);
+                            //    break;
                         }
                     }
                 }
@@ -6202,11 +6326,11 @@ public class GameDatabase
 
                 switch (opst_id)
                 {
-                    case 1:  return (long)((((GetStat1LevelValue(eq_rt, eq_id, 0, opst_rlv, 0, 0) * incr) * incr_eht_calc) * incr_eq_legend) * (incr_lgnd_bns > 0.0f ? incr_lgnd_bns : 1)); /*공격력(stat id: 1)*/
-                    case 2:  return (long)((((GetStat2LevelValue(eq_rt, eq_id, 0, opst_rlv, 0, 0) * incr) * incr_eht_calc) * incr_eq_legend) * (incr_lgnd_bns > 0.0f ? incr_lgnd_bns : 1)); /*방어력(stat id: 2) */
-                    case 4:  return (long)((((GetStat4LevelValue(eq_rt, eq_id, 0, opst_rlv, 0, 0) * incr) * incr_eht_calc) * incr_eq_legend) * (incr_lgnd_bns > 0.0f ? incr_lgnd_bns : 1)); /*치명타 공격력(stat id : 4*/
-                    case 5:  return (long)((((GetStat5LevelValue(eq_rt, eq_id, 0, opst_rlv, 0, 0) * incr) * incr_eht_calc) * incr_eq_legend) * (incr_lgnd_bns > 0.0f ? incr_lgnd_bns : 1)); /*체력(stat id: 5)*/
-                    case 8:  return (long)((((GetStat8LevelValue(eq_rt, eq_id, 0, opst_rlv, 0, 0) * incr) * incr_eht_calc) * incr_eq_legend) * (incr_lgnd_bns > 0.0f ? incr_lgnd_bns : 1)); /*치명타 방어력(stat id : 8)*/
+                    case 1:  return (long)((((GetEquipWeaponStat(eq_rt, eq_id, 0, opst_rlv, 0, 0) * incr) * incr_eht_calc) * incr_eq_legend) * (incr_lgnd_bns > 0.0f ? incr_lgnd_bns : 1)); /*공격력(stat id: 1)*/
+                    case 2:  return (long)((((GetEquipShieldStat(eq_rt, eq_id, 0, opst_rlv, 0, 0) * incr) * incr_eht_calc) * incr_eq_legend) * (incr_lgnd_bns > 0.0f ? incr_lgnd_bns : 1)); /*방어력(stat id: 2) */
+                    case 4:  return (long)((((GetEquipShoulderStat(eq_rt, eq_id, 0, opst_rlv, 0, 0) * incr) * incr_eht_calc) * incr_eq_legend) * (incr_lgnd_bns > 0.0f ? incr_lgnd_bns : 1)); /*치명타 공격력(stat id : 4*/
+                    case 5:  return (long)((((GetEquipArmorStat(eq_rt, eq_id, 0, opst_rlv, 0, 0) * incr) * incr_eht_calc) * incr_eq_legend) * (incr_lgnd_bns > 0.0f ? incr_lgnd_bns : 1)); /*체력(stat id: 5)*/
+                    case 8:  return (long)((((GetEquipBootsStat(eq_rt, eq_id, 0, opst_rlv, 0, 0) * incr) * incr_eht_calc) * incr_eq_legend) * (incr_lgnd_bns > 0.0f ? incr_lgnd_bns : 1)); /*치명타 방어력(stat id : 8)*/
                     default: return (long)0;
                 }
             }
@@ -6214,11 +6338,11 @@ public class GameDatabase
             {
                 switch (opst_id)
                 {
-                    case 1:  return (long)(GetStat1LevelValue(eq_rt, eq_id, 0, opst_rlv, 0, 0) * incr); /*공격력(stat id: 1)*/
-                    case 2:  return (long)(GetStat2LevelValue(eq_rt, eq_id, 0, opst_rlv, 0, 0) * incr); /*방어력(stat id: 2) */
-                    case 4:  return (long)(GetStat4LevelValue(eq_rt, eq_id, 0, opst_rlv, 0, 0) * incr); /*치명타 공격력(stat id : 4*/
-                    case 5:  return (long)(GetStat5LevelValue(eq_rt, eq_id, 0, opst_rlv, 0, 0) * incr); /*체력(stat id: 5)*/
-                    case 8:  return (long)(GetStat8LevelValue(eq_rt, eq_id, 0, opst_rlv, 0, 0) * incr); /*치명타 방어력(stat id : 8)*/
+                    case 1:  return (long)(GetEquipWeaponStat(eq_rt, eq_id, 0, opst_rlv, 0, 0) * incr); /*공격력(stat id: 1)*/
+                    case 2:  return (long)(GetEquipShieldStat(eq_rt, eq_id, 0, opst_rlv, 0, 0) * incr); /*방어력(stat id: 2) */
+                    case 4:  return (long)(GetEquipShoulderStat(eq_rt, eq_id, 0, opst_rlv, 0, 0) * incr); /*치명타 공격력(stat id : 4*/
+                    case 5:  return (long)(GetEquipArmorStat(eq_rt, eq_id, 0, opst_rlv, 0, 0) * incr); /*체력(stat id: 5)*/
+                    case 8:  return (long)(GetEquipBootsStat(eq_rt, eq_id, 0, opst_rlv, 0, 0) * incr); /*치명타 방어력(stat id : 8)*/
                     default: return (long)0;
                 }
             }
@@ -6559,10 +6683,15 @@ public class GameDatabase
         /// <summary> 스킬 20번 : 방어자의 공격 속도가 감소 </summary>
         public float GetSkillAbility20_DwAttackSpeed(int lv, float _df_aSp)
         {
+            //var cdb = GetInstance().chartDB.GetChartSkill_Data(20);
+            //float mtp = cdb.f_mtp_val3 + (float)(lv * 0.03f);
+            //LogPrint.Print("스킬 20번 : 방어자의 공격 속도가 감소 lv : " + lv + ", cdb.f_mtp_val3 : " + cdb.f_mtp_val3 + ", f : " + ((float)(lv * 0.03f)) + ", mtp : " + mtp + ", resunt : " + (_df_aSp - (Math.Truncate((_df_aSp * mtp) * 1000.0f) / 1000.0f)));
+            //return _df_aSp - (float)(Math.Truncate((_df_aSp * mtp) * 1000.0f) / 1000.0f);
+
             var cdb = GetInstance().chartDB.GetChartSkill_Data(20);
             float mtp = cdb.f_mtp_val3 + (float)(lv * 0.03f);
-            LogPrint.Print("스킬 20번 : 방어자의 공격 속도가 감소 lv : " + lv + ", cdb.f_mtp_val3 : " + cdb.f_mtp_val3 + ", f : " + ((float)(lv * 0.03f)) + ", mtp : " + mtp + ", resunt : " + (_df_aSp - (Math.Truncate((_df_aSp * mtp) * 1000.0f) / 1000.0f)));
-            return _df_aSp - (float)(Math.Truncate((_df_aSp * mtp) * 1000.0f) / 1000.0f);
+            return System.Math.Clamp(_df_aSp - mtp, 0.25f, 1f);
+            //return _df_aSp - (float)(Math.Truncate((_df_aSp * mtp) * 1000.0f) / 1000.0f);
         }
 
         /// <summary> 스킬 22번 : 상대로부터 마지막으로 받은 대미지를 나의 hg로 회복 </summary>
@@ -6766,16 +6895,29 @@ public class GameDatabase
         {
             // 매인 스탯 + 옵션 스탯 
             public long combat_power;
-            public float atk_spd; // 무기의 공격 속도 
-            public long stat1_valPower; // 공격력 
-            public long stat2_valDefense; // 방어력 
-            public float stat3_valAccuracy; // 명중률
-            public long stat4_valCriPower; // 치명타 공격력 
-            public long stat5_valHealth; // 체력 
-            public float stat6_valCriChance; // 치명타 성공 확률 
-            public float stat7_valEvasion; // 회피율 
-            public long stat8_valCriDefense; // 치명타 방어력 
-            public float stat9_valCriEvasion; // 치명타 회피율 
+
+            /// <summary> 무기 : 공격력 </summary>
+            public long p0_wea_attackPower;
+            /// <summary> 방패 : 방어력 </summary>
+            public long p1_shi_defance;
+            /// <summary> 헬멧 : 피해량 감소% </summary>
+            public float p2_hel_damageReduction;
+            /// <summary> 어깨 : 체력% </summary>
+            public float p3_sho_health;
+            /// <summary> 갑옷 : 체력 </summary>
+            public long p4_arm_health;
+            /// <summary> 장갑 : 크리티컬 공격력 </summary>
+            public long p5_gau_criticalPower;
+            /// <summary> 바지 : 공격력 </summary>
+            public long p6_pan_attackPower;
+            /// <summary> 부츠 : 공격 속도% </summary>
+            public float p7_boo_attackSpeed;
+            /// <summary> 목걸이 : 크리티컬 확률% </summary>
+            public float p8_nec_criticalRate;
+            /// <summary> 귀걸이 : 방어력% </summary>
+            public float p9_ear_defance;
+            /// <summary> 반지 : 공격력% </summary>
+            public float p10_rin_attackPower;
 
             // 장신구 전용 옵션
             /// <summary> #1.PvE피해 증가 </summary> 
@@ -6834,259 +6976,188 @@ public class GameDatabase
             // --------------------------------------------------------------------------------------------------------------------------------------------
             // # 매인 스탯 #
             var wpEqDb = _tableDB.GetNowWearingEquipPartsData(0);
-            stat.atk_spd = (float)_chartDB.GetStatAttackSpeedValue(wpEqDb.eq_rt, wpEqDb.eq_id);
-            // 1.공격력 : 무기
-            stat.stat1_valPower += (long)_chartDB.GetMainStatValue(_tableDB.GetNowWearingEquipPartsData(0))[0];
-            // 2.방어력 : 방패 
-            stat.stat2_valDefense += (long)_chartDB.GetMainStatValue(_tableDB.GetNowWearingEquipPartsData(1))[0];
-            // 3.명중력 : 헬멧 
-            stat.stat3_valAccuracy += (float)_chartDB.GetMainStatValue(_tableDB.GetNowWearingEquipPartsData(2))[0];
-            // 4.치명타 공격력 : 어깨
-            stat.stat4_valCriPower += (long)_chartDB.GetMainStatValue(_tableDB.GetNowWearingEquipPartsData(3))[0];
-            // 5.체력 : 갑옷 
-            stat.stat5_valHealth += (long)_chartDB.GetMainStatValue(_tableDB.GetNowWearingEquipPartsData(4))[0];
-            // 6.치명타 성공률 : ty5팔
-            stat.stat6_valCriChance += (float)_chartDB.GetMainStatValue(_tableDB.GetNowWearingEquipPartsData(5))[0];
-            // 7.회피율 : 바지 
-            stat.stat7_valEvasion += (float)_chartDB.GetMainStatValue(_tableDB.GetNowWearingEquipPartsData(6))[0];
-            // 8.치명타 방어력 : 부츠 
-            stat.stat8_valCriDefense += (long)_chartDB.GetMainStatValue(_tableDB.GetNowWearingEquipPartsData(7))[0];
 
-            // 3.명중력 : 목걸이
-            stat.stat3_valAccuracy += (float)_chartDB.GetMainStatValue(_tableDB.GetNowWearingEquipPartsData(8))[0];
-            // 9.치명타 회피율 : 귀고리 
-            stat.stat9_valCriEvasion += (float)_chartDB.GetMainStatValue(_tableDB.GetNowWearingEquipPartsData(9))[0];
-            // 1.공격력 : 반지
-            stat.stat1_valPower += (long)_chartDB.GetMainStatValue(_tableDB.GetNowWearingEquipPartsData(10))[0];
+            stat.p0_wea_attackPower = (long)_chartDB.GetMainStatValue(_tableDB.GetNowWearingEquipPartsData(0))[0];
+            stat.p1_shi_defance = (long)_chartDB.GetMainStatValue(_tableDB.GetNowWearingEquipPartsData(1))[0];
+            stat.p2_hel_damageReduction = (float)_chartDB.GetMainStatValue(_tableDB.GetNowWearingEquipPartsData(2))[0];
+            stat.p3_sho_health = (float)_chartDB.GetMainStatValue(_tableDB.GetNowWearingEquipPartsData(3))[0];
+            stat.p4_arm_health = (long)_chartDB.GetMainStatValue(_tableDB.GetNowWearingEquipPartsData(4))[0];
+            stat.p5_gau_criticalPower = (long)_chartDB.GetMainStatValue(_tableDB.GetNowWearingEquipPartsData(5))[0];
+            stat.p6_pan_attackPower = (long)_chartDB.GetMainStatValue(_tableDB.GetNowWearingEquipPartsData(6))[0];
+            stat.p7_boo_attackSpeed = (float)_chartDB.GetMainStatValue(_tableDB.GetNowWearingEquipPartsData(7))[0];
 
-            // --------------------------------------------------------------------------------------------------------------------------------------------
-            // --------------------------------------------------------------------------------------------------------------------------------------------
-            // # 도감 스탯 #
-            var encycloStatValue = _chartDB.GetEncycloStatValue();
-            stat.stat1_valPower += encycloStatValue.stat1_valPower;             // 1.공격력 : 무기 / 반지 
-            stat.stat2_valDefense += encycloStatValue.stat2_valDefense;         // 2.방어력 : 방패 
-            stat.stat4_valCriPower += encycloStatValue.stat4_valCriPower;       // 4.치명타 공격력 : 어깨 
-            stat.stat5_valHealth += encycloStatValue.stat5_valHealth;           // 5.체력 : 갑옷 
-            stat.stat8_valCriDefense += encycloStatValue.stat8_valCriDefense;   // 8.치명타 방어력 : 부츠 
+            stat.p8_nec_criticalRate = (float)_chartDB.GetMainStatValue(_tableDB.GetNowWearingEquipPartsData(8))[0];
+            stat.p9_ear_defance = (float)_chartDB.GetMainStatValue(_tableDB.GetNowWearingEquipPartsData(9))[0];
+            stat.p10_rin_attackPower = (float)_chartDB.GetMainStatValue(_tableDB.GetNowWearingEquipPartsData(10))[0];
 
-            int lgnd_st1_combat_divi = 0;
-            long lgnd_st2_combat_divi = 0;
-            int lgnd_st4_combat_divi = 0;
-            int lgnd_st5_combat_divi = 0;
-            int lgnd_st8_combat_divi = 0;
-            // --------------------------------------------------------------------------------------------------------------------------------------------
-            // --------------------------------------------------------------------------------------------------------------------------------------------
-            // # 옵션 스탯 #
-            for (int eq_ty = 0; eq_ty <= 10; eq_ty++)
-            {
-                var eqDB = _tableDB.GetNowWearingEquipPartsData(eq_ty);
-                var statOp = eqDB.st_op;
-                for (int opNbr = 0; opNbr <= 3; opNbr++)
-                {
-                    var opStDB = opNbr == 0 ? statOp.op1 : opNbr == 1 ? statOp.op2 : opNbr == 2 ? statOp.op3 : opNbr == 3 ? statOp.op4 : default;
-                    if (opStDB.id > 0)
-                    {
-                        long iVal = (long)GetInstance().chartDB.GetEquipOptionStatValue(opStDB.id, opStDB.rlv, eqDB.eq_rt, eqDB.eq_id, eqDB.m_ehnt_lv, true, eqDB.eq_legend, eqDB.eq_legend_sop_id, eqDB.eq_legend_sop_rlv);
-                        switch (opStDB.id)
-                        {
-                            case 1: 
-                                stat.stat1_valPower += iVal; // 1.공격력 
-                                //if (eqDB.eq_legend == 1)
-                                //{
-                                //    if (eqDB.eq_legend_sop_id == 1)
-                                //        lgnd_st1_combat_divi += iVal - (int)(iVal * (GetDicBalance("equip.sop.id_1.max.val").val_float / GetDicBalance("equip.sop.id_1.max.val").val_float));
-                                //}
-                                break;
-                            case 2: 
-                                stat.stat2_valDefense += iVal; // 2.방어력
-                                if (eqDB.eq_legend == 1)
-                                {
-                                    if (eqDB.eq_legend_sop_id == 2)
-                                    {
-                                        lgnd_st2_combat_divi += (long)(iVal / (750/350));
-                                        LogPrint.EditorPrint("----------");
-                                    }
-                                }
-                                break;
-                            case 4: 
-                                stat.stat4_valCriPower += iVal;  // 4.치명타 공격력
-                                //if (eqDB.eq_legend == 1)
-                                //{
-                                //    if (eqDB.eq_legend_sop_id == 4)
-                                //        lgnd_st4_combat_divi += iVal - (int)(iVal * (GetDicBalance("equip.sop.id_1.max.val").val_float / GetDicBalance("equip.sop.id_4.max.val").val_float));
-                                //}
-                                break;
-                            case 5: 
-                                stat.stat5_valHealth += iVal; // 5.체력
-                                //if (eqDB.eq_legend == 1)
-                                //{
-                                //    if (eqDB.eq_legend_sop_id == 5)
-                                //        lgnd_st5_combat_divi += iVal - (int)(iVal * (GetDicBalance("equip.sop.id_1.max.val").val_float / GetDicBalance("equip.sop.id_5.max.val").val_float));
-                                //}
-                                break;
-                            case 8: 
-                                stat.stat8_valCriDefense += iVal;  // 8.치명타 방어력
-                                //if (eqDB.eq_legend == 1)
-                                //{
-                                //    if (eqDB.eq_legend_sop_id == 8)
-                                //        lgnd_st8_combat_divi += iVal - (int)(iVal * (GetDicBalance("equip.sop.id_1.max.val").val_float / GetDicBalance("equip.sop.id_8.max.val").val_float));
-                                //}
-                                break;
-                        }
-                    }
-                }
-            }
-
-            // --------------------------------------------------------------------------------------------------------------------------------------------
-            // --------------------------------------------------------------------------------------------------------------------------------------------
-            #region  # 펫 옵션 스탯 #
-            // 동행중인 펫 
-            var usePetDB = GameDatabase.GetInstance().tableDB.GetUsePet();
-           
-            var petOpStTotalFigures = GameDatabase.GetInstance().tableDB.GetPetOpStTotalFigures(usePetDB); // 펫 옵션 
-            var petSpOpTotalFigures = GameDatabase.GetInstance().tableDB.GetPetSpOpTotalFigures(usePetDB); // 펫 전용 옵션 
-            stat.petSpOpTotalFigures = petSpOpTotalFigures;
-
-            LogPrint.EditorPrint("11111 petOpStTotalFigures.op1v : " + petOpStTotalFigures.op1v); // 공격력 증가 
-            LogPrint.EditorPrint("11111 petOpStTotalFigures.op2v : " + petOpStTotalFigures.op2v); // 방어력 증가 
-            LogPrint.EditorPrint("11111 petOpStTotalFigures.op3v : " + petOpStTotalFigures.op4v); // 치 공 증가 
-            LogPrint.EditorPrint("11111 petOpStTotalFigures.op4v : " + petOpStTotalFigures.op5v); // 체력 증가 
-            LogPrint.EditorPrint("11111 petOpStTotalFigures.op5v : " + petOpStTotalFigures.op8v); // 치 방 증가 
+//            // --------------------------------------------------------------------------------------------------------------------------------------------
+//            // --------------------------------------------------------------------------------------------------------------------------------------------
+//            // # 도감 스탯 #
+//            var encycloStatValue = _chartDB.GetEncycloStatValue();
+//            stat.p0_wea_attackPower += encycloStatValue.p0_wea_attackPower;     // 1.공격력    : 무기 / 반지 
+//            stat.p1_shi_defance += encycloStatValue.p1_shi_defance;             // 2.방어력    : 방패 
+//            stat.p5_gau_criticalPower += encycloStatValue.p5_gau_criticalPower; // 4.치명타    : 공격력 : 어깨 
+//            stat.p4_arm_health += encycloStatValue.p4_arm_health;               // 5.체력      : 갑옷 
+//
+//            int lgnd_st1_combat_divi = 0;
+//            long lgnd_st2_combat_divi = 0;
+//            int lgnd_st4_combat_divi = 0;
+//            int lgnd_st5_combat_divi = 0;
+//            int lgnd_st8_combat_divi = 0;
+//            // --------------------------------------------------------------------------------------------------------------------------------------------
+//            // --------------------------------------------------------------------------------------------------------------------------------------------
+//            // # 옵션 스탯 #
+//            for (int eq_ty = 0; eq_ty <= 10; eq_ty++)
+//            {
+//                var eqDB = _tableDB.GetNowWearingEquipPartsData(eq_ty);
+//                var statOp = eqDB.st_op;
+//                for (int opNbr = 0; opNbr <= 3; opNbr++)
+//                {
+//                    var opStDB = opNbr == 0 ? statOp.op1 : opNbr == 1 ? statOp.op2 : opNbr == 2 ? statOp.op3 : opNbr == 3 ? statOp.op4 : default;
+//                    if (opStDB.id > 0)
+//                    {
+//                        long iVal = (long)GetInstance().chartDB.GetEquipOptionStatValue(opStDB.id, opStDB.rlv, eqDB.eq_rt, eqDB.eq_id, eqDB.m_ehnt_lv, true, eqDB.eq_legend, eqDB.eq_legend_sop_id, eqDB.eq_legend_sop_rlv);
+//                        switch (opStDB.id)
+//                        {
+//                            case 1: 
+//                                stat.p0_wea_attackPower += iVal; // 1.공격력 
+//                                break;
+//                            case 2: 
+//                                stat.p1_shi_defance += iVal; // 2.방어력
+//                                if (eqDB.eq_legend == 1)
+//                                {
+//                                    if (eqDB.eq_legend_sop_id == 2)
+//                                    {
+//                                        lgnd_st2_combat_divi += (long)(iVal / (750/350));
+//                                    }
+//                                }
+//                                break;
+//                            case 4: 
+//                                stat.p5_gau_criticalPower += iVal;  // 4.치명타 공격력
+//                                break;
+//                            case 5: 
+//                                stat.p4_arm_health += iVal; // 5.체력
+//                                break;
+//                        }
+//                    }
+//                }
+//            }
+//
+//            // --------------------------------------------------------------------------------------------------------------------------------------------
+//            // --------------------------------------------------------------------------------------------------------------------------------------------
+//            #region  # 펫 옵션 스탯 #
+//            // 동행중인 펫 
+//            var usePetDB = GameDatabase.GetInstance().tableDB.GetUsePet();
+//           
+//            var petOpStTotalFigures = GameDatabase.GetInstance().tableDB.GetPetOpStTotalFigures(usePetDB); // 펫 옵션 
+//            var petSpOpTotalFigures = GameDatabase.GetInstance().tableDB.GetPetSpOpTotalFigures(usePetDB); // 펫 전용 옵션 
+//            stat.petSpOpTotalFigures = petSpOpTotalFigures;
+//
+//            LogPrint.EditorPrint("11111 petOpStTotalFigures.op1v : " + petOpStTotalFigures.op1v); // 공격력 증가 
+//            LogPrint.EditorPrint("11111 petOpStTotalFigures.op2v : " + petOpStTotalFigures.op2v); // 방어력 증가 
+//            LogPrint.EditorPrint("11111 petOpStTotalFigures.op3v : " + petOpStTotalFigures.op4v); // 치 공 증가 
+//            LogPrint.EditorPrint("11111 petOpStTotalFigures.op4v : " + petOpStTotalFigures.op5v); // 체력 증가 
+//            LogPrint.EditorPrint("11111 petOpStTotalFigures.op5v : " + petOpStTotalFigures.op8v); // 치 방 증가 
+//
+//            if (isOnlyPvE)
+//            {
+//                // 공격력 옵션 증가 (PvE전용)
+//                if (petSpOpTotalFigures.sop5_value > 0.0f)
+//                    petOpStTotalFigures.op1v += petOpStTotalFigures.op1v * (petSpOpTotalFigures.sop5_value * 0.01f);
+//
+//                // 방어력 옵션 증가 (PvE전용)
+//                if (petSpOpTotalFigures.sop6_value > 0.0f)
+//                    petOpStTotalFigures.op2v += petOpStTotalFigures.op2v * (petSpOpTotalFigures.sop6_value * 0.01f);
+//
+//                // 체력 옵션 증가 (PvE전용)
+//                if (petSpOpTotalFigures.sop7_value > 0.0f)
+//                    petOpStTotalFigures.op5v += petOpStTotalFigures.op5v * (petSpOpTotalFigures.sop7_value * 0.01f);
+//
+//                // 치.공 옵션 증가 (PvE전용)
+//                if (petSpOpTotalFigures.sop8_value > 0.0f)
+//                    petOpStTotalFigures.op4v += petOpStTotalFigures.op4v * (petSpOpTotalFigures.sop8_value * 0.01f);
+//
+//                // 치.방 옵션 증가 (PvE전용)
+//                if (petSpOpTotalFigures.sop9_value > 0.0f)
+//                    petOpStTotalFigures.op8v += petOpStTotalFigures.op8v * (petSpOpTotalFigures.sop9_value * 0.01f);
+//            }
+//
+//            LogPrint.EditorPrint("22222 petOpStTotalFigures.op1v : " + petOpStTotalFigures.op1v); // 공격력 증가 
+//            LogPrint.EditorPrint("22222 petOpStTotalFigures.op2v : " + petOpStTotalFigures.op2v); // 방어력 증가 
+//            LogPrint.EditorPrint("22222 petOpStTotalFigures.op3v : " + petOpStTotalFigures.op4v); // 치 공 증가 
+//            LogPrint.EditorPrint("22222 petOpStTotalFigures.op4v : " + petOpStTotalFigures.op5v); // 체력 증가 
+//            LogPrint.EditorPrint("22222 petOpStTotalFigures.op5v : " + petOpStTotalFigures.op8v); // 치 방 증가 
+//
+//            stat.p0_wea_attackPower += (long)(stat.p0_wea_attackPower * petOpStTotalFigures.op1v);
+//            stat.p1_shi_defance += (long)(stat.p1_shi_defance * petOpStTotalFigures.op2v);
+//            stat.p5_gau_criticalPower += (long)(stat.p5_gau_criticalPower * petOpStTotalFigures.op4v);
+//            stat.p4_arm_health += (long)(stat.p4_arm_health * petOpStTotalFigures.op5v);
+//            //stat.stat8_valCriDefense += (long)(stat.stat8_valCriDefense * petOpStTotalFigures.op8v);
+//
+//            LogPrint.EditorPrint("petSpOpTotalFigures.sop1_value : " + petSpOpTotalFigures.sop1_value);// 퀘스트/장비 판매 골드 획득 증가
+//            LogPrint.EditorPrint("petSpOpTotalFigures.sop2_value : " + petSpOpTotalFigures.sop2_value);// 아이템 드랍률 증가
+//            LogPrint.EditorPrint("petSpOpTotalFigures.sop3_value : " + petSpOpTotalFigures.sop3_value);// 장비 드랍률 증가
+//            LogPrint.EditorPrint("petSpOpTotalFigures.sop4_value : " + petSpOpTotalFigures.sop4_value);// 몬스터 공격력 감소
+//            LogPrint.EditorPrint("petSpOpTotalFigures.sop5_value : " + petSpOpTotalFigures.sop5_value);// 공격력 옵션 증가 (PvE전용)
+//            LogPrint.EditorPrint("petSpOpTotalFigures.sop6_value : " + petSpOpTotalFigures.sop6_value);// 방어력 옵션 증가 (PvE전용)
+//            LogPrint.EditorPrint("petSpOpTotalFigures.sop7_value : " + petSpOpTotalFigures.sop7_value);// 체력 옵션 증가 (PvE전용)
+//            LogPrint.EditorPrint("petSpOpTotalFigures.sop8_value : " + petSpOpTotalFigures.sop8_value);// 치명타 공격력 옵션 증가 (PvE전용)
+//            LogPrint.EditorPrint("petSpOpTotalFigures.sop9_value : " + petSpOpTotalFigures.sop9_value);// 치명타 방어력 옵션 증가 (PvE전용)
+//            #endregion
+//
+//            // --------------------------------------------------------------------------------------------------------------------------------------------
+//            // --------------------------------------------------------------------------------------------------------------------------------------------
+//            #region  # 장신구 전용 옵션 스탯 #
+//            var eq_necklace = _tableDB.GetNowWearingEquipPartsData(8);
+//            stat.sop1_val = eq_necklace.st_sop_ac.id == 1 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_necklace)[0] : 0f;
+//            stat.sop2_val = eq_necklace.st_sop_ac.id == 2 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_necklace)[0] : 0f;
+//            stat.sop3_val = eq_necklace.st_sop_ac.id == 3 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_necklace)[0] : 0f;
+//            stat.sop4_val = eq_necklace.st_sop_ac.id == 4 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_necklace)[0] : 0f;
+//            stat.sop5_val = eq_necklace.st_sop_ac.id == 5 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_necklace)[0] : 0f;
+//            stat.sop6_val = eq_necklace.st_sop_ac.id == 6 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_necklace)[0] : 0f;
+//            stat.sop7_val = eq_necklace.st_sop_ac.id == 7 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_necklace)[0] : 0f;
+//            stat.sop8_val = eq_necklace.st_sop_ac.id == 8 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_necklace)[0] : 0f;
+//            stat.sop9_val = eq_necklace.st_sop_ac.id == 9 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_necklace)[0] : 0f;
+//            stat.sop10_val = eq_necklace.st_sop_ac.id == 10 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_necklace)[0] : 0f;
+//
+//            var eq_earring = _tableDB.GetNowWearingEquipPartsData(9);
+//            stat.sop1_val += eq_earring.st_sop_ac.id == 1 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_earring)[0] : 0f;
+//            stat.sop2_val += eq_earring.st_sop_ac.id == 2 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_earring)[0] : 0f;
+//            stat.sop3_val += eq_earring.st_sop_ac.id == 3 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_earring)[0] : 0f;
+//            stat.sop4_val += eq_earring.st_sop_ac.id == 4 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_earring)[0] : 0f;
+//            stat.sop5_val += eq_earring.st_sop_ac.id == 5 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_earring)[0] : 0f;
+//            stat.sop6_val += eq_earring.st_sop_ac.id == 6 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_earring)[0] : 0f;
+//            stat.sop7_val += eq_earring.st_sop_ac.id == 7 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_earring)[0] : 0f;
+//            stat.sop8_val += eq_earring.st_sop_ac.id == 8 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_earring)[0] : 0f;
+//            stat.sop9_val += eq_earring.st_sop_ac.id == 9 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_earring)[0] : 0f;
+//            stat.sop10_val += eq_earring.st_sop_ac.id == 10 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_earring)[0] : 0f;
+//
+//            var eq_ring = _tableDB.GetNowWearingEquipPartsData(10);
+//            stat.sop1_val += eq_ring.st_sop_ac.id == 1 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_ring)[0] : 0f;
+//            stat.sop2_val += eq_ring.st_sop_ac.id == 2 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_ring)[0] : 0f;
+//            stat.sop3_val += eq_ring.st_sop_ac.id == 3 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_ring)[0] : 0f;
+//            stat.sop4_val += eq_ring.st_sop_ac.id == 4 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_ring)[0] : 0f;
+//            stat.sop5_val += eq_ring.st_sop_ac.id == 5 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_ring)[0] : 0f;
+//            stat.sop6_val += eq_ring.st_sop_ac.id == 6 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_ring)[0] : 0f;
+//            stat.sop7_val += eq_ring.st_sop_ac.id == 7 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_ring)[0] : 0f;
+//            stat.sop8_val += eq_ring.st_sop_ac.id == 8 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_ring)[0] : 0f;
+//            stat.sop9_val += eq_ring.st_sop_ac.id == 9 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_ring)[0] : 0f;
+//            stat.sop10_val += eq_ring.st_sop_ac.id == 10 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_ring)[0] : 0f;
+//            #endregion
+//
+//            stat.combat_power += (long)(stat.p0_wea_attackPower * GetInstance().tableDB.GetCombatXValue(1));
+//            stat.combat_power += (long)(stat.p1_shi_defance * GetInstance().tableDB.GetCombatXValue(2));
+//            stat.combat_power += (long)(stat.p2_hel_damageReduction * GetInstance().tableDB.GetCombatXValue(3));
+//            stat.combat_power += (long)(stat.p3_sho_health* GetInstance().tableDB.GetCombatXValue(4));
+//            stat.combat_power += (long)(stat.p4_arm_health* GetInstance().tableDB.GetCombatXValue(5));
+//            stat.combat_power += (long)(stat.p5_gau_criticalPower* GetInstance().tableDB.GetCombatXValue(6)); 
+//            stat.combat_power += (long)(stat.p6_pan_attackPower* GetInstance().tableDB.GetCombatXValue(7));
+//            stat.combat_power += (long)(stat.p7_boo_attackSpeed* GetInstance().tableDB.GetCombatXValue(8));
+//            stat.combat_power += (long)(stat.p8_nec_criticalRate * GetInstance().tableDB.GetCombatXValue(9));
+//            stat.combat_power += (long)(stat.p9_ear_defance * GetInstance().tableDB.GetCombatXValue(9));
+//            stat.combat_power += (long)(stat.p10_rin_attackPower * GetInstance().tableDB.GetCombatXValue(9));
 
             if (isOnlyPvE)
-            {
-                // 공격력 옵션 증가 (PvE전용)
-                if (petSpOpTotalFigures.sop5_value > 0.0f)
-                    petOpStTotalFigures.op1v += petOpStTotalFigures.op1v * (petSpOpTotalFigures.sop5_value * 0.01f);
-
-                // 방어력 옵션 증가 (PvE전용)
-                if (petSpOpTotalFigures.sop6_value > 0.0f)
-                    petOpStTotalFigures.op2v += petOpStTotalFigures.op2v * (petSpOpTotalFigures.sop6_value * 0.01f);
-
-                // 체력 옵션 증가 (PvE전용)
-                if (petSpOpTotalFigures.sop7_value > 0.0f)
-                    petOpStTotalFigures.op5v += petOpStTotalFigures.op5v * (petSpOpTotalFigures.sop7_value * 0.01f);
-
-                // 치.공 옵션 증가 (PvE전용)
-                if (petSpOpTotalFigures.sop8_value > 0.0f)
-                    petOpStTotalFigures.op4v += petOpStTotalFigures.op4v * (petSpOpTotalFigures.sop8_value * 0.01f);
-
-                // 치.방 옵션 증가 (PvE전용)
-                if (petSpOpTotalFigures.sop9_value > 0.0f)
-                    petOpStTotalFigures.op8v += petOpStTotalFigures.op8v * (petSpOpTotalFigures.sop9_value * 0.01f);
-            }
-
-            LogPrint.EditorPrint("22222 petOpStTotalFigures.op1v : " + petOpStTotalFigures.op1v); // 공격력 증가 
-            LogPrint.EditorPrint("22222 petOpStTotalFigures.op2v : " + petOpStTotalFigures.op2v); // 방어력 증가 
-            LogPrint.EditorPrint("22222 petOpStTotalFigures.op3v : " + petOpStTotalFigures.op4v); // 치 공 증가 
-            LogPrint.EditorPrint("22222 petOpStTotalFigures.op4v : " + petOpStTotalFigures.op5v); // 체력 증가 
-            LogPrint.EditorPrint("22222 petOpStTotalFigures.op5v : " + petOpStTotalFigures.op8v); // 치 방 증가 
-
-            stat.stat1_valPower += (long)(stat.stat1_valPower * petOpStTotalFigures.op1v);
-            stat.stat2_valDefense += (long)(stat.stat2_valDefense * petOpStTotalFigures.op2v);
-            stat.stat4_valCriPower += (long)(stat.stat4_valCriPower * petOpStTotalFigures.op4v);
-            stat.stat5_valHealth += (long)(stat.stat5_valHealth * petOpStTotalFigures.op5v);
-            stat.stat8_valCriDefense += (long)(stat.stat8_valCriDefense * petOpStTotalFigures.op8v);
-
-            LogPrint.EditorPrint("petSpOpTotalFigures.sop1_value : " + petSpOpTotalFigures.sop1_value);// 퀘스트/장비 판매 골드 획득 증가
-            LogPrint.EditorPrint("petSpOpTotalFigures.sop2_value : " + petSpOpTotalFigures.sop2_value);// 아이템 드랍률 증가
-            LogPrint.EditorPrint("petSpOpTotalFigures.sop3_value : " + petSpOpTotalFigures.sop3_value);// 장비 드랍률 증가
-            LogPrint.EditorPrint("petSpOpTotalFigures.sop4_value : " + petSpOpTotalFigures.sop4_value);// 몬스터 공격력 감소
-            LogPrint.EditorPrint("petSpOpTotalFigures.sop5_value : " + petSpOpTotalFigures.sop5_value);// 공격력 옵션 증가 (PvE전용)
-            LogPrint.EditorPrint("petSpOpTotalFigures.sop6_value : " + petSpOpTotalFigures.sop6_value);// 방어력 옵션 증가 (PvE전용)
-            LogPrint.EditorPrint("petSpOpTotalFigures.sop7_value : " + petSpOpTotalFigures.sop7_value);// 체력 옵션 증가 (PvE전용)
-            LogPrint.EditorPrint("petSpOpTotalFigures.sop8_value : " + petSpOpTotalFigures.sop8_value);// 치명타 공격력 옵션 증가 (PvE전용)
-            LogPrint.EditorPrint("petSpOpTotalFigures.sop9_value : " + petSpOpTotalFigures.sop9_value);// 치명타 방어력 옵션 증가 (PvE전용)
-            #endregion
-
-            // --------------------------------------------------------------------------------------------------------------------------------------------
-            // --------------------------------------------------------------------------------------------------------------------------------------------
-            #region  # 장신구 전용 옵션 스탯 #
-            var eq_necklace = _tableDB.GetNowWearingEquipPartsData(8);
-            stat.sop1_val = eq_necklace.st_sop_ac.id == 1 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_necklace)[0] : 0f;
-            stat.sop2_val = eq_necklace.st_sop_ac.id == 2 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_necklace)[0] : 0f;
-            stat.sop3_val = eq_necklace.st_sop_ac.id == 3 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_necklace)[0] : 0f;
-            stat.sop4_val = eq_necklace.st_sop_ac.id == 4 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_necklace)[0] : 0f;
-            stat.sop5_val = eq_necklace.st_sop_ac.id == 5 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_necklace)[0] : 0f;
-            stat.sop6_val = eq_necklace.st_sop_ac.id == 6 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_necklace)[0] : 0f;
-            stat.sop7_val = eq_necklace.st_sop_ac.id == 7 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_necklace)[0] : 0f;
-            stat.sop8_val = eq_necklace.st_sop_ac.id == 8 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_necklace)[0] : 0f;
-            stat.sop9_val = eq_necklace.st_sop_ac.id == 9 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_necklace)[0] : 0f;
-            stat.sop10_val = eq_necklace.st_sop_ac.id == 10 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_necklace)[0] : 0f;
-
-            var eq_earring = _tableDB.GetNowWearingEquipPartsData(9);
-            stat.sop1_val += eq_earring.st_sop_ac.id == 1 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_earring)[0] : 0f;
-            stat.sop2_val += eq_earring.st_sop_ac.id == 2 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_earring)[0] : 0f;
-            stat.sop3_val += eq_earring.st_sop_ac.id == 3 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_earring)[0] : 0f;
-            stat.sop4_val += eq_earring.st_sop_ac.id == 4 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_earring)[0] : 0f;
-            stat.sop5_val += eq_earring.st_sop_ac.id == 5 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_earring)[0] : 0f;
-            stat.sop6_val += eq_earring.st_sop_ac.id == 6 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_earring)[0] : 0f;
-            stat.sop7_val += eq_earring.st_sop_ac.id == 7 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_earring)[0] : 0f;
-            stat.sop8_val += eq_earring.st_sop_ac.id == 8 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_earring)[0] : 0f;
-            stat.sop9_val += eq_earring.st_sop_ac.id == 9 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_earring)[0] : 0f;
-            stat.sop10_val += eq_earring.st_sop_ac.id == 10 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_earring)[0] : 0f;
-
-            var eq_ring = _tableDB.GetNowWearingEquipPartsData(10);
-            stat.sop1_val += eq_ring.st_sop_ac.id == 1 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_ring)[0] : 0f;
-            stat.sop2_val += eq_ring.st_sop_ac.id == 2 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_ring)[0] : 0f;
-            stat.sop3_val += eq_ring.st_sop_ac.id == 3 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_ring)[0] : 0f;
-            stat.sop4_val += eq_ring.st_sop_ac.id == 4 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_ring)[0] : 0f;
-            stat.sop5_val += eq_ring.st_sop_ac.id == 5 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_ring)[0] : 0f;
-            stat.sop6_val += eq_ring.st_sop_ac.id == 6 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_ring)[0] : 0f;
-            stat.sop7_val += eq_ring.st_sop_ac.id == 7 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_ring)[0] : 0f;
-            stat.sop8_val += eq_ring.st_sop_ac.id == 8 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_ring)[0] : 0f;
-            stat.sop9_val += eq_ring.st_sop_ac.id == 9 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_ring)[0] : 0f;
-            stat.sop10_val += eq_ring.st_sop_ac.id == 10 ? GetInstance().chartDB.GetAcceSpecialOptionValue(eq_ring)[0] : 0f;
-            #endregion
-
-            // # 전투력 총합 #
-            // ------
-            // 매인+옵션 스탯에 적용되는 스탯 
-            // 3.명중력 : 헬멧 
-            // 6.치명타 성공률: ty5팔
-            // 7.회피율 : 바지 
-            // 9.치명타 회피율 : 귀고리 
-
-            // ------
-            // 옵션에만 적용되는 스탯 
-            // 1.공격력 : 무기 / 반지
-            // 2.방어력 : 방패 
-            // 4.치명타 공격력 : 어깨
-            // 5.체력 : 갑옷 
-            // 8.치명타 방어력 : 부츠
-
-            //stat.combat_power += Mathf.RoundToInt((stat.stat1_valPower - lgnd_st1_combat_divi) * GetInstance().tableDB.GetCombatXValue(1)); // 1.공격력
-            //stat.combat_power += Mathf.RoundToInt((stat.stat2_valDefense - lgnd_st2_combat_divi) * GetInstance().tableDB.GetCombatXValue(2)); // 2.방어력
-            //stat.combat_power += Mathf.RoundToInt(stat.stat3_valAccuracy * GetInstance().tableDB.GetCombatXValue(3)); // 3.명중력
-            //stat.combat_power += Mathf.RoundToInt((stat.stat4_valCriPower - lgnd_st4_combat_divi) * GetInstance().tableDB.GetCombatXValue(4)); // 4.치명타 공격력
-            //stat.combat_power += Mathf.RoundToInt((stat.stat5_valHealth - lgnd_st5_combat_divi) * GetInstance().tableDB.GetCombatXValue(5)); // 5.체력
-            //stat.combat_power += Mathf.RoundToInt(stat.stat6_valCriChance * GetInstance().tableDB.GetCombatXValue(6)); // 6.치명타 성공률
-            //stat.combat_power += Mathf.RoundToInt(stat.stat7_valEvasion * GetInstance().tableDB.GetCombatXValue(7)); // 7.회피율
-            //stat.combat_power += Mathf.RoundToInt((stat.stat8_valCriDefense - lgnd_st8_combat_divi) * GetInstance().tableDB.GetCombatXValue(8)); // 8.치명타 방어력
-            //stat.combat_power += Mathf.RoundToInt(stat.stat9_valCriEvasion * GetInstance().tableDB.GetCombatXValue(9)); // 9.치명타 회피율
-
-            LogPrint.EditorPrint("lgnd_st2_combat_divi : " + lgnd_st2_combat_divi + ", GetInstance().tableDB.GetCombatXValue(방) : " + GetInstance().tableDB.GetCombatXValue(2));
-            LogPrint.EditorPrint("stat1 : " + stat.stat1_valPower + ", GetInstance().tableDB.GetCombatXValue(공) : " + GetInstance().tableDB.GetCombatXValue(1));
-            LogPrint.EditorPrint("stat2 : " + stat.stat2_valDefense + ", GetInstance().tableDB.GetCombatXValue(방) : " + GetInstance().tableDB.GetCombatXValue(2));
-            LogPrint.EditorPrint("stat3 : " + stat.stat3_valAccuracy + ", GetInstance().tableDB.GetCombatXValue(명) : " + GetInstance().tableDB.GetCombatXValue(3));
-            LogPrint.EditorPrint("stat4 : " + stat.stat4_valCriPower + ", GetInstance().tableDB.GetCombatXValue(치.공) : " + GetInstance().tableDB.GetCombatXValue(4));
-            LogPrint.EditorPrint("stat5 : " + stat.stat5_valHealth + ", GetInstance().tableDB.GetCombatXValue(체) : " + GetInstance().tableDB.GetCombatXValue(5));
-            LogPrint.EditorPrint("stat6 : " + stat.stat6_valCriChance + ", GetInstance().tableDB.GetCombatXValue(치.성) : " + GetInstance().tableDB.GetCombatXValue(6));
-            LogPrint.EditorPrint("stat7 : " + stat.stat7_valEvasion + ", GetInstance().tableDB.GetCombatXValue(회) : " + GetInstance().tableDB.GetCombatXValue(7));
-            LogPrint.EditorPrint("stat8 : " + stat.stat8_valCriDefense + ", GetInstance().tableDB.GetCombatXValue(치.방) : " + GetInstance().tableDB.GetCombatXValue(8));
-            LogPrint.EditorPrint("stat9 : " + stat.stat9_valCriEvasion + ", GetInstance().tableDB.GetCombatXValue(치.회) : " + GetInstance().tableDB.GetCombatXValue(9));
-
-            stat.combat_power += (long)(stat.stat1_valPower * GetInstance().tableDB.GetCombatXValue(1)); // 1.공격력
-            stat.combat_power += (long)(stat.stat2_valDefense * GetInstance().tableDB.GetCombatXValue(2)); // 2.방어력
-            stat.combat_power += (long)(stat.stat3_valAccuracy * GetInstance().tableDB.GetCombatXValue(3)); // 3.명중력
-            stat.combat_power += (long)(stat.stat4_valCriPower * GetInstance().tableDB.GetCombatXValue(4)); // 4.치명타 공격력
-            stat.combat_power += (long)(stat.stat5_valHealth * GetInstance().tableDB.GetCombatXValue(5)); // 5.체력
-            stat.combat_power += (long)(stat.stat6_valCriChance * GetInstance().tableDB.GetCombatXValue(6)); // 6.치명타 성공률
-            stat.combat_power += (long)(stat.stat7_valEvasion * GetInstance().tableDB.GetCombatXValue(7)); // 7.회피율
-            stat.combat_power += (long)(stat.stat8_valCriDefense * GetInstance().tableDB.GetCombatXValue(8)); // 8.치명타 방어력
-            stat.combat_power += (long)(stat.stat9_valCriEvasion * GetInstance().tableDB.GetCombatXValue(9)); // 9.치명타 회피율
-
-            if(isOnlyPvE)
                 SetStat(stat);
 
             return stat;
@@ -7443,114 +7514,30 @@ public class GameDatabase
         public CharacterDB.StatValue SetMonsterStatValue(TableDB.Equipment mnst_eqDB, int mon_id, bool isMonsterOrUserZB, bool isRndOpSt)
         {
             CharacterDB.StatValue monster_stat = new CharacterDB.StatValue();
-            monster_stat.atk_spd = (float)_chartDB.GetStatAttackSpeedValue(mnst_eqDB.eq_rt, mnst_eqDB.eq_id); // 무기 : 공격 속도 
-            monster_stat.stat1_valPower = ((long)(_chartDB.GetMainStatValue(mnst_eqDB, 0)[0])); // 장비 타입0 :무기, 스탯1:공격력
-            monster_stat.stat2_valDefense = ((long)(_chartDB.GetMainStatValue(mnst_eqDB, 1)[0]) / (mon_id + 1)); // 장비 타입1:방패, 스탯2:방어력
-            monster_stat.stat3_valAccuracy = (float)_chartDB.GetMainStatValue(mnst_eqDB, 2)[0]; // 장비 타입2:헬멧, 스탯3:명중률 
-            monster_stat.stat4_valCriPower = ((long)(_chartDB.GetMainStatValue(mnst_eqDB, 3)[0]));// 장비 타입3:어깨, 스탯4:치명타 공격력
-            monster_stat.stat5_valHealth = ((long)(_chartDB.GetMainStatValue(mnst_eqDB, 4)[0]) / (mon_id + 1)); // 장비 타입4:갑옷, 스탯5:체력 
-            monster_stat.stat6_valCriChance = (float)_chartDB.GetMainStatValue(mnst_eqDB, 5)[0]; // 장비 타입5:팔,   스탯6:치명타 성공률 
-            monster_stat.stat7_valEvasion = (float)_chartDB.GetMainStatValue(mnst_eqDB, 6)[0]; // 장비 타입6:바지, 스탯7:회피 
-            monster_stat.stat8_valCriDefense = ((long)(_chartDB.GetMainStatValue(mnst_eqDB, 7)[0])); // 장비 타입7:부츠, 스탯8:치명타 방어력 
-            monster_stat.stat3_valAccuracy += (float)_chartDB.GetMainStatValue(mnst_eqDB, 8)[0]; // 장비 타입8:목걸이, 스탯3:명중률
-            monster_stat.stat9_valCriEvasion = (float)_chartDB.GetMainStatValue(mnst_eqDB, 9)[0]; // 장비 타입9:귀고리, 스탯9:치명타 회피율 
-            monster_stat.stat1_valPower += ((long)(_chartDB.GetMainStatValue(mnst_eqDB, 10)[0])); // 장비 타입10:반지, 스탯1:공격력 
+            monster_stat.p0_wea_attackPower = (long)_chartDB.GetMainStatValue(mnst_eqDB, 0)[0];
+            monster_stat.p1_shi_defance = (long)_chartDB.GetMainStatValue(mnst_eqDB, 1)[0];
+            monster_stat.p2_hel_damageReduction = (float)_chartDB.GetMainStatValue(mnst_eqDB, 2)[0];
+            monster_stat.p3_sho_health = (float)_chartDB.GetMainStatValue(mnst_eqDB, 3)[0];
+            monster_stat.p4_arm_health = (long)_chartDB.GetMainStatValue(mnst_eqDB, 4)[0] / (mon_id + 1);
+            monster_stat.p5_gau_criticalPower = (long)_chartDB.GetMainStatValue(mnst_eqDB, 5)[0];
+            monster_stat.p6_pan_attackPower = (long)_chartDB.GetMainStatValue(mnst_eqDB, 6)[0];
+            monster_stat.p7_boo_attackSpeed = (float)_chartDB.GetMainStatValue(mnst_eqDB, 7)[0];
 
-            // --------------------------------------------------------------------------------------------------------------------------------------------
-            // --------------------------------------------------------------------------------------------------------------------------------------------
-            if(mnst_eqDB.eq_rt >= 3 && mnst_eqDB.eq_id >= 2)
-            {
-                // # 옵션 스탯 #
-                int f_max_ty = -1;
-                if (mnst_eqDB.eq_rt == 3)
-                    f_max_ty = 0;
-                else if (mnst_eqDB.eq_rt == 4) // eq_id : 1 ~ 4
-                {
-                    if (mnst_eqDB.eq_id == 1 || mnst_eqDB.eq_id == 2)
-                        f_max_ty = 1;
-                    else
-                        f_max_ty = 2;
-                }
-                else if (mnst_eqDB.eq_rt == 5) // eq_id : 1 ~ 4 
-                {
-                    if (mnst_eqDB.eq_id == 1 || mnst_eqDB.eq_id == 2)
-                        f_max_ty = 3;
-                    else if (mnst_eqDB.eq_id == 3)
-                        f_max_ty = 4;
-                    else f_max_ty = 5;
-                }
-                else if (mnst_eqDB.eq_rt == 6)// eq_id : 1 ~ 3 
-                {
-                    if (mnst_eqDB.eq_id == 1)
-                        f_max_ty = 6;
-                    else if (mnst_eqDB.eq_id == 2)
-                        f_max_ty = 7;
-                    else f_max_ty = 8;
-                }
-                else if (mnst_eqDB.eq_rt == 7)// eq_id : 1 ~ 2 
-                {
-                    if (mnst_eqDB.eq_id == 1)
-                        f_max_ty = 9;
-                    else
-                        f_max_ty = 10;
-                }
-                else f_max_ty = 10;
+            monster_stat.p8_nec_criticalRate = (float)_chartDB.GetMainStatValue(mnst_eqDB, 8)[0];
+            monster_stat.p9_ear_defance = (float)_chartDB.GetMainStatValue(mnst_eqDB, 9)[0];
+            monster_stat.p10_rin_attackPower = (float)_chartDB.GetMainStatValue(mnst_eqDB, 10)[0];
 
-                if(f_max_ty >= 0)
-                {
-                    for (int f_ty = 0; f_ty <= f_max_ty; f_ty++) // f_ty : 장비 타입 0~7 장비, 8~10 장신구 
-                    {
-                        var eqDB = mnst_eqDB;
-                        var statOp = isMonsterOrUserZB == true ? GameDatabase.GetInstance().tableDB.GetMonsterEquipRandomOption(f_ty, mnst_eqDB.eq_rt, isRndOpSt) :
-                            GameDatabase.GetInstance().tableDB.GetEquipRandomOption(f_ty, mnst_eqDB.eq_rt);
-
-                        for (int opNbr = 0; opNbr <= 3; opNbr++)
-                        {
-                            var opStDB = opNbr == 0 ? statOp.op1 : opNbr == 1 ? statOp.op2 : opNbr == 2 ? statOp.op3 : opNbr == 3 ? statOp.op4 : default;
-                            if (opStDB.id > 0)
-                            {
-                                long iVal = (long)GetInstance().chartDB.GetEquipOptionStatValue(opStDB.id, 1, eqDB.eq_rt, eqDB.eq_id, eqDB.m_ehnt_lv, false);
-                                switch (opStDB.id)
-                                {
-                                    case 1: monster_stat.stat1_valPower += iVal; break; // 1.공격력 
-                                    case 2: monster_stat.stat2_valDefense += iVal / (mon_id + 1); break; // 2.방어력
-                                    case 4: monster_stat.stat4_valCriPower += iVal; break; // 4.치명타 공격력
-                                    case 5: monster_stat.stat5_valHealth += iVal / (mon_id + 1); break; // 5.체력
-                                    case 8: monster_stat.stat8_valCriDefense += iVal; break; // 8.치명타 방어력
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            monster_stat.stat1_valPower = (long)(monster_stat.stat1_valPower * 0.9f);
-            monster_stat.stat4_valCriPower = (long)(monster_stat.stat1_valPower * 0.9f);
-
-         //   if (BackendGpgsMng.isEditor)
-         //   {
-         //       monster_stat.stat1_valPower = 107909929;
-        //    }
-
-            // 전투력 
-            monster_stat.combat_power += (long)(monster_stat.stat1_valPower * GameDatabase.GetInstance().tableDB.GetCombatXValue(1));
-            //LogPrint.EditorPrint(" 1 : " + monster_stat.combat_power +", " + (long)(monster_stat.stat1_valPower * GameDatabase.GetInstance().tableDB.GetCombatXValue(1)));
-            monster_stat.combat_power += (long)(monster_stat.stat2_valDefense * GameDatabase.GetInstance().tableDB.GetCombatXValue(2));
-            //LogPrint.EditorPrint(" 2 : " + monster_stat.combat_power + ", " + (long)(monster_stat.stat2_valDefense * GameDatabase.GetInstance().tableDB.GetCombatXValue(2)));
-            monster_stat.combat_power += Mathf.RoundToInt(monster_stat.stat3_valAccuracy * GameDatabase.GetInstance().tableDB.GetCombatXValue(3));
-            //LogPrint.EditorPrint(" 3 : " + monster_stat.combat_power + ", " + Mathf.RoundToInt(monster_stat.stat3_valAccuracy * GameDatabase.GetInstance().tableDB.GetCombatXValue(3)));
-            monster_stat.combat_power += (long)(monster_stat.stat4_valCriPower * GameDatabase.GetInstance().tableDB.GetCombatXValue(4));
-            //LogPrint.EditorPrint(" 4 : " + monster_stat.combat_power + ", " + (long)(monster_stat.stat4_valCriPower * GameDatabase.GetInstance().tableDB.GetCombatXValue(4)));
-            monster_stat.combat_power += (long)(monster_stat.stat5_valHealth * GameDatabase.GetInstance().tableDB.GetCombatXValue(5));
-            //LogPrint.EditorPrint(" 5 : " + monster_stat.combat_power + ", " + (long)(monster_stat.stat5_valHealth * GameDatabase.GetInstance().tableDB.GetCombatXValue(5)));
-            monster_stat.combat_power += Mathf.RoundToInt(monster_stat.stat6_valCriChance * GameDatabase.GetInstance().tableDB.GetCombatXValue(6));
-            //LogPrint.EditorPrint(" 6 : " + monster_stat.combat_power + ", " + Mathf.RoundToInt(monster_stat.stat6_valCriChance * GameDatabase.GetInstance().tableDB.GetCombatXValue(6)));
-            monster_stat.combat_power += Mathf.RoundToInt(monster_stat.stat7_valEvasion * GameDatabase.GetInstance().tableDB.GetCombatXValue(7));
-            //LogPrint.EditorPrint(" 7 : " + monster_stat.combat_power + ", " + Mathf.RoundToInt(monster_stat.stat7_valEvasion * GameDatabase.GetInstance().tableDB.GetCombatXValue(7)));
-            monster_stat.combat_power += (long)(monster_stat.stat8_valCriDefense * GameDatabase.GetInstance().tableDB.GetCombatXValue(8));
-            //LogPrint.EditorPrint(" 8 : " + monster_stat.combat_power + ", " + (long)(monster_stat.stat8_valCriDefense * GameDatabase.GetInstance().tableDB.GetCombatXValue(8)));
-            monster_stat.combat_power += Mathf.RoundToInt(monster_stat.stat9_valCriEvasion * GameDatabase.GetInstance().tableDB.GetCombatXValue(9));
-            //LogPrint.EditorPrint(" 9 : " + monster_stat.combat_power + ", " + Mathf.RoundToInt(monster_stat.stat9_valCriEvasion * GameDatabase.GetInstance().tableDB.GetCombatXValue(9)));
+            monster_stat.combat_power += (long)(monster_stat.p0_wea_attackPower * GetInstance().tableDB.GetCombatXValue(1));
+            monster_stat.combat_power += (long)(monster_stat.p1_shi_defance * GetInstance().tableDB.GetCombatXValue(2));
+            monster_stat.combat_power += (long)(monster_stat.p2_hel_damageReduction * GetInstance().tableDB.GetCombatXValue(3));
+            monster_stat.combat_power += (long)(monster_stat.p3_sho_health * GetInstance().tableDB.GetCombatXValue(4));
+            monster_stat.combat_power += (long)(monster_stat.p4_arm_health * GetInstance().tableDB.GetCombatXValue(5));
+            monster_stat.combat_power += (long)(monster_stat.p5_gau_criticalPower * GetInstance().tableDB.GetCombatXValue(6));
+            monster_stat.combat_power += (long)(monster_stat.p6_pan_attackPower * GetInstance().tableDB.GetCombatXValue(7));
+            monster_stat.combat_power += (long)(monster_stat.p7_boo_attackSpeed * GetInstance().tableDB.GetCombatXValue(8));
+            monster_stat.combat_power += (long)(monster_stat.p8_nec_criticalRate * GetInstance().tableDB.GetCombatXValue(9));
+            monster_stat.combat_power += (long)(monster_stat.p9_ear_defance * GetInstance().tableDB.GetCombatXValue(9));
+            monster_stat.combat_power += (long)(monster_stat.p10_rin_attackPower * GetInstance().tableDB.GetCombatXValue(9));
 
             monster_stat.eq_rt = mnst_eqDB.eq_rt;
             monster_stat.eq_id = mnst_eqDB.eq_id;

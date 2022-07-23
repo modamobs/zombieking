@@ -303,8 +303,8 @@ public class ConvenienceFunctionMng : MonoSingleton<ConvenienceFunctionMng>
                 {
                     if (gMgr.myPZ != null && GameMng.GetInstance().mode_type != IG.ModeType.PVP_BATTLE_ARENA)
                     {
-                        long maxMyHp = gMgr.myPZ.igp.statValue.stat5_valHealth;
-                        long nowHp = gMgr.myPZ.GetHp();
+                        long maxMyHp = gMgr.myPZ.GetStatMax_Health();
+                        long nowHp = gMgr.myPZ.GetNowHp();
                         long pcrHp = (long)(maxMyHp * convenFun.cfAutoPosion.usePcr);
                         convenFun.cfAutoPosion.txReUseTime.text = "~";
 
@@ -312,7 +312,7 @@ public class ConvenienceFunctionMng : MonoSingleton<ConvenienceFunctionMng>
                         {
                             if (gMgr.myPZ != null)
                             {
-                                nowHp = gMgr.myPZ.GetHp();
+                                nowHp = gMgr.myPZ.GetNowHp();
                                 pcrHp = (long)(maxMyHp * convenFun.cfAutoPosion.usePcr);
                             }
 

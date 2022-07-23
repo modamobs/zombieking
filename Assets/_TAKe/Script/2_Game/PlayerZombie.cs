@@ -44,9 +44,7 @@ public class PlayerZombie : MonoBehaviour
     [SerializeField] Image hpAmount, hpBgAmount;
     [SerializeField] Text hpValue;
 
-    [SerializeField]
-    private long nowHealth { get; set; }
-    [SerializeField]
+    private long nowHealth;
     public long NowHealth
     {
         get
@@ -55,14 +53,20 @@ public class PlayerZombie : MonoBehaviour
         }
         set
         {
-            nowHealth = value < 0 ? 0 : value;
-            if (nowHealth > igp.statValue.stat5_valHealth)
-                nowHealth = igp.statValue.stat5_valHealth;
+            if (value < 0)
+            {
+                nowHealth = 0;
+            }
+            else if (value > GetStatMax_Health())
+            {
+                nowHealth = GetStatMax_Health();
+            }
+            else nowHealth = value;
 
             if (hpValue)
             {
                 if (isInitZb)
-                    hpValue.text = string.Format("{0:#,0} / {1:#,0}", nowHealth.ToString(), igp.statValue.stat5_valHealth.ToString());
+                    hpValue.text = string.Format("{0:#,0} / {1:#,0}", nowHealth, GetStatMax_Health());
                 else
                     hpValue.text = "";
             }
@@ -72,8 +76,7 @@ public class PlayerZombie : MonoBehaviour
     Color cor_hp_hit = new Color(1, 0, 0, 0.5f);
     Color cor_hp_rev = new Color(1, 1, 1, 0.5f);
     Vector3 v3DisablePos = new Vector3(0, 100, 0);
-
-    public long GetHp() => NowHealth;
+    
     public GameObject go_HandThrowBomb, go_HandThrowSmoke;
 
     [SerializeField]
@@ -85,7 +88,6 @@ public class PlayerZombie : MonoBehaviour
         public Transform head; // 머리 
         public Transform bottom; // 바닥 
         public Transform hitPosTr;
-
         public Transform hand_l, hand_r;
     }
 
@@ -247,7 +249,7 @@ public class PlayerZombie : MonoBehaviour
 
     [SerializeField] cdb_chpt_mnst_stat mnst_stat;
     /// <summary> 좀비 스텟 </summary>
-    public async void Setting()
+    public void Setting()
     {
         if (zbType == IG.MonsterType.MINE)
         {
@@ -425,8 +427,7 @@ public class PlayerZombie : MonoBehaviour
         }
         
         SettingParts(-1);
-        LogPrint.EditorPrint("igp.statValue.stat5_valHealth : " + igp.statValue.stat5_valHealth +", ismine : " + zbType);
-        NowHealth = igp.statValue.stat5_valHealth;
+        NowHealth = GetStatMax_Health();
     }
 
     /// <summary> 좀비 장비 파츠 세팅 </summary>
@@ -656,14 +657,14 @@ public class PlayerZombie : MonoBehaviour
             {
                 if (targetPz.igp.state == IG.ZombieState.LOSER || targetPz.zbType == IG.MonsterType.NONE || targetPz.gameObject.activeSelf == false)
                 {
-                    LogPrint.EditorPrint(" 11111 is Mine : " + zbType + ", GetHp : " + GetHp() + ", targetPz.GetHp() : " + targetPz.GetHp());
+                    LogPrint.EditorPrint(" 11111 is Mine : " + zbType + ", GetHp : " + GetNowHp() + ", targetPz.GetHp() : " + targetPz.GetNowHp());
                     targetPz = null;
                 }
             }
 
             if (targetPz != null)
             {
-                if (GetHp() > 0 && targetPz.GetHp() > 0)
+                if (GetNowHp() > 0 && targetPz.GetNowHp() > 0)
                 {
                     float sqr = GameMng.GetSqr(tr.transf.position, targetPz.tr.transf.position);
                     if (sqr > 8.25f) // 상대한테 다가가도록 이동 
@@ -696,7 +697,7 @@ public class PlayerZombie : MonoBehaviour
 
                             yield return null;
                                 
-                            if(targetPz.GetHp() > 0)
+                            if(targetPz.GetNowHp() > 0)
                             {
                                 bool isIdle = anim.GetCurrentAnimatorStateInfo(0).IsName("Idle") == true && anim.GetCurrentAnimatorStateInfo(0).IsName("GeneralAttack1") == false;
                                 if (isIdle && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.01f)
@@ -714,7 +715,7 @@ public class PlayerZombie : MonoBehaviour
                                                 igp.etcZbData.last_attack_count = igp.etcZbData.attack_count;
                                                 //ObjectLife ol = ObjectPool.GetInstance().PopFromPool("opOnce_Sk18Ef_Aura", this.transform.position);
                                                 int sk18lv = igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_18);
-                                                long recv_hp = GameDatabase.GetInstance().chartDB.GetSkillAbility18_RecoveryHealth(sk18lv, this.GetHp());
+                                                long recv_hp = GameDatabase.GetInstance().chartDB.GetSkillAbility18_RecoveryHealth(sk18lv, this.GetNowHp());
                                                 RecoveryHealth(recv_hp);
                                             }
                                         }
@@ -723,7 +724,7 @@ public class PlayerZombie : MonoBehaviour
                                         {
                                             if (!firstAtk)
                                             {
-                                                if (igp.statValue.atk_spd >= targetPz.igp.statValue.atk_spd)
+                                                if (GetAttackSpeed() >= targetPz.GetAttackSpeed())
                                                     yield return new WaitForSeconds(0.25f);
 
                                                 firstAtk = true;
@@ -764,7 +765,7 @@ public class PlayerZombie : MonoBehaviour
                     
                     if (targetPz != null && igp.state != IG.ZombieState.WINNER && igp.state != IG.ZombieState.LOSER)
                     {
-                        LogPrint.EditorPrint(" 22222 is Mine : " + zbType + ", GetHp : " + GetHp() + ", targetPz.GetHp() : " + targetPz.GetHp());
+                        LogPrint.EditorPrint(" 22222 is Mine : " + zbType + ", GetHp : " + GetNowHp() + ", targetPz.GetHp() : " + targetPz.GetNowHp());
 
                         //TakeDamage
                         bool isTkDmg = targetPz.TakeDamage(true, 0, false, true);
@@ -804,42 +805,6 @@ public class PlayerZombie : MonoBehaviour
     {
 
     }
-
-    /// <summary> 공격자 기준으로 공격 액션 이전에 디버프 체크 후 적용 </summary>
-    //IEnumerator CCheckAttackReadyDebuff()
-    //{
-    //    if (targetPz == null)
-    //        yield break;
-
-    //    bool isCheckAtvSk = igp.playerSkillAction.IsCheckActiveSkill();
-    //    //igp.playerSkillAction.isNowSkillAction = isCheckAtvSk;
-    //    foreach (var item in targetPz.igp.activateSkills) // 상대 스킬 발동 리스트 
-    //    {
-    //        var chart_db = GameDatabase.GetInstance().chartDB.GetChartSkill_Data((int)item);
-    //        if (isCheckAtvSk == false)
-    //        {
-    //            #region # 디버프 적용 # => 스킬 7번 : 공격 액션 전 경직 
-    //            if (item == IG.SkillNumber.NUMBER_7)
-    //            {
-    //                PauseAnimation();
-    //                anim.Play("GetStiffen");
-    //                yield return new WaitForSeconds(0.2f);
-    //                ResumAnimation();
-    //            }
-    //            #endregion
-    //        }
-
-    //        #region # 디버프 적용 # => 스킬 6번 : 내가 상대를 공격 이후 나 자신은 출혈 대미지를 입는다. 
-    //        if (item == IG.SkillNumber.NUMBER_6)
-    //        {
-    //            // 상대의스킬 6번 : 도트(출혈) 대미지를 입는다 
-    //            int sk6_lv = targetPz.igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_6);
-    //            int dot_dmg = GameDatabase.GetInstance().chartDB.GetSkillAbility6_DotDamage(sk6_lv, targetPz.igp.statValue.stat1_valPower);
-    //            EtcTakeDamage(dot_dmg, ResourceDatabase.GetInstance().hitColor_Bleeding, "opOnce_Sk6Ef_Hit", "arena_hit", etcGameObject.hip_j.position);
-    //        }
-    //        #endregion
-    //    }
-    //}
 
     /// <summary> 기타 대미지 </summary>
     public void EtcTakeDamage (long _dmg, Color _cor, string _pool_name, string _snd_name, Vector3 _ef_pool_pos)
@@ -922,447 +887,11 @@ public class PlayerZombie : MonoBehaviour
         return false;
     }
 
-    // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-    #region -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 스탯 관련 계산 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-    /// <summary> 기본 공격 : 크리 or 일반 대미지 적용 </summary>
-    public void TakeGeneralAttack()
-    {
-        bool is_cri_chnc = this.GetMyCriticalChance(); // 크리 성공 여부 
-        long dmg = is_cri_chnc == true ? this.GetMyCriticalAttackPower() : this.GetMyAttackPower(0);
-        this.Hit(true, dmg, is_cri_chnc);
-        this.igp.etcZbData.attack_count++;
-        MainUI.GetInstance().tapGameBattleInfo.RefreshBuff();
-    }
-
-    /// <summary> 스탯:회피율 </summary>
-    public float GetMyEvasion()
-    {
-        float val_evsi = igp.statValue.stat7_valEvasion;
-        #region --------- this ----------
-        float mtp_pls = 0f;
-        if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_23) >= 0) // this 스킬 23번 : 나의 체력이 30%이하라면 적용 -> 회피율 증가 
-        {
-            if (this.GetHp() < (long)(this.igp.statValue.stat5_valHealth * 0.3f)) // 30% 이하인지 체크 
-            {
-                int sk23lv = igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_23);
-                mtp_pls += GameDatabase.GetInstance().chartDB.GetSkillAbility23_UpEvasion(sk23lv);
-            }
-        }
-        val_evsi += (float)(igp.statValue.stat7_valEvasion * mtp_pls); // this 기본 + 증가된 회피율
-        #endregion
-
-        #region --------- other ----------
-
-        #endregion
-
-        return val_evsi;
-    }
-
-    /// <summary> 스탯:명중률 </summary>
-    public float GetMyAccuracy()
-    {
-        float df_acur = igp.statValue.stat3_valAccuracy;// 자신의 명중률 
-        #region --------- this ----------
-        // 나의 명중률 증가 관련 스킬 체크 
-        if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_10) >= 0) // 스킬 10번 : 명중률 증가 
-        {
-            int sk10_lv = igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_10);
-            df_acur += GameDatabase.GetInstance().chartDB.GetSkillAbility10_Accuracy(sk10_lv, igp.statValue.stat3_valAccuracy);
-        }
-        #endregion
-
-        #region --------- other ----------
-        if (targetPz != null)
-        {
-            if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_26) == -1) // this 스킬 26 번 : 스탯 감소되는 스킬을 무력화 발동중 아닐 때 
-            {
-                // 상대방의 명중률 감소 관련 스킬 체크 
-                if (targetPz.igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_16) >= 0)
-                {
-                    int sk16lv = targetPz.igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_16);
-                    df_acur = GameDatabase.GetInstance().chartDB.GetSkillAbility16_DownDefense(sk16lv, df_acur);
-                }
-            }
-        }
-        #endregion
-
-        if (df_acur <= 0)
-            df_acur = 0;
-
-        return df_acur;
-    }
-
-    /// <summary> 스탯:방어력, (상대의 대미지를 받아와 자신이 타격받을 대미지를 리턴) </summary>
-    public long GetMyDefenseDamage(long _get_dmg, bool _is_gnr_atk) // _is_gnr_atk : (true -> 일반 공격, false -> 스킬 공격) 
-    {
-        long val_defense = igp.statValue.stat2_valDefense;
-        #region --------- this ----------
-        float mtp_pls = 0f;
-        if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_11) >= 0) // this 스킬 11번 : 방어력 증가 발동 중이라면 
-        {
-            int sk11_lv = igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_11);
-            mtp_pls += GameDatabase.GetInstance().chartDB.GetSkillAbility11_UpDefense(sk11_lv);
-
-            LogPrint.Print("<color=yellow> this 스킬 11번 : 방어력 증가 발동 중이라면 mtp_pls : " + mtp_pls + " </color>");
-        }
-
-        if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_23) >= 0) // this 스킬 23번 : 나의 체력이 30%이하라면 적용 -> 방어력 증가 
-        {
-            if (this.GetHp() < (long)(this.igp.statValue.stat5_valHealth * 0.3f)) // 30% 이하인지 체크 
-            {
-                int sk23lv = igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_23);
-                mtp_pls += GameDatabase.GetInstance().chartDB.GetSkillAbility23_UpDefense(sk23lv);
-            }
-
-            LogPrint.Print("<color=yellow> this 스킬 23번 : 나의 체력이 30%이하라면 적용 -> 방어력 증가 mtp_pls : " + mtp_pls + " </color>");
-        }
-        val_defense += (long)(igp.statValue.stat2_valDefense * mtp_pls); // this 기본 + 증가된 방어력 
-
-        if(mtp_pls > 0)
-        {
-            LogPrint.Print("<color=yellow> this 기본 + 증가된 방어력 " + val_defense + " </color>");
-        }
-        #endregion
-
-        #region --------- other ----------
-        if (targetPz != null)
-        {
-            if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_26) == -1) // this 스킬 26 번 : 상대로 부터 받는 스킬 대미지를 감소 발동이 아닐 때 
-            {
-                float mtp_mns = 0f;
-                if (targetPz.igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_14) >= 0) // other 스킬 14번 : 방어력 감소 발동중이라면 
-                {
-                    int sk14lv = targetPz.igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_14);
-                    mtp_mns += GameDatabase.GetInstance().chartDB.GetSkillAbility14_DownDefense(sk14lv);
-                }
-                val_defense -= (long)(val_defense * mtp_mns); // this 기본 + 감소 방어력
-            }
-        }
-        #endregion
-
-        if (val_defense < 0)
-            val_defense = 0;
-
-        long rlt_dmg = _get_dmg - val_defense;
-        #region --------- this ----------
-        if(_is_gnr_atk) // 상대의 일반 공격 대미지 이다 
-        {
-            if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_3) >= 0) // this 스킬 3번 : 일반 공격 대미지 감소 보호막 발동 중인가 
-            {
-                int sk3lv = igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_3);
-                rlt_dmg = GameDatabase.GetInstance().chartDB.GetSkillAbility3_ShieldDamage(sk3lv, rlt_dmg);
-            }
-
-        }
-        else // 상대의 스킬 공격 대미지 이다 
-        {
-            if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_26) >= 0) // this 스킬 26번 : 스킬 대미지 감소 
-            {
-                int sk26_lv = igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_26);
-                rlt_dmg = GameDatabase.GetInstance().chartDB.GetSkillAbility26_DwSkillDamage(sk26_lv, rlt_dmg);
-            }
-
-        }
-        #endregion
-
-        if (rlt_dmg < 0)
-            rlt_dmg = 0;
-
-        return rlt_dmg;
-    }
-
-    bool isGeneralDmgZero = false;
-    /// <summary> 스탯:공격력 대미지 </summary>
-    public long GetMyAttackPower(int _sk_num = 0, int _sk_lv = -1) // _sk_num == 0 : 기본 대미지
-    {
-        bool is_gnr_atk = _sk_num == 0;
-        long val_df_dmg = is_gnr_atk == true ? igp.statValue.stat1_valPower : GameDatabase.GetInstance ().chartDB.GetValueSkillAttackPower(_sk_num, _sk_lv, igp.statValue.stat1_valPower);
-        long val_dmg = val_df_dmg;
-
-        #region --------- 좀비 정보를 가지고 ----------
-        float mtp_pls = 0f;
-        if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_9) >= 0) // this 스킬 9번 : this 공격력 증가 스킬 ON 
-        {
-            mtp_pls += GameDatabase.GetInstance().chartDB.GetSkillAbility9_AttackPower(igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_9));
-        }
-       
-        if(targetPz != null)
-        {
-            if ((zbType == IG.MonsterType.MINE && (targetPz.zbType == IG.MonsterType.BOSS_USER || targetPz.zbType == IG.MonsterType.PVP_USER)) || (zbType == IG.MonsterType.PVP_USER && targetPz.zbType == IG.MonsterType.MINE))
-            {
-                // 2.PvP피해 증가
-                if (igp.statValue.sop2_val > 0)
-                    mtp_pls += igp.statValue.sop2_val * 0.01f;
-            }
-            else
-            {
-                // 1.PvE피해 증가
-                if (igp.statValue.sop1_val > 0)
-                    mtp_pls += igp.statValue.sop1_val * 0.01f;               
-            }
-
-            if (targetPz.zbType == IG.MonsterType.BOSS_MONSTER || targetPz.zbType == IG.MonsterType.BOSS_DGN_MONSTER) // 몬스터 보스 인 경우 
-            {
-                // 7.보스 몬스터 피해 증가 
-                if (igp.statValue.sop7_val > 0)
-                    mtp_pls += igp.statValue.sop7_val * 0.01f;
-            }
-        }
-
-        if (mtp_pls > 0f)
-            val_dmg += (long)(val_dmg * mtp_pls);
-
-        #endregion
-
-        float mtp_mns = 0f;
-        if (targetPz != null)
-        {
-            // 상대방의 방어력을 계산하여 최종 대미지 리턴 
-            val_dmg = targetPz.GetMyDefenseDamage(val_dmg, is_gnr_atk);
-        }
-
-        #region --------- 상대 정보를 가지고 ----------
-        if(targetPz != null)
-        {
-            if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_26) == -1) // this 스킬 26 번 : 스탯 감소되는 스킬을 무력화 발동중 아닐 때 
-            {
-                if (targetPz.igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_15) >= 0) // this 스킬 15번 : other 공격력 감소 스킬 ON 
-                {
-                    mtp_mns += GameDatabase.GetInstance().chartDB.GetSkillAbility15_DownDefense(targetPz.igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_15));
-                }
-            }
-
-            if ((zbType == IG.MonsterType.MINE && (targetPz.zbType == IG.MonsterType.BOSS_USER || targetPz.zbType == IG.MonsterType.PVP_USER)) ||
-                 (zbType == IG.MonsterType.PVP_USER && targetPz.zbType == IG.MonsterType.MINE))
-            {
-                // 4.PvP피해 감소
-                if (targetPz.igp.statValue.sop4_val > 0)
-                    mtp_mns += targetPz.igp.statValue.sop4_val * 0.01f;
-            }
-            else
-            {
-                // 3.PvE피해 감소
-                if (targetPz.igp.statValue.sop3_val > 0)
-                    mtp_mns += targetPz.igp.statValue.sop3_val * 0.01f;
-            }
-        }
-        #endregion
-
-        if (targetPz != null)
-        {
-            if (mtp_mns > 0f)
-                val_dmg -= (long)(val_dmg * mtp_mns);
-        }
-
-        if (val_dmg < 0)
-            val_dmg = 1;
-
-        return val_dmg;
-    }
-
-    /// <summary> 스탯:치명타 성공률 </summary>
-    public bool GetMyCriticalChance()
-    {
-        float dftChnc = 25.0f;
-        if (Random.Range(0.0f, 100.0f) < dftChnc && targetPz != null) // 기본 크리 발동률 
-        {
-            float orCriEvasion = targetPz.GetMyCriticalEvasion(); // 상대방의 크리티컬 회피율 
-            float myCriChnc = igp.statValue.stat6_valCriChance; // 기본 크리 성공률 
-            if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_17) >= 0)
-                return true;
-            else
-            {
-                if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_26) == -1) // this 스킬 26 번 : 스탯 감소되는 스킬을 무력화 발동중 아닐 때 
-                {
-                    if (targetPz.igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_19) >= 0) // 방어자 : 스킬 19 - 치명타 성공 확률 감소 스킬 발동 중
-                        myCriChnc *= 0.5f;
-                }
-
-                return Random.Range(0f, myCriChnc) > orCriEvasion;
-            }
-        }
-        else return false;
-    }
-
-    /// <summary> 스탯: 크리티컬 회피율 </summary>
-    public float GetMyCriticalEvasion()
-    {
-        float val_evsi = igp.statValue.stat9_valCriEvasion;
-        #region --------- this ----------
-        //float mtp_pls = 0f;
-        //if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_23) >= 0) // this 스킬 23번 : 나의 체력이 30%이하라면 적용 -> 회피율 증가 
-        //{
-        //    if (this.GetHp() < Mathf.RoundToInt(this.igp.statValue.stat5_valHealth * 0.3f)) // 30% 이하인지 체크 
-        //    {
-        //        int sk23lv = igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_23);
-        //        mtp_pls += GameDatabase.GetInstance().chartDB.GetSkillAbility23_UpEvasion(sk23lv);
-        //    }
-        //}
-        //val_evsi += Mathf.RoundToInt(igp.statValue.stat2_valDefense * mtp_pls); // this 기본 + 증가된 회피율
-        #endregion
-
-        #region --------- other ----------
-
-        #endregion
-
-        return val_evsi;
-    }
-
-    bool isCriticalDmgZero = false;
-    /// <summary> 스탯:치명타 대미지 </summary>
-    public long GetMyCriticalAttackPower()
-    {
-        long df_cri_dmg = igp.statValue.stat4_valCriPower + this.GetMyAttackPower(0);
-
-        #region --------- this ----------
-        if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_17) >= 0) // 스킬 17번 : 확률 100% 고정 
-        {
-            int sk17lv = igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_17);
-            float mtp = GameDatabase.GetInstance().chartDB.GetSkillAbility17_UpCriticalAttackPower(sk17lv);
-            df_cri_dmg += (long)(df_cri_dmg * mtp);
-        }
-        #endregion
-
-        #region --------- other ----------
-        float mtp_mns = 0f;
-        if(targetPz != null)
-        {
-            if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_26) == -1) // this 스킬 26 번 : 스탯 감소되는 스킬을 무력화 발동중 아닐 때 
-            {
-                if (targetPz.igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_19) >= 0) // 스킬 19 : 확률 50% 감소, 대미지 ? 감소 
-                {
-                    int sk19lv = igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_19);
-                    float mtp = GameDatabase.GetInstance().chartDB.GetSkillAbility19_DwCriticalAttackPower(sk19lv);
-                    df_cri_dmg -= (long)(df_cri_dmg * mtp);
-                }
-            }
-
-            if ((zbType == IG.MonsterType.MINE && (targetPz.zbType == IG.MonsterType.BOSS_USER || targetPz.zbType == IG.MonsterType.PVP_USER)) ||
-                 (zbType == IG.MonsterType.PVP_USER && targetPz.zbType == IG.MonsterType.MINE))
-            {
-                // 4.PvP피해 감소
-                if (targetPz.igp.statValue.sop4_val > 0)
-                    mtp_mns += targetPz.igp.statValue.sop4_val * 0.01f;
-            }
-            else
-            {
-                // 3.PvE피해 감소
-                if (targetPz.igp.statValue.sop3_val > 0)
-                    mtp_mns += targetPz.igp.statValue.sop3_val * 0.01f;
-            }
-        }
-        if (mtp_mns > 0f)
-            df_cri_dmg -= (long)(df_cri_dmg * mtp_mns);
-
-        #endregion
-
-        if (df_cri_dmg < 0) 
-            df_cri_dmg = 0;
-
-        if (targetPz != null)
-        {
-            long rlt_cri_dmf = targetPz.GetMyCriticalDefenseDamage(df_cri_dmg);
-            return rlt_cri_dmf;
-        }
-        else
-        {
-            return df_cri_dmg;
-        }
-    }
-    /// <summary> 스탯:치명타 방어력, (상대의 치명타 대미지를 받아와 자신이 타격받을 대미지를 리턴) </summary>
-    public long GetMyCriticalDefenseDamage(long _get_cri_dmg)
-    {
-        long val_cri_defense = igp.statValue.stat8_valCriDefense;
-        #region --------- this ----------
-        float mtp_pls = 0f;
-        if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_23) >= 0) // this 스킬 23번 : 나의 체력이 30%이하라면 적용 -> 치명타 방어력 증가 
-        {
-            if (this.GetHp() < (long)(this.igp.statValue.stat5_valHealth * 0.3f)) // 30% 이하인지 체크 
-            {
-                int sk23lv = igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_23);
-                mtp_pls += GameDatabase.GetInstance().chartDB.GetSkillAbility23_UpCriticalDefense(sk23lv);
-            }
-        }
-        val_cri_defense += (long)(igp.statValue.stat8_valCriDefense * mtp_pls); // this 기본 + 증가된 방어력 
-        #endregion
-
-        #region --------- other ----------
-
-        #endregion
-
-        if (val_cri_defense < 0)
-            val_cri_defense = 0;
-
-        long rlt_dmg = _get_cri_dmg - val_cri_defense;
-        #region --------- this ----------
-        if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_3) >= 0) // this 스킬 3번 : 보호막 발동 중인가 
-        {
-            int sk3lv = igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_3);
-            rlt_dmg = GameDatabase.GetInstance().chartDB.GetSkillAbility3_ShieldDamage(sk3lv, rlt_dmg);
-        }
-        #endregion
-
-        if (rlt_dmg < 0)
-            rlt_dmg = 0;
-
-        return rlt_dmg;
-    }
-
-    /// <summary> 스탯:공격 속도 </summary>
-    public float GetMyAttackSpeed()
-    {
-        float df_atkSpd = igp.statValue.atk_spd;
-        #region --------- other ----------
-
-        #endregion
-
-        #region --------- other ----------
-        if (targetPz != null)
-        {
-            if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_26) == -1) // this 스킬 26 번 : 스탯 감소되는 스킬을 무력화 발동중 아닐 때 
-            {
-                if (targetPz.igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_20) >= 0) // 스킬 20번 : 상대방이 공격 속도 감소 스킬 발동 중 
-                {
-                    float tmp_atk_spd = df_atkSpd;
-                    int sk20_lv = targetPz.igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_20);
-                    df_atkSpd = GameDatabase.GetInstance().chartDB.GetSkillAbility20_DwAttackSpeed(sk20_lv, tmp_atk_spd);
-                }
-            }
-        }
-        #endregion
-
-        return df_atkSpd;
-    }
-    #endregion
-
     /// <summary> 상대 좀비에게 타격을 입힌다 </summary>
     public void Hit(bool _isGnrAttack, long _dmg, bool _isCri)
     {
-        if (targetPz != null && targetPz.igp.state != IG.ZombieState.LOSER)
+        if (targetPz && targetPz.igp.state != IG.ZombieState.LOSER)
         {
-            if (_isGnrAttack) // 회피 & 명중 계산은 기본 공격일때에만 적용 
-            {
-                float or_evasion = targetPz.GetMyEvasion(); // 상대방의 회피율 
-                float my_accuracy = GetMyAccuracy(); // 시전자의 명중률 
-
-                if (Random.Range(igp.etcZbData.accuracy_correction, my_accuracy) < or_evasion) // 상대가 나의 공격을 회피함
-                {
-                    ObjectLife ojlf = ObjectPool.GetInstance().PopFromPool(ObjectPool.OP_Once_HitDamageText, targetPz.etcGameObject.hitPosTr.position);
-                    if(ojlf != null)
-                        ojlf.TextView("MISS", ResourceDatabase.GetInstance().hitColor_Evasion);
-
-                    //igp.etcZbData.accuracy_correction += my_accuracy * 0.1f;
-                    igp.etcZbData.accuracy_correction = my_accuracy;
-                    return;
-                }
-                else igp.etcZbData.accuracy_correction = 0f;
-
-                if (zbType == IG.MonsterType.MINE)
-                {
-                    LogPrint.EditorPrint("_dmg : " + _dmg +", accuracy_correction : " + igp.etcZbData.accuracy_correction + ", my_accuracy : " + my_accuracy + ", or_evasion : " + or_evasion);
-                }
-            }
-
             // 펫 전용 옵션 
             if (zbType != IG.MonsterType.MINE)
             {
@@ -1373,61 +902,57 @@ public class PlayerZombie : MonoBehaviour
                 }
             }
 
-            if (_dmg < 0)
-                _dmg = 1;
-            if (_dmg > 0)
+            var hitDMG = (int)Mathf.Clamp(_dmg, 1, int.MaxValue);
+            if (targetPz.TakeDamage(_isGnrAttack, hitDMG, false)) // 상대 좀비에게 대미지를 입힌다. 
             {
-                if (targetPz.TakeDamage(_isGnrAttack, _dmg, false)) // 상대 좀비에게 대미지를 입힌다. 
+                if (_isGnrAttack)
                 {
-                    if (_isGnrAttack)
+                    // 장신구 전용옵션 - 8.최대 체력의 5% 회복 
+                    if (igp.statValue.sop8_val > 0)
                     {
-                        // 장신구 전용옵션 - 8.최대 체력의 5% 회복 
-                        if (igp.statValue.sop8_val > 0)
+                        if(targetPz.GetNowHp() > 0)
                         {
-                            if(targetPz.GetHp() > 0)
+                            if (GameDatabase.GetInstance().GetRandomPercent() < igp.statValue.sop8_val)
                             {
-                                if (GameDatabase.GetInstance().GetRandomPercent() < igp.statValue.sop8_val)
+                                RecoveryHealth((long)(GetStatMax_Health() * (GameDatabase.GetInstance().chartDB.GetDicBalance("ac.sop.stat8.hp.recovery").val_float) * 0.01f));
+                            }
+                        }
+                    }
+
+                    // #10.상대 버블 차감(확률)
+                    if(zbType == IG.MonsterType.MINE)
+                    {
+                        if (igp.statValue.sop10_val > 0)
+                        {
+                            if (targetPz.GetNowHp() > 0)
+                            {
+                                if (GameDatabase.GetInstance().GetRandomPercent() < igp.statValue.sop10_val)
                                 {
-                                    RecoveryHealth((long)(igp.statValue.stat5_valHealth * (GameDatabase.GetInstance().chartDB.GetDicBalance("ac.sop.stat8.hp.recovery").val_float) * 0.01f));
+                                    LogPrint.Print("<color=yellow>igp.statValue.sop10_val : " + igp.statValue.sop10_val + "</color>");
+                                    targetPz.igp.playerSkillAction.BubbleCountDeduction(1, false); // 장신구 옵션으로 차감 
                                 }
                             }
                         }
+                    }
 
-                        // #10.상대 버블 차감(확률)
-                        if(zbType == IG.MonsterType.MINE)
-                        {
-                            if (igp.statValue.sop10_val > 0)
-                            {
-                                if (targetPz.GetHp() > 0)
-                                {
-                                    if (GameDatabase.GetInstance().GetRandomPercent() < igp.statValue.sop10_val)
-                                    {
-                                        LogPrint.Print("<color=yellow>igp.statValue.sop10_val : " + igp.statValue.sop10_val + "</color>");
-                                        targetPz.igp.playerSkillAction.BubbleCountDeduction(1, false); // 장신구 옵션으로 차감 
-                                    }
-                                }
-                            }
-                        }
-
-                        if (_isCri)
-                        {
-                            HitDamageText(_dmg, ResourceDatabase.GetInstance().hitColor_Critical, targetPz.etcGameObject.hitPosTr.position);
-                            ObjectPool.GetInstance().PopFromPool(ObjectPool.OP_Once_GeneralBeHit, targetPz.etcGameObject.hitPosTr.position);
-                        }
-                        else
-                        {
-                            HitDamageText(_dmg, ResourceDatabase.GetInstance().hitColor_General, targetPz.etcGameObject.hitPosTr.position);
-                            ObjectPool.GetInstance().PopFromPool(ObjectPool.OP_Once_GeneralBeHit, targetPz.etcGameObject.hitPosTr.position);
-                        }
+                    if (_isCri)
+                    {
+                        HitDamageText(hitDMG, ResourceDatabase.GetInstance().hitColor_Critical, targetPz.etcGameObject.hitPosTr.position);
+                        ObjectPool.GetInstance().PopFromPool(ObjectPool.OP_Once_GeneralBeHit, targetPz.etcGameObject.hitPosTr.position);
                     }
                     else
                     {
-                        HitDamageText(_dmg, ResourceDatabase.GetInstance().hitColor_Skill, targetPz.etcGameObject.hitPosTr.position);
+                        HitDamageText(hitDMG, ResourceDatabase.GetInstance().hitColor_General, targetPz.etcGameObject.hitPosTr.position);
                         ObjectPool.GetInstance().PopFromPool(ObjectPool.OP_Once_GeneralBeHit, targetPz.etcGameObject.hitPosTr.position);
                     }
-
-                    SoundManager.GetInstance().PlaySound("arena_hit");
                 }
+                else
+                {
+                    HitDamageText(hitDMG, ResourceDatabase.GetInstance().hitColor_Skill, targetPz.etcGameObject.hitPosTr.position);
+                    ObjectPool.GetInstance().PopFromPool(ObjectPool.OP_Once_GeneralBeHit, targetPz.etcGameObject.hitPosTr.position);
+                }
+
+                SoundManager.GetInstance().PlaySound("arena_hit");
             }
         }
     }
@@ -1582,14 +1107,14 @@ public class PlayerZombie : MonoBehaviour
     /// <summary> 체력 리셋 </summary>
     public void ResetHealth()
     {
-        NowHealth = igp.statValue.stat5_valHealth;
+        NowHealth = GetStatMax_Health();
         HealthLerp();
     }
 
     /// <summary> 체력 회복 </summary>
     public void RecoveryHealth (long val)
     {
-        if(GetHp() > 0)
+        if(GetNowHp() > 0)
         {
             NowHealth += val;
             HealthLerp();
@@ -1598,7 +1123,7 @@ public class PlayerZombie : MonoBehaviour
     /// <summary> 물약 -> 체력 회복 </summary>
     public void RecoveryPotionHp (float recoPcr)
     {
-        RecoveryHealth((long)(igp.statValue.stat5_valHealth * recoPcr));
+        RecoveryHealth((long)(GetStatMax_Health() * recoPcr));
 
         //int maxHp = igp.statValue.stat5_valHealth;
         //int rcovHp1 = (int)(maxHp * recoPcr);
@@ -1610,7 +1135,7 @@ public class PlayerZombie : MonoBehaviour
     public void HealthLerp(bool hpTxt = false)
     {
         if (hpTxt)
-            hpValue.text = string.Format("{0:#,0} / {1:#,0}", nowHealth.ToString(), igp.statValue.stat5_valHealth.ToString());
+            hpValue.text = string.Format("{0:#,0} / {1:#,0}", nowHealth.ToString(), GetStatMax_Health().ToString());
 
         StopCoroutine("IEHealthLerp");
         StartCoroutine("IEHealthLerp");
@@ -1624,7 +1149,7 @@ public class PlayerZombie : MonoBehaviour
         yield return null;
 
         float t_lerp = 0f;
-        float v_end = (float)NowHealth / (float)igp.statValue.stat5_valHealth;
+        float v_end = (float)NowHealth / (float)GetStatMax_Health();
         bool isMinus = v_end < hpAmount.fillAmount;
 
         if (isMinus)
@@ -1654,4 +1179,475 @@ public class PlayerZombie : MonoBehaviour
         hpBgAmount.fillAmount = v_end;
         hpAmount.fillAmount = v_end;
     }
+
+
+    // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+    #region -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 스탯 관련 계산 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+    public long GetStatMax_Health() => igp.statValue.p4_arm_health + (long)(igp.statValue.p4_arm_health * igp.statValue.p3_sho_health / 100);
+
+    public long GetNowHp() => NowHealth;
+    public float GetAttackSpeed() => igp.statValue.p7_boo_attackSpeed;
+
+    /// <summary> 기본 공격 : 크리 or 일반 대미지 적용 </summary>
+    public void TakeGeneralAttack()
+    {
+        var targetTYPE = targetPz.zbType;
+        bool isOnCritical = GetCriticalRate(); // 크리티컬 발동 여부 
+
+        switch (targetTYPE)
+        {
+            // 타겟 일반 몬스터
+            case IG.MonsterType.NORM_MONSTER: 
+            case IG.MonsterType.NORM_DGN_MONSTER:
+                Hit(true, GetAttackPowerTargetNormalMonster(), isOnCritical);
+                break;
+
+            // 타겟 보스 몬스터 
+            case IG.MonsterType.BOSS_MONSTER:
+            case IG.MonsterType.BOSS_DGN_MONSTER:
+                Hit(true, GetAttackPowerTargetBossMonster(), isOnCritical);
+                break;
+
+            // 타겟 유저 
+            case IG.MonsterType.BOSS_USER:
+            case IG.MonsterType.PVP_USER:
+                Hit(true, GetAttackPowerTargetUser(), isOnCritical);
+                break;
+        }
+        
+        igp.etcZbData.attack_count++;
+        MainUI.GetInstance().tapGameBattleInfo.RefreshBuff();
+    }
+
+    #region =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 대미지 계산 값 : 일반 몬스터 =-=-=-=-=-=-=-=-=-
+
+    /// <summary>
+    /// 평타(일반몬스터)
+    /// 공격력 *(1+공격력%/100)* (1+PVE피해량 증가/100)*(1-방어율)*(1-피해량 감소/100)	
+    /// </summary>
+    public int GetAttackPowerTargetNormalMonster()
+    {
+        var attackPower = igp.statValue.p0_wea_attackPower + igp.statValue.p6_pan_attackPower;
+        var attackPowerRate = igp.statValue.p10_rin_attackPower;
+        var attackPowerPvpRate = igp.statValue.sop1_val;
+        var defence = igp.statValue.p1_shi_defance;
+        var defenceRate = igp.statValue.p9_ear_defance;
+        var x = 100000;
+        var defenceCalcRate = defence * ((1f + defenceRate  / 100f) / (defence * (1f + defenceRate / 100f) + x));
+        var damageReductionRate = igp.statValue.p2_hel_damageReduction;
+        Debug.Log("GetAttackPowerAgainstNormalMonsters 1 <color=magenta>zbType : " + zbType + "</color>");
+        Debug.Log("GetAttackPowerAgainstNormalMonsters 1 (공격력 무기)p0_wea_attackPower : " + igp.statValue.p0_wea_attackPower + ", (공격력 바지)p6_pan_attackPower : " + igp.statValue.p6_pan_attackPower + ", <color=yellow>(공격력 합)attackPower : " + attackPower +"</color>");
+        Debug.Log("GetAttackPowerAgainstNormalMonsters 1 (공격력% 반지)attackPowerRate : " + attackPowerRate + "[ " + attackPowerRate / 100f + "% ]");
+        Debug.Log("GetAttackPowerAgainstNormalMonsters 1 (공격력% 악세 sop)attackPowerPvpRate : " + attackPowerPvpRate + "[ " + attackPowerPvpRate / 100f + "% ]");
+        Debug.Log("GetAttackPowerAgainstNormalMonsters 1 (방어력 방패)defence : " + defence + "[ " + defence / 100f + "% ]");
+        Debug.Log("GetAttackPowerAgainstNormalMonsters 1 (방어력% 귀고리)defenceRate : " + defenceRate + "[ " + defenceRate / 100f + "% ]");
+        Debug.Log("GetAttackPowerAgainstNormalMonsters 1 (방어율 )defenceCalcRate : " + defenceCalcRate + "[ " + defenceCalcRate / 100f + "% ]");
+        Debug.Log("GetAttackPowerAgainstNormalMonsters 1 (피해 감소% 헬멧)damageReductionRate : " + damageReductionRate + "[ " + damageReductionRate / 100f + "% ]");
+        Debug.Log("GetAttackPowerAgainstNormalMonsters 2 총 % : " + ((1f + attackPowerRate / 100f) * (1 + attackPowerPvpRate / 100f) * (1 - defenceCalcRate) * (1f - damageReductionRate / 100f)));
+        Debug.Log("GetAttackPowerAgainstNormalMonsters 2 총 공격력 : " + Mathf.RoundToInt(attackPower * ((1f + attackPowerRate / 100f) * (1f + attackPowerPvpRate / 100f) * (1 - defenceCalcRate) * (1f - damageReductionRate / 100f))));
+
+        return Mathf.RoundToInt(attackPower * ((1f + attackPowerRate / 100f) * (1f + attackPowerPvpRate / 100f) * (1 - defenceCalcRate) * (1f - damageReductionRate / 100f)));
+    }
+
+    /// <summary>
+    /// 크리티컬(일반몬스터)
+    /// 공격력 *(1+공격력%/100)*(1+치명타 공격력/100)* (1+PVE피해량 증가/100)*(1-방어율)(1-피해량 감소/100)	
+    /// </summary>
+    public int GetCriticalPowerTargetNormalMonster()
+    {
+        return 0;
+    }
+
+    /// <summary>
+    /// 스킬(일반몬스터)
+    /// 공격력 *(1+공격력%/100)*(1+스킬/100)* (1+PVE피해량 증가/100)*(1-방어율)(1-피해량 감소/100)	
+    /// </summary>
+    public int GetSkillAttackPowerTargetNormalMonster()
+    {
+        return 0;
+    }
+
+    /// <summary>
+    /// 스킬치명타(일반몬스터)
+    /// 공격력 *(1+공격력%/100)*(1+스킬/100)*(1+치명타 공격력/100)* (1+PVE피해량 증가/100)*(1-방어율)(1-피해량 감소/100)	
+    /// </summary>
+    public int GetSkillCriticalPowerTargetNormalMonster()
+    {
+        return 0;
+    }
+
+    #endregion
+
+
+    #region =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 대미지 계산 값 : 보스 몬스터 =-=-=-=-=-=-=-=-=-
+    /// <summary>
+    /// 평타(보스몬스터)
+    /// 공격력 *(1+공격력%/100)* (1+PVE피해량 증가/100)*(1-방어율)*(1-피해량 감소/100)*(1+보스몬스터 피해량 증가/100)	
+    /// </summary>
+    public int GetAttackPowerTargetBossMonster()
+    {
+        var attackPower = igp.statValue.p0_wea_attackPower + igp.statValue.p6_pan_attackPower;
+        var attackPowerRate = igp.statValue.p10_rin_attackPower;
+        var attackPowerPvpRate = igp.statValue.sop1_val;
+        var defence = igp.statValue.p1_shi_defance;
+        var defenceRate = igp.statValue.p9_ear_defance;
+        var x = 100000;
+        var defenceCalcRate = defence * ((1f + defenceRate / 100f) / (defence * (1f + defenceRate / 100f) + x));
+        var damageReductionRate = igp.statValue.p2_hel_damageReduction;
+        var bossDamageReductionRate = igp.statValue.sop7_val;
+
+        Debug.Log("GetAttackPowerTargetBossMonster 1 <color=magenta>zbType : " + zbType + "</color>");
+        Debug.Log("GetAttackPowerTargetBossMonster 1 (공격력 무기)p0_wea_attackPower : " + igp.statValue.p0_wea_attackPower + ", (공격력 바지)p6_pan_attackPower : " + igp.statValue.p6_pan_attackPower + ", <color=yellow>(공격력 합)attackPower : " + attackPower + "</color>");
+        Debug.Log("GetAttackPowerTargetBossMonster 1 (공격력% 반지)attackPowerRate : " + attackPowerRate + "[ " + attackPowerRate / 100f + "% ]");
+        Debug.Log("GetAttackPowerTargetBossMonster 1 (공격력% 악세 sop)attackPowerPvpRate : " + attackPowerPvpRate + "[ " + attackPowerPvpRate / 100f + "% ]");
+        Debug.Log("GetAttackPowerTargetBossMonster 1 (방어력 방패)defence : " + defence + "[ " + defence / 100f + "% ]");
+        Debug.Log("GetAttackPowerTargetBossMonster 1 (방어력% 귀고리)defenceRate : " + defenceRate + "[ " + defenceRate / 100f + "% ]");
+        Debug.Log("GetAttackPowerTargetBossMonster 1 (방어율 )defenceCalcRate : " + defenceCalcRate + "[ " + defenceCalcRate / 100f + "% ]");
+        Debug.Log("GetAttackPowerTargetBossMonster 1 (피해 감소% 헬멧)damageReductionRate : " + damageReductionRate + "[ " + damageReductionRate / 100f + "% ]");
+        Debug.Log("GetAttackPowerTargetBossMonster 1 (보스 몬스터 피해량 증가% 악세 sop)bossDamageReductionRate : " + bossDamageReductionRate + "[ " + bossDamageReductionRate / 100f + "% ]");
+
+        Debug.Log("GetAttackPowerTargetBossMonster 2 총 % : " + ((1f + attackPowerRate / 100f) * (1 + attackPowerPvpRate / 100f) * (1 - defenceCalcRate) * (1f - damageReductionRate / 100f)) * (1f - bossDamageReductionRate / 100f));
+        Debug.Log("GetAttackPowerTargetBossMonster 2 총 공격력 : " + Mathf.RoundToInt(attackPower * ((1f + attackPowerRate / 100f) * (1f + attackPowerPvpRate / 100f) * (1 - defenceCalcRate) * (1f - damageReductionRate / 100f)) * (1f - bossDamageReductionRate / 100f)));
+
+        return Mathf.RoundToInt(attackPower * ((1f + attackPowerRate / 100f) * (1f + attackPowerPvpRate / 100f) * (1 - defenceCalcRate) * (1f - damageReductionRate / 100f) * (1f - bossDamageReductionRate / 100f)));
+    }
+
+    /// <summary>
+    /// 크리티컬(보스몬스터)	
+    /// 공격력 *(1+공격력%/100)*(1+치명타 공격력/100)* (1+PVE피해량 증가/100)*(1-방어율)(1-피해량 감소/100)*(1+보스몬스터 피해량 증가/100)	
+    /// </summary>
+    public int GetCriticalPowerTargetBossMonster()
+    {
+        return 0;
+    }
+
+    /// <summary>
+    /// 스킬(보스몬스터)	
+    /// 공격력 *(1+공격력%/100)*(1+스킬/100)* (1+PVE피해량 증가/100)*(1-방어율)(1-피해량 감소/100)*(1+보스몬스터 피해량 증가/100)	
+    /// </summary>
+    public int GetSkillAttackPowerTargetBossMonster()
+    {
+        return 0;
+    }
+
+    /// <summary>
+    /// 스킬치명타(보스몬스터)	
+    /// 공격력 *(1+공격력%/100)*(1+스킬/100)*(1+치명타 공격력/100)* (1+PVE피해량 증가/100)*(1-방어율)(1-피해량 감소/100)*(1+보스몬스터 피해량 증가/100)	
+    /// </summary>
+    public int GetSkillCriticalPowerTargetBossMonster()
+    {
+        return 0;
+    }
+    #endregion
+
+    #region =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 대미지 계산 값 : 유저 =-=-=-=-=-=-=-=-=-
+    /// <summary>
+    /// 평타(유저)	
+    /// 공격력 *(1+공격력%/100)* (1+PVP피해량 증가/100)*(1-방어율)(1-피해량 감소/100)	
+    /// </summary>
+    public int GetAttackPowerTargetUser()
+    {
+        return 0;
+    }
+
+    /// <summary>
+    /// 크리티컬(유저)	
+    /// 공격력 *(1+공격력%/100)*(1+치명타 공격력/100)* (1+PVP피해량 증가/100)*(1-방어율)(1-피해량 감소/100)	
+    /// </summary>
+    public int GetCriticalPowerTargetUser()
+    {
+        return 0;
+    }
+
+    /// <summary>
+    /// 스킬(유저)		
+    /// 
+    /// </summary>
+    public int GetSkillAttackPowerTargetUser()
+    {
+        return 0;
+    }
+
+    /// <summary>
+    /// 스킬치명타(유저)		
+    /// 
+    /// </summary>
+    public int GetSkillCriticalPowerTargetUser()
+    {
+        return 0;
+    }
+    #endregion
+
+    /// <summary> 스탯:공격력 대미지 </summary>
+    public long GetAttackPower(int _sk_num = 0, int _sk_lv = -1) // _sk_num == 0 : 기본 대미지
+    {
+        bool is_gnr_atk = _sk_num == 0;
+        long val_df_dmg = is_gnr_atk == true ? igp.statValue.p0_wea_attackPower : GameDatabase.GetInstance().chartDB.GetValueSkillAttackPower(_sk_num, _sk_lv, igp.statValue.p0_wea_attackPower);
+        long val_dmg = val_df_dmg;
+
+        #region --------- 좀비 정보를 가지고 ----------
+        float mtp_pls = 0f;
+        if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_9) >= 0) // this 스킬 9번 : this 공격력 증가 스킬 ON 
+        {
+            mtp_pls += GameDatabase.GetInstance().chartDB.GetSkillAbility9_AttackPower(igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_9));
+        }
+
+        if (targetPz != null)
+        {
+            if ((zbType == IG.MonsterType.MINE && (targetPz.zbType == IG.MonsterType.BOSS_USER || targetPz.zbType == IG.MonsterType.PVP_USER)) || (zbType == IG.MonsterType.PVP_USER && targetPz.zbType == IG.MonsterType.MINE))
+            {
+                // 2.PvP피해 증가
+                if (igp.statValue.sop2_val > 0)
+                    mtp_pls += igp.statValue.sop2_val * 0.01f;
+            }
+            else
+            {
+                // 1.PvE피해 증가
+                if (igp.statValue.sop1_val > 0)
+                    mtp_pls += igp.statValue.sop1_val * 0.01f;
+            }
+
+            if (targetPz.zbType == IG.MonsterType.BOSS_MONSTER || targetPz.zbType == IG.MonsterType.BOSS_DGN_MONSTER) // 몬스터 보스 인 경우 
+            {
+                // 7.보스 몬스터 피해 증가 
+                if (igp.statValue.sop7_val > 0)
+                    mtp_pls += igp.statValue.sop7_val * 0.01f;
+            }
+        }
+
+        if (mtp_pls > 0f)
+            val_dmg += (long)(val_dmg * mtp_pls);
+
+        #endregion
+
+        float mtp_mns = 0f;
+        if (targetPz != null)
+        {
+            // 상대방의 방어력을 계산하여 최종 대미지 리턴 
+            val_dmg = targetPz.GetMyDefenseDamage(val_dmg, is_gnr_atk);
+        }
+
+        #region --------- 상대 정보를 가지고 ----------
+        if (targetPz != null)
+        {
+            if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_26) == -1) // this 스킬 26 번 : 스탯 감소되는 스킬을 무력화 발동중 아닐 때 
+            {
+                if (targetPz.igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_15) >= 0) // this 스킬 15번 : other 공격력 감소 스킬 ON 
+                {
+                    mtp_mns += GameDatabase.GetInstance().chartDB.GetSkillAbility15_DownDefense(targetPz.igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_15));
+                }
+            }
+
+            if ((zbType == IG.MonsterType.MINE && (targetPz.zbType == IG.MonsterType.BOSS_USER || targetPz.zbType == IG.MonsterType.PVP_USER)) ||
+                 (zbType == IG.MonsterType.PVP_USER && targetPz.zbType == IG.MonsterType.MINE))
+            {
+                // 4.PvP피해 감소
+                if (targetPz.igp.statValue.sop4_val > 0)
+                    mtp_mns += targetPz.igp.statValue.sop4_val * 0.01f;
+            }
+            else
+            {
+                // 3.PvE피해 감소
+                if (targetPz.igp.statValue.sop3_val > 0)
+                    mtp_mns += targetPz.igp.statValue.sop3_val * 0.01f;
+            }
+        }
+        #endregion
+
+        if (targetPz != null)
+        {
+            if (mtp_mns > 0f)
+                val_dmg -= (long)(val_dmg * mtp_mns);
+        }
+
+        if (val_dmg < 0)
+            val_dmg = 1;
+
+        return val_dmg;
+    }
+
+    /// <summary> 스탯:방어력, (상대의 대미지를 받아와 자신이 타격받을 대미지를 리턴) </summary>
+    public long GetMyDefenseDamage(long _get_dmg, bool _is_gnr_atk) // _is_gnr_atk : (true -> 일반 공격, false -> 스킬 공격) 
+    {
+        long val_defense = igp.statValue.p1_shi_defance;
+        #region --------- mine ----------
+        float mtp_pls = 0f;
+        if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_11) >= 0) // this 스킬 11번 : 방어력 증가 발동 중이라면 
+        {
+            int sk11_lv = igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_11);
+            mtp_pls += GameDatabase.GetInstance().chartDB.GetSkillAbility11_UpDefense(sk11_lv);
+
+            LogPrint.Print("<color=yellow> this 스킬 11번 : 방어력 증가 발동 중이라면 mtp_pls : " + mtp_pls + " </color>");
+        }
+
+        if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_23) >= 0) // this 스킬 23번 : 나의 체력이 30%이하라면 적용 -> 방어력 증가 
+        {
+            if (GetNowHp() < GetStatMax_Health() * 0.3f) // 30% 이하인지 체크 
+            {
+                int sk23lv = igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_23);
+                mtp_pls += GameDatabase.GetInstance().chartDB.GetSkillAbility23_UpDefense(sk23lv);
+            }
+
+            LogPrint.Print("<color=yellow> this 스킬 23번 : 나의 체력이 30%이하라면 적용 -> 방어력 증가 mtp_pls : " + mtp_pls + " </color>");
+        }
+        val_defense += (long)(igp.statValue.p1_shi_defance * mtp_pls); // this 기본 + 증가된 방어력 
+
+        if (mtp_pls > 0)
+        {
+            LogPrint.Print("<color=yellow> this 기본 + 증가된 방어력 " + val_defense + " </color>");
+        }
+        #endregion
+
+        #region --------- other ----------
+        if (targetPz != null)
+        {
+            if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_26) == -1) // this 스킬 26 번 : 상대로 부터 받는 스킬 대미지를 감소 발동이 아닐 때 
+            {
+                float mtp_mns = 0f;
+                if (targetPz.igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_14) >= 0) // other 스킬 14번 : 방어력 감소 발동중이라면 
+                {
+                    int sk14lv = targetPz.igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_14);
+                    mtp_mns += GameDatabase.GetInstance().chartDB.GetSkillAbility14_DownDefense(sk14lv);
+                }
+                val_defense -= (long)(val_defense * mtp_mns); // this 기본 + 감소 방어력
+            }
+        }
+        #endregion
+
+        if (val_defense < 0)
+            val_defense = 0;
+
+        long rlt_dmg = _get_dmg - val_defense;
+        #region --------- mine ----------
+        if (_is_gnr_atk) // 상대의 일반 공격 대미지 이다 
+        {
+            if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_3) >= 0) // this 스킬 3번 : 일반 공격 대미지 감소 보호막 발동 중인가 
+            {
+                int sk3lv = igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_3);
+                rlt_dmg = GameDatabase.GetInstance().chartDB.GetSkillAbility3_ShieldDamage(sk3lv, rlt_dmg);
+            }
+
+        }
+        else // 상대의 스킬 공격 대미지 이다 
+        {
+            if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_26) >= 0) // this 스킬 26번 : 스킬 대미지 감소 
+            {
+                int sk26_lv = igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_26);
+                rlt_dmg = GameDatabase.GetInstance().chartDB.GetSkillAbility26_DwSkillDamage(sk26_lv, rlt_dmg);
+            }
+
+        }
+        #endregion
+
+        if (rlt_dmg < 0)
+            rlt_dmg = 0;
+
+        return rlt_dmg;
+    }
+
+    /// <summary> 치명타 발동률 </summary>
+    public bool GetCriticalRate()
+    {
+        if (targetPz) // 기본 크리 발동률 
+        {
+            float criticalRate = igp.statValue.p8_nec_criticalRate; //크리 성공률 
+            if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_17) >= 0)
+                return true;
+            else
+            {
+                if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_26) == -1) // this 스킬 26 번 : 스탯 감소되는 스킬을 무력화 발동중 아닐 때 
+                {
+                    if (targetPz.igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_19) >= 0) // 방어자 : 스킬 19 - 치명타 성공 확률 감소 스킬 발동 중
+                        criticalRate *= 0.5f;
+                }
+
+                return Random.Range(0f, 100f) < criticalRate;
+            }
+        }
+        else return false;
+    }
+
+    bool isCriticalDmgZero = false;
+    /// <summary> 스탯:치명타 대미지 </summary>
+    public long GetMyCriticalAttackPower()
+    {
+        long critical_damage = igp.statValue.p5_gau_criticalPower + GetAttackPower(0);
+
+        #region --------- mine ----------
+        if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_17) >= 0) // 스킬 17번 : 확률 100% 고정 
+        {
+            int sk17lv = igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_17);
+            float mtp = GameDatabase.GetInstance().chartDB.GetSkillAbility17_UpCriticalAttackPower(sk17lv);
+            critical_damage += (long)(critical_damage * mtp);
+        }
+        #endregion
+
+        #region --------- other ----------
+        float mtp_mns = 0f;
+        if (targetPz != null)
+        {
+            if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_26) == -1) // this 스킬 26 번 : 스탯 감소되는 스킬을 무력화 발동중 아닐 때 
+            {
+                if (targetPz.igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_19) >= 0) // 스킬 19 : 확률 50% 감소, 대미지 ? 감소 
+                {
+                    int sk19lv = igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_19);
+                    float mtp = GameDatabase.GetInstance().chartDB.GetSkillAbility19_DwCriticalAttackPower(sk19lv);
+                    critical_damage -= (long)(critical_damage * mtp);
+                }
+            }
+
+            if ((zbType == IG.MonsterType.MINE && (targetPz.zbType == IG.MonsterType.BOSS_USER || targetPz.zbType == IG.MonsterType.PVP_USER)) ||
+                 (zbType == IG.MonsterType.PVP_USER && targetPz.zbType == IG.MonsterType.MINE))
+            {
+                // 4.PvP피해 감소
+                if (targetPz.igp.statValue.sop4_val > 0)
+                    mtp_mns += targetPz.igp.statValue.sop4_val * 0.01f;
+            }
+            else
+            {
+                // 3.PvE피해 감소
+                if (targetPz.igp.statValue.sop3_val > 0)
+                    mtp_mns += targetPz.igp.statValue.sop3_val * 0.01f;
+            }
+        }
+        if (mtp_mns > 0f)
+            critical_damage -= (long)(critical_damage * mtp_mns);
+
+        #endregion
+
+        if (critical_damage < 0)
+            critical_damage = 0;
+
+        return critical_damage;
+    }
+
+    /// <summary> 스탯:공격 속도 </summary>
+    public float GetMyAttackSpeed()
+    {
+        float df_atkSpd = 1f + igp.statValue.p7_boo_attackSpeed / 100f;
+        #region --------- other ----------
+        if (targetPz)
+        {
+            if (igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_26) == -1) // this 스킬 26 번 : 스탯 감소되는 스킬을 무력화 발동중 아닐 때 
+            {
+                if (targetPz.igp.playerSkillAction.GetCheckActivateCurrentSkill(IG.SkillNumber.NUMBER_20) >= 0) // 스킬 20번 : 상대방이 공격 속도 감소 스킬 발동 중 
+                {
+                    int sk20_lv = targetPz.igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_20);
+                    if(sk20_lv >= 0)
+                        df_atkSpd = GameDatabase.GetInstance().chartDB.GetSkillAbility20_DwAttackSpeed(sk20_lv, df_atkSpd);
+                }
+            }
+        }
+        #endregion
+
+        if (targetPz)
+        {
+            int sk20_lvaaa = targetPz.igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_20);
+            Debug.Log("원래 공속 값 : " + df_atkSpd + ", 디버프 공속 감소 값 : " + GameDatabase.GetInstance().chartDB.GetSkillAbility20_DwAttackSpeed(sk20_lvaaa, df_atkSpd) + ", 스킬 레벨 : " + sk20_lvaaa);
+        }
+        
+        return df_atkSpd;
+    }
+    #endregion -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
 }

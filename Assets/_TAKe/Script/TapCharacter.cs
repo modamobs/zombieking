@@ -42,31 +42,30 @@ public class TapCharacter : MonoBehaviour
     [SerializeField] Text text_SpopValue10;
 
     // 스탯 
-    // 무기   :   공격력 (stat id : 1) 
-    // 방패   :   방어력 (stat id : 2) 
-    // 헬멧   :   명중력 (stat id : 3) 
-    // 어깨   :   치명타 공격력 (stat id : 4) 
-    // 갑옷   :   체력 (stat id : 5) 
-    // 팔     :  치명타 성공률 (stat id : 6) 
-    // 바지   :   회피율 (stat id : 7) 
-    // 부츠   :   치명타 방어력 (stat id : 8) 
+    // 0무기    : 공격력 
+    // 1방패    : 방어력 
+    // 2헬멧%   : 피해량 감소
+    // 3어깨%   : 체력
+    // 4갑옷    : 체력 
+    // 5팔      : 치명타 공격력
+    // 6바지    : 공격력
+    // 7부츠%   : 공격 속도
 
-    // 목걸이 :    명중력 (stat id : 3) 
-    // 귀고리 :    공격 속도 (stat id : 9) 
-    // 반지   :   공격력 (stat id : 1) 
-
+    // 8목걸이% : 치명타 발동률 
+    // 9귀고리% : 방어력
+    // 10반지%   : 공격력
 
     // 장신구 전용 옵션
-    /// 1.PvE피해 증가 
-    /// 2.PvP피해 증가 
-    /// 3.PvE피해 감소 
-    /// 4.PvP피해 감소 
-    /// #5.골드 획득 증가 
-    /// #6.장비 드랍률 증가 
-    /// 7.보스 피해 증가 
-    /// #8.최대 체력의 5% 회복 (확률) 
-    /// 9.버블 추가 획득(확률) 
-    /// 10.상대 버블 차감(확률) 
+    // 1:pve피해 증가(공격력의 ?%)
+    // 2:pvp피해 증가(공격력의 ?%) 
+    // 3:pve피해 감소(%) 
+    // 4:pvp피해 감소(%) 
+    // 5:골드 획득 증가 
+    // 6:장비 획득 증가
+    // 7:보스 몬스터 피해 증가
+    // 8:공격시 현재 체력의 ?%를 회복 
+    // 9:공격시 랜덤으로 버블 추가획득
+    // 10:공격시 랜덤으로 상대 버블 차감
 
     void Start()
     {
@@ -86,16 +85,13 @@ public class TapCharacter : MonoBehaviour
     {
         // 장비 매인 스탯 + 옵션 스탯 값 
         text_AllCombatPower.text = string.Format("{0:#,0}", allStat.combat_power);
-        text_MainStatValue.text  = string.Format("{0:0.000}", allStat.atk_spd);
-        text_MainStatValue1.text = string.Format("{0:#,0}", allStat.stat1_valPower);
-        text_MainStatValue2.text = string.Format("{0:#,0}", allStat.stat2_valDefense);
-        text_MainStatValue3.text = string.Format("{0:0.000}", allStat.stat3_valAccuracy);
-        text_MainStatValue4.text = string.Format("{0:#,0}", allStat.stat4_valCriPower);
-        text_MainStatValue5.text = string.Format("{0:#,0}", allStat.stat5_valHealth);
-        text_MainStatValue6.text = string.Format("{0:0.000}", allStat.stat6_valCriChance);
-        text_MainStatValue7.text = string.Format("{0:0.000}", allStat.stat7_valEvasion);
-        text_MainStatValue8.text = string.Format("{0:#,0}", allStat.stat8_valCriDefense);
-        text_MainStatValue9.text = string.Format("{0:0.000}", allStat.stat9_valCriEvasion);
+        text_MainStatValue.text  = string.Format("{0:0.000}", allStat.p7_boo_attackSpeed);
+        text_MainStatValue1.text = string.Format("{0:#,0}", allStat.p0_wea_attackPower);
+        text_MainStatValue2.text = string.Format("{0:#,0}", allStat.p1_shi_defance);
+        text_MainStatValue3.text = string.Format("{0:0.000}", allStat.p2_hel_damageReduction);
+        text_MainStatValue4.text = string.Format("{0:#,0}", allStat.p5_gau_criticalPower);
+        text_MainStatValue5.text = string.Format("{0:#,0}", (allStat.p4_arm_health + (allStat.p4_arm_health * allStat.p3_sho_health / 100)));
+        text_MainStatValue6.text = string.Format("{0:0.000}", allStat.p8_nec_criticalRate);
 
         // 장신구 전용 옵션 값 
         text_SpopValue1.text = string.Format("{0:0.000}%", allStat.sop1_val);

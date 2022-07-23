@@ -272,7 +272,7 @@ public class TapGameBattleInfo : MonoBehaviour
         if (GameMng.GetInstance().myPZ == null || GameMng.GetInstance().orPZ == null)
             return;
 
-        if(GameMng.GetInstance ().myPZ.GetHp() <= 0 || GameMng.GetInstance().orPZ.GetHp() <= 0)
+        if(GameMng.GetInstance ().myPZ.GetNowHp() <= 0 || GameMng.GetInstance().orPZ.GetNowHp() <= 0)
             return;
 
         if (_skIdx > 0)
@@ -399,7 +399,7 @@ public class TapGameBattleInfo : MonoBehaviour
     /// <summary> 버프 or 디버프 연장 </summary>
     public void ExtensionBuffAndDebuff (IG.SkillNumber _sn, int _exten_cnt, string target_player, string _bf_or_df)
     {
-        if (GameMng.GetInstance().myPZ.GetHp() <= 0 || GameMng.GetInstance().myPZ.GetHp() <= 0)
+        if (GameMng.GetInstance().myPZ.GetNowHp() <= 0 || GameMng.GetInstance().myPZ.GetNowHp() <= 0)
             return;
 
         if (string.Equals(target_player, "player")) // 플레이어 유저가 
@@ -428,7 +428,7 @@ public class TapGameBattleInfo : MonoBehaviour
         if (GameMng.GetInstance().myPZ == null || GameMng.GetInstance().orPZ == null)
             return;
 
-        if (GameMng.GetInstance().myPZ.GetHp() <= 0 || GameMng.GetInstance().orPZ.GetHp() <= 0)
+        if (GameMng.GetInstance().myPZ.GetNowHp() <= 0 || GameMng.GetInstance().orPZ.GetNowHp() <= 0)
             return;
 
         // 나 

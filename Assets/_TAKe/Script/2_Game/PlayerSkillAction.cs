@@ -136,7 +136,7 @@ public class PlayerSkillAction : MonoBehaviour
         // #9.버블 추가 획득(확률)
         if (playerSkill.nowBubbleCount < 3 && pz.igp.statValue.sop9_val > 0)
         {
-            if (int.Equals(add_type, 0) && pz.targetPz.GetHp() > 0)
+            if (int.Equals(add_type, 0) && pz.targetPz.GetNowHp() > 0)
             {
                 if (GameDatabase.GetInstance().GetRandomPercent() < pz.igp.statValue.sop9_val)
                 {
@@ -312,7 +312,7 @@ public class PlayerSkillAction : MonoBehaviour
             long hit_sk_dmg = 0;
             if (chart_db.is_atv_hit_dmg == true) // 스킬 발동시 공격 대미지를 주는 스킬일 경우 
             {
-                hit_sk_dmg = pz.GetMyAttackPower((int)active_sk_nbr, active_sk_lv);
+                hit_sk_dmg = pz.GetAttackPower((int)active_sk_nbr, active_sk_lv);
                 pz.Hit(false, hit_sk_dmg, false);
             }
 
@@ -425,7 +425,7 @@ public class PlayerSkillAction : MonoBehaviour
                     yield return null;
                     if (pz != null && pz.targetPz != null)
                     {
-                        if (pz.GetHp() > 0 && pz.targetPz.GetHp() > 0)
+                        if (pz.GetNowHp() > 0 && pz.targetPz.GetNowHp() > 0)
                         {
                             if (pz.igp.activateExtended.ContainsKey((int)_ig_sk_nbr)) // 시전자 기준으로 발동중인 스킬을 연장시킬 때 
                             {
@@ -459,7 +459,7 @@ public class PlayerSkillAction : MonoBehaviour
                     yield return null;
                     if (pz != null && pz.targetPz != null)
                     {
-                        if (pz.GetHp() > 0 && pz.targetPz.GetHp() > 0)
+                        if (pz.GetNowHp() > 0 && pz.targetPz.GetNowHp() > 0)
                         {
                             if (pz.targetPz.igp.activateExtended.ContainsKey((int)_ig_sk_nbr))  // 방어자 기준으로 발동중인 스킬을 연장시킬 때 
                             {
@@ -524,13 +524,13 @@ public class PlayerSkillAction : MonoBehaviour
         yield return StartCoroutine(WaitingGetSkillActive(_ig_sk_nbr, _cdb));
         yield return null;
 
-        if (!IsCheckActiveSkillCancel(_ig_sk_nbr) && pz.GetHp() > 0 && pz.targetPz.GetHp() > 0)
+        if (!IsCheckActiveSkillCancel(_ig_sk_nbr) && pz.GetNowHp() > 0 && pz.targetPz.GetNowHp() > 0)
         {
             pz.targetPz.PauseAnimation();
             yield return new WaitForSeconds(0.25f);
 
             int sk2_lv = pz.igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_2);
-            long bomb_dmg = GameDatabase.GetInstance().chartDB.GetSkillAbility2_BombDamage(sk2_lv, pz.GetMyAttackPower());
+            long bomb_dmg = GameDatabase.GetInstance().chartDB.GetSkillAbility2_BombDamage(sk2_lv, pz.GetAttackPower());
             pz.targetPz.EtcTakeDamage(bomb_dmg, ResourceDatabase.GetInstance().hitColor_Bomb, "opOnce_Sk2Ef_Hit", "arena_hit", pz.targetPz.tr.throw_end_point.position);
             pz.targetPz.ResumAnimation();
         }
@@ -546,7 +546,7 @@ public class PlayerSkillAction : MonoBehaviour
         while (thc_ThrowBomb)
         {
             yield return null;
-            if (atv_cnt <= 0 || pz.GetHp() <= 0)  // if (GetisActiveSkill(2) == -1 || pz.GetHp() <= 0)
+            if (atv_cnt <= 0 || pz.GetNowHp() <= 0)  // if (GetisActiveSkill(2) == -1 || pz.GetHp() <= 0)
             {
                 thc_ThrowBomb = null;
             }
@@ -670,7 +670,7 @@ public class PlayerSkillAction : MonoBehaviour
 
         ObjectLife ol = ObjectPool.GetInstance().PopFromPool("opOnce_Sk8Ef_Aura", this.transform.position);
         int sk8_lv = pz.igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_8);
-        long recv_hp = GameDatabase.GetInstance().chartDB.GetSkillAbility8_RecoveryHealth(sk8_lv, pz.GetHp());
+        long recv_hp = GameDatabase.GetInstance().chartDB.GetSkillAbility8_RecoveryHealth(sk8_lv, pz.GetNowHp());
         pz.RecoveryHealth(recv_hp);
         ActiveSkillRemove(_ig_sk_nbr);
     }
@@ -728,13 +728,13 @@ public class PlayerSkillAction : MonoBehaviour
         yield return null;
 
         yield return new WaitForSeconds(0.2f);
-        if (is_stuned && pz.GetHp() > 0 && pz.targetPz.GetHp() > 0) // this 기절 스킬이 발동되어 있는지  
+        if (is_stuned && pz.GetNowHp() > 0 && pz.targetPz.GetNowHp() > 0) // this 기절 스킬이 발동되어 있는지  
         {
             pz.targetPz.PauseAnimation();
             yield return new WaitForSeconds(0.2f);
 
             int sk12_lv = pz.igp.playerSkillAction.GetFindUseSkillLevel(IG.SkillNumber.NUMBER_12);
-            long val_dmg = GameDatabase.GetInstance().chartDB.GetSkillAbility12_StunnedBonusDamage(sk12_lv, pz.igp.statValue.stat1_valPower);
+            long val_dmg = GameDatabase.GetInstance().chartDB.GetSkillAbility12_StunnedBonusDamage(sk12_lv, pz.igp.statValue.p0_wea_attackPower);
             //pz.targetPz.EtcTakeDamage(val_dmg, ResourceDatabase.GetInstance().hitColor_Bonus, "opOnce_Sk12Ef_Hit", "arena_hit", pz.targetPz.etcGameObject.hip_j.position);
             pz.targetPz.EtcTakeDamage(val_dmg, ResourceDatabase.GetInstance().hitColor_Bonus, "opOnce_Sk12Ef_Hit", "arena_hit", pz.targetPz.etcGameObject.bottom.position);
             

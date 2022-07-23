@@ -197,6 +197,7 @@ public class InitGame : MonoSingleton<InitGame>
     /// </summary>
     public void ZombiePopFromPool(bool isMy)
     {
+        Debug.LogError("ZombiePopFromPool isMy : " + isMy);
         GameObject goPZ = null;
         if (isMy == true)
         {

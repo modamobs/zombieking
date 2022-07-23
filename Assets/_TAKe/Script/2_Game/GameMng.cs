@@ -127,13 +127,14 @@ public class GameMng : MonoSingleton<GameMng>
     ///// <summary> 좀비 위치 및 데이터 세팅 </summary>
     public async void OpponentToFight(bool myInit, bool orInit)
     {
+        Debug.LogError("OpponentToFight 1 ");
         while (myPZ == null || orPZ == null) await Task.Delay(100);
 
         if (myInit && orInit) // 플레이어, 상대 함께 나올때
         {
             tr_ZbRoot.localPosition = new Vector3(-20, 0.1f, 0);
         }
-
+        
         if (mode_type == IG.ModeType.CHAPTER_CONTINUE || mode_type == IG.ModeType.CHAPTER_LOOP)
         {
             MODE_CHAPTER_Progress();
@@ -144,6 +145,8 @@ public class GameMng : MonoSingleton<GameMng>
 
         if(orInit)
             orPZ.HealthLerp(true);
+
+        Debug.LogError("OpponentToFight 2 ");
     }
     #endregion
 
@@ -295,7 +298,7 @@ public class GameMng : MonoSingleton<GameMng>
     public async void ChapterWinOrLose(bool isUserBoss)
     {
         bool isBoss = StageNbr() >= 10 || stage_type == IG.StageType.BOSS_MONSTER;
-        bool isPlayerWinner = myPZ.GetHp() > 0;
+        bool isPlayerWinner = myPZ.GetNowHp() > 0;
         if (isPlayerWinner) // 플레이어 승리 
         {
             GameDatabase.GetInstance().achievementsDB.ASetInCount(GameDatabase.AchievementsDB.Nbr.nbr2, 1); // 업적, nbr2 스테이지 몬스터 처치!
@@ -395,57 +398,57 @@ public class GameMng : MonoSingleton<GameMng>
     /// </summary>
     public void ChapterStage_Drop(int eq_rt, int eq_id, bool isBoss)
     {
-        int m_chpt_id = GameDatabase.GetInstance().monsterDB.GetChapterDvsNbrFindChapterID(ChapterNbr()); // 진행중인 챕터 ID
-        if (m_chpt_id > 0)
-        {
-            LogPrint.EditorPrint("myPZ.igp.statValue.sop2_val : " + myPZ.igp.statValue.sop6_val + ", " + myPZ.igp.statValue.petSpOpTotalFigures.sop2_value);
-            LogPrint.EditorPrint("myPZ.igp.statValue.sop3_val : " + myPZ.igp.statValue.sop6_val + ", " + myPZ.igp.statValue.petSpOpTotalFigures.sop3_value);
+        //int m_chpt_id = GameDatabase.GetInstance().monsterDB.GetChapterDvsNbrFindChapterID(ChapterNbr()); // 진행중인 챕터 ID
+        //if (m_chpt_id > 0)
+        //{
+        //    LogPrint.EditorPrint("myPZ.igp.statValue.sop2_val : " + myPZ.igp.statValue.sop6_val + ", " + myPZ.igp.statValue.petSpOpTotalFigures.sop2_value);
+        //    LogPrint.EditorPrint("myPZ.igp.statValue.sop3_val : " + myPZ.igp.statValue.sop6_val + ", " + myPZ.igp.statValue.petSpOpTotalFigures.sop3_value);
 
-            float bns_eq_drop_pct = myPZ.igp.statValue.sop6_val + myPZ.igp.statValue.petSpOpTotalFigures.sop3_value; // 장신구 드랍률 증가 + 펫 전용 옵션  (2.장비 드랍률 증가)
-            float bns_gold_rate = myPZ.igp.statValue.sop5_val + myPZ.igp.statValue.petSpOpTotalFigures.sop1_value; // 장신구 골드 획득 증가 + 펫 전용 옵션 (1.퀘스트/장비 판매 골드 획득 증가)
-            int drp_gold = GameDatabase.GetInstance().questDB.GetQuestMonsterDropGold(eq_rt, eq_id); // 골드 드랍 획득 
-            GameDatabase.GetInstance().tableDB.DropGold(isBoss == true ? drp_gold * 2 : drp_gold, bns_gold_rate);
+        //    float bns_eq_drop_pct = myPZ.igp.statValue.sop6_val + myPZ.igp.statValue.petSpOpTotalFigures.sop3_value; // 장신구 드랍률 증가 + 펫 전용 옵션  (2.장비 드랍률 증가)
+        //    float bns_gold_rate = myPZ.igp.statValue.sop5_val + myPZ.igp.statValue.petSpOpTotalFigures.sop1_value; // 장신구 골드 획득 증가 + 펫 전용 옵션 (1.퀘스트/장비 판매 골드 획득 증가)
+        //    int drp_gold = GameDatabase.GetInstance().questDB.GetQuestMonsterDropGold(eq_rt, eq_id); // 골드 드랍 획득 
+        //    GameDatabase.GetInstance().tableDB.DropGold(isBoss == true ? drp_gold * 2 : drp_gold, bns_gold_rate);
 
-            var cdb_drop = GameDatabase.GetInstance().chartDB.GetFieldDropRating(m_chpt_id);
-            LogPrint.Print("111 cdb_drop ----------- : " + JsonUtility.ToJson(cdb_drop));
-            for (int r = 0; r < (isBoss == true ? 3 : 1); r++)
-            {
-                float accum_pct = 0f;
-                float r_pct = GameDatabase.GetInstance().GetRandomPercent();
+        //    var cdb_drop = GameDatabase.GetInstance().chartDB.GetFieldDropRating(m_chpt_id);
+        //    LogPrint.Print("111 cdb_drop ----------- : " + JsonUtility.ToJson(cdb_drop));
+        //    for (int r = 0; r < (isBoss == true ? 3 : 1); r++)
+        //    {
+        //        float accum_pct = 0f;
+        //        float r_pct = GameDatabase.GetInstance().GetRandomPercent();
 
-                for (int fRt = 7; fRt >= 1; fRt--)
-                {
-                    float drop_pct = 0f;
-                    switch (fRt)
-                    {
-                        case 7: accum_pct += drop_pct = cdb_drop.drop_rt7; break;
-                        case 6: accum_pct += drop_pct = cdb_drop.drop_rt6; break;
-                        case 5: accum_pct += drop_pct = cdb_drop.drop_rt5; break;
-                        case 4: accum_pct += drop_pct = cdb_drop.drop_rt4; break;
-                        case 3: accum_pct += drop_pct = cdb_drop.drop_rt3; break;
-                        case 2: accum_pct += drop_pct = cdb_drop.drop_rt2; break;
-                        case 1: accum_pct += drop_pct = cdb_drop.drop_rt1; break;
-                    }
+        //        for (int fRt = 7; fRt >= 1; fRt--)
+        //        {
+        //            float drop_pct = 0f;
+        //            switch (fRt)
+        //            {
+        //                case 7: accum_pct += drop_pct = cdb_drop.drop_rt7; break;
+        //                case 6: accum_pct += drop_pct = cdb_drop.drop_rt6; break;
+        //                case 5: accum_pct += drop_pct = cdb_drop.drop_rt5; break;
+        //                case 4: accum_pct += drop_pct = cdb_drop.drop_rt4; break;
+        //                case 3: accum_pct += drop_pct = cdb_drop.drop_rt3; break;
+        //                case 2: accum_pct += drop_pct = cdb_drop.drop_rt2; break;
+        //                case 1: accum_pct += drop_pct = cdb_drop.drop_rt1; break;
+        //            }
 
-                    if (accum_pct > 0.0f)
-                    {
-                        if (bns_eq_drop_pct > 0.0f)
-                        {
-                            if (r_pct < accum_pct + (accum_pct * (bns_eq_drop_pct * 0.01f)))
-                            {
-                                GameDatabase.GetInstance().tableDB.DropRewardAcquire(m_chpt_id, fRt, drop_pct);
-                                break;
-                            }
-                        }
-                        else if (r_pct < accum_pct)
-                        {
-                            GameDatabase.GetInstance().tableDB.DropRewardAcquire(m_chpt_id, fRt, drop_pct);
-                            break;
-                        }
-                    }
-                }
-            }
-        }
+        //            if (accum_pct > 0.0f)
+        //            {
+        //                if (bns_eq_drop_pct > 0.0f)
+        //                {
+        //                    if (r_pct < accum_pct + (accum_pct * (bns_eq_drop_pct * 0.01f)))
+        //                    {
+        //                        GameDatabase.GetInstance().tableDB.DropRewardAcquire(m_chpt_id, fRt, drop_pct);
+        //                        break;
+        //                    }
+        //                }
+        //                else if (r_pct < accum_pct)
+        //                {
+        //                    GameDatabase.GetInstance().tableDB.DropRewardAcquire(m_chpt_id, fRt, drop_pct);
+        //                    break;
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
     }
 
     /// <summary> 화면 전환 </summary>
@@ -462,7 +465,16 @@ public class GameMng : MonoSingleton<GameMng>
     {
         gameUIObject.chapterStage.go_Root.SetActive(mdty == IG.ModeType.CHAPTER_CONTINUE || mdty == IG.ModeType.CHAPTER_LOOP);
         if (mdty == IG.ModeType.CHAPTER_CONTINUE || mdty == IG.ModeType.CHAPTER_LOOP)
-            MainUI.GetInstance().tapStageDropInfo.SetDropInfoView(); // 화면 상단에 드롭정보 표시 
+        {
+            try
+            {
+                MainUI.GetInstance().tapStageDropInfo.SetDropInfoView(); // 화면 상단에 드롭정보 표시 
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("TopUI 2 e : " + e);
+            }
+        }
 
         gameUIObject.dungeonTop.go_Root.SetActive(mdty == IG.ModeType.DUNGEON_TOP);
         gameUIObject.dungeonMine.go_Root.SetActive(mdty == IG.ModeType.DUNGEON_MINE);
@@ -475,14 +487,14 @@ public class GameMng : MonoSingleton<GameMng>
     /// </summary>
     public async Task Routin_ChangeMode(IG.ModeType mdty, bool isFullBlack = false, int onTapID = -1)
     {
-        LogPrint.PrintError("---------------- 1 Routin_ChangeMode");
+        Debug.LogError("---------------- 1 Routin_ChangeMode");
         while (mode_type == IG.ModeType.CHANGE_WAIT) await Task.Delay(100);
         await Task.Delay(100);
 
         mode_type = IG.ModeType.CHANGE_WAIT;
         await ScreenSwitchingToBlack(isFullBlack, 0.01f);
         await Task.Delay(250);
-        LogPrint.PrintError("---------------- 2 Routin_ChangeMode");
+        Debug.LogError("---------------- 2 Routin_ChangeMode");
         if (myPZ != null) myPZ.Reset();
         if (orPZ != null) orPZ.Reset();
 
@@ -498,7 +510,7 @@ public class GameMng : MonoSingleton<GameMng>
                 MainUI.GetInstance().tapDungeon.TapInfo();
         }
 
-        LogPrint.PrintError("---------------- 3 Routin_ChangeMode");
+        Debug.LogError("---------------- 3 Routin_ChangeMode");
         mode_type = mdty;
         GetInstance().ChapterMonsterStat();
 
@@ -531,22 +543,22 @@ public class GameMng : MonoSingleton<GameMng>
             zbCam.DgCam();
         }
 
-        LogPrint.PrintError("---------------- 4 Routin_ChangeMode");
+        Debug.LogError("---------------- 4 Routin_ChangeMode");
         InitGame.GetInstance().ZombiePopFromPool(true);
-        LogPrint.PrintError("---------------- 5 Routin_ChangeMode");
+        Debug.LogError("---------------- 5 Routin_ChangeMode");
         InitGame.GetInstance().ZombiePopFromPool(false);
-        LogPrint.PrintError("---------------- 6 Routin_ChangeMode");
+        Debug.LogError("---------------- 6 Routin_ChangeMode");
         while (myPZ == null || orPZ == null) await Task.Delay(100);
-        LogPrint.PrintError("---------------- 7 Routin_ChangeMode");
+        Debug.LogError("---------------- 7 Routin_ChangeMode");
         while (!myPZ.gameObject.activeSelf || !orPZ.gameObject.activeSelf) await Task.Delay(100);
-        LogPrint.PrintError("---------------- 8 Routin_ChangeMode");
+        Debug.LogError("---------------- 8 Routin_ChangeMode");
         OpponentToFight(true, true);
-        LogPrint.PrintError("---------------- 9 Routin_ChangeMode");
+        Debug.LogError("---------------- 9 Routin_ChangeMode");
         await ScreenSwitchingToWhite(isFullBlack);
         ConvenienceFunctionMng.GetInstance().UIConvenienceAutoPosion();
-        LogPrint.PrintError("---------------- 10 Routin_ChangeMode");
+        Debug.LogError("---------------- 10 Routin_ChangeMode");
         TopUI(mode_type);
-        LogPrint.PrintError("---------------- 11 Routin_ChangeMode");
+        Debug.LogError("---------------- 11 Routin_ChangeMode");
     }    
     #endregion
 
@@ -690,7 +702,7 @@ public class GameMng : MonoSingleton<GameMng>
     /// <summary> 던전 : 도전의 탑 결과 </summary>
     public async void DungeonTopWinOrLose() 
     {
-        bool dg_playerWin = orPZ.GetHp() <= 0 && myPZ.GetHp() > 0;
+        bool dg_playerWin = orPZ.GetNowHp() <= 0 && myPZ.GetNowHp() > 0;
         bool dg_mnstLast = stc_DungeonTop.qStat.Count == 0;
         int mnCnt = stc_DungeonTop.qStat.Count;
         gameUIObject.dungeonTop.go_ClearLabel[mnCnt].SetActive(true);
@@ -756,7 +768,7 @@ public class GameMng : MonoSingleton<GameMng>
     /// <summary> 던전 : 광산 결과 </summary>
     public async void DungeonMineWinOrLose() 
     {
-        bool dg_playerWin = orPZ.GetHp() <= 0 && myPZ.GetHp() > 0;
+        bool dg_playerWin = orPZ.GetNowHp() <= 0 && myPZ.GetNowHp() > 0;
         bool dg_mnstLast = stc_DungeonMine.qStat.Count == 0;
 
         LogPrint.Print("dg_playerWin:" + dg_playerWin + ",dg_mnstLast:" + dg_mnstLast);
@@ -818,7 +830,7 @@ public class GameMng : MonoSingleton<GameMng>
     /// <summary> 던전 : 레이드 결과 </summary>
     public async void DungeonRaidWinOrLose()
     {
-        bool dg_playerWin = orPZ.GetHp() <= 0 && myPZ.GetHp() > 0;
+        bool dg_playerWin = orPZ.GetNowHp() <= 0 && myPZ.GetNowHp() > 0;
         bool dg_mnstLast = stc_DungeonRaid.qStat.Count == 0;
         // 다음 몬스터 진행 
         if (dg_playerWin == true && dg_mnstLast == false)
@@ -882,7 +894,7 @@ public class GameMng : MonoSingleton<GameMng>
         PopUpMng.GetInstance().popupNotice.ClosePopUpBox();
 
         await Task.Delay(500);
-        bool dg_playerWin = orPZ.GetHp() <= 0 && myPZ.GetHp() > 0;
+        bool dg_playerWin = orPZ.GetNowHp() <= 0 && myPZ.GetNowHp() > 0;
         PopUpMng.GetInstance().Open_TopScreenPvpWinOrLose(dg_playerWin, GameDatabase.GetInstance().pvpBattle.GetDataBattleDbOr().gamerInfo.gamer_nickName);
 
         await Task.Delay(1500);

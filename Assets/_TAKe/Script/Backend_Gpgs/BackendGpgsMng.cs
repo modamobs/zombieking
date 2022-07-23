@@ -637,6 +637,7 @@ public class BackendGpgsMng : MonoSingleton<BackendGpgsMng>
         SendQueue.Enqueue(Backend.BMember.GuestLogin, callback => { bro1 = callback; });
 #else
         string customId = string.Format("{0}_a{1}", SystemInfo.deviceUniqueIdentifier.ToString(), 25);
+        Debug.Log("c392f70c109020559d7713800dfe529c2f254503_a25, customId : " + customId);
         SendQueue.Enqueue(Backend.BMember.CustomSignUp, customId, customId, callback => { bro1 = callback; });
 #endif
         while (bro1 == null) { await Task.Delay(100); }

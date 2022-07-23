@@ -110,11 +110,11 @@ public class ScrollCellEquipmentEncyclopedia : MonoBehaviour
         ui.txNowEnhantLv.text = string.Format("Lv.{0}", enhant_now);
         switch (opst_id)
         {
-            case 1:  ui.txNowStat.text = string.Format("{0:#,0}", GameDatabase.GetInstance().characterDB.GetStat1LevelValue(DB.rt, DB.id, 0, 0, 0, DB.eh_lv) * IncrVal); break;
-            case 2:  ui.txNowStat.text = string.Format("{0:#,0}", GameDatabase.GetInstance().characterDB.GetStat2LevelValue(DB.rt, DB.id, 0, 0, 0, DB.eh_lv) * IncrVal); break;
-            case 4:  ui.txNowStat.text = string.Format("{0:#,0}", GameDatabase.GetInstance().characterDB.GetStat4LevelValue(DB.rt, DB.id, 0, 0, 0, DB.eh_lv) * IncrVal); break;
-            case 5:  ui.txNowStat.text = string.Format("{0:#,0}", GameDatabase.GetInstance().characterDB.GetStat5LevelValue(DB.rt, DB.id, 0, 0, 0, DB.eh_lv) * IncrVal); break;
-            case 8:  ui.txNowStat.text = string.Format("{0:#,0}", GameDatabase.GetInstance().characterDB.GetStat8LevelValue(DB.rt, DB.id, 0, 0, 0, DB.eh_lv) * IncrVal); break;
+            case 1:  ui.txNowStat.text = string.Format("{0:#,0}", GameDatabase.GetInstance().characterDB.GetEquipWeaponStat(DB.rt, DB.id, 0, 0, 0, DB.eh_lv) * IncrVal); break;
+            case 2:  ui.txNowStat.text = string.Format("{0:#,0}", GameDatabase.GetInstance().characterDB.GetEquipShieldStat(DB.rt, DB.id, 0, 0, 0, DB.eh_lv) * IncrVal); break;
+            case 4:  ui.txNowStat.text = string.Format("{0:#,0}", GameDatabase.GetInstance().characterDB.GetEquipShoulderStat(DB.rt, DB.id, 0, 0, 0, DB.eh_lv) * IncrVal); break;
+            case 5:  ui.txNowStat.text = string.Format("{0:#,0}", GameDatabase.GetInstance().characterDB.GetEquipArmorStat(DB.rt, DB.id, 0, 0, 0, DB.eh_lv) * IncrVal); break;
+            case 8:  ui.txNowStat.text = string.Format("{0:#,0}", GameDatabase.GetInstance().characterDB.GetEquipBootsStat(DB.rt, DB.id, 0, 0, 0, DB.eh_lv) * IncrVal); break;
             default:
                 ui.txNowStat.text = "0";
                 break;
@@ -134,11 +134,11 @@ public class ScrollCellEquipmentEncyclopedia : MonoBehaviour
         {
             switch (opst_id)
             {
-                case 1: ui.txNextStat.text = string.Format("{0:#,0}", GameDatabase.GetInstance().characterDB.GetStat1LevelValue(DB.rt, DB.id, 0, 0, 0, DB.eh_lv + 1) * IncrVal); break;
-                case 2: ui.txNextStat.text = string.Format("{0:#,0}", GameDatabase.GetInstance().characterDB.GetStat2LevelValue(DB.rt, DB.id, 0, 0, 0, DB.eh_lv + 1) * IncrVal); break;
-                case 4: ui.txNextStat.text = string.Format("{0:#,0}", GameDatabase.GetInstance().characterDB.GetStat4LevelValue(DB.rt, DB.id, 0, 0, 0, DB.eh_lv + 1) * IncrVal); break;
-                case 5: ui.txNextStat.text = string.Format("{0:#,0}", GameDatabase.GetInstance().characterDB.GetStat5LevelValue(DB.rt, DB.id, 0, 0, 0, DB.eh_lv + 1) * IncrVal); break;
-                case 8: ui.txNextStat.text = string.Format("{0:#,0}", GameDatabase.GetInstance().characterDB.GetStat8LevelValue(DB.rt, DB.id, 0, 0, 0, DB.eh_lv + 1) * IncrVal); break;
+                case 1: ui.txNextStat.text = string.Format("{0:#,0}", GameDatabase.GetInstance().characterDB.GetEquipWeaponStat(DB.rt, DB.id, 0, 0, 0, DB.eh_lv + 1) * IncrVal); break;
+                case 2: ui.txNextStat.text = string.Format("{0:#,0}", GameDatabase.GetInstance().characterDB.GetEquipShieldStat(DB.rt, DB.id, 0, 0, 0, DB.eh_lv + 1) * IncrVal); break;
+                case 4: ui.txNextStat.text = string.Format("{0:#,0}", GameDatabase.GetInstance().characterDB.GetEquipShoulderStat(DB.rt, DB.id, 0, 0, 0, DB.eh_lv + 1) * IncrVal); break;
+                case 5: ui.txNextStat.text = string.Format("{0:#,0}", GameDatabase.GetInstance().characterDB.GetEquipArmorStat(DB.rt, DB.id, 0, 0, 0, DB.eh_lv + 1) * IncrVal); break;
+                case 8: ui.txNextStat.text = string.Format("{0:#,0}", GameDatabase.GetInstance().characterDB.GetEquipBootsStat(DB.rt, DB.id, 0, 0, 0, DB.eh_lv + 1) * IncrVal); break;
                 default:
                     ui.txNextStat.text = "0";
                     break;
